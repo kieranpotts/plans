@@ -1,0 +1,37 @@
+#
+# Push changes made to .github/labels.json to rebuild
+# this repository's labels. This keeps my GitHub labels
+# configuration defined in code.
+#
+# This repository defines its own labels rather than
+# synchronizing with the kieranpotts/.github repository,
+# because it needs plan-lifecycle labels specific to the
+# planning workflow.
+#
+# https://github.com/EndBug/label-sync
+#
+
+name: Push labels
+
+on:
+  push:
+    paths: ['.github/labels.json']
+
+permissions:
+  issues: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          sparse-checkout: .github/labels.json
+
+      - name: Push labels
+        uses: EndBug/label-sync@v2
+        with:
+          config-file: .github/labels.json
+          token: ${{ secrets.GITHUB_TOKEN }}
+          delete-other-labels: true

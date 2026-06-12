@@ -1,0 +1,27 @@
+[
+  {
+    "name": "MAINTENANCE",
+    "description": "A routine housekeeping chore in this repository only.",
+    "color": "AA6600"
+  },
+  {
+    "name": "#planned",
+    "description": "A plan whose decomposition is complete and agreed, not yet started.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#in-progress",
+    "description": "A plan whose initiative is being executed across the code repositories.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#done",
+    "description": "A plan whose every task has shipped.",
+    "color": "FFFFFF"
+  },
+  {
+    "name": "#abandoned",
+    "description": "A plan whose initiative was dropped before completion.",
+    "color": "FFFFFF"
+  }
+]
