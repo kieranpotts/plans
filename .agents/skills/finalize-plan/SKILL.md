@@ -4,7 +4,7 @@ description: Mark a draft implementation plan ready for review once its decompos
 license: MIT
 ---
 
-# Mark plan ready
+# Finalize plan
 
 Use this skill to move a plan from `DRAFT` to `PLANNED`: confirm the breakdown and dependency graph are complete, apply the `#planned` label, and remove the pull request's draft status so the plan can be reviewed.
 

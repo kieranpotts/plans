@@ -4,7 +4,7 @@ description: Mark a planned initiative as in progress once execution has started
 license: MIT
 ---
 
-# Start plan
+# Start implementation of plan
 
 Use this skill to move a plan from `PLANNED` to `IN PROGRESS`, once execution of the initiative has begun. The pull request stays open through implementation — it is not merged here.
 
