@@ -42,4 +42,4 @@ This separation into dedicated repositories is intended for application software
 
 -----
 
-Copyright © 2020-present Kieran Potts, [MIT license](./LICENSE.txt)
+Copyright © 2020-present Kieran Potts, [CC0 license](./LICENSE.txt)

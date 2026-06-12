@@ -120,7 +120,7 @@ When every task has shipped, mark the plan `DONE`, squash-merge it to `main` (wh
 
 By opening a pull request to this repository, you accept and agree to the following terms and conditions:
 
-- You agree that your contribution may be distributed under the terms of the [MIT license](./LICENSE.txt).
+- You agree that your contribution may be distributed under the terms of the [CC0 1.0 Universal license](./LICENSE.txt), effectively releasing it to the public domain.
 
 - You certify that your contribution is either created in whole by you and you have the right to distribute it under the designated license, or is based on a previous work with a compatible license that permits distribution and modification under the designated license.
 
