@@ -4,6 +4,6 @@ General guidance on how to get the most out of the implementation planning proce
 
 - [**Overview**](./overview.md): What this repository is, and how it fits alongside the SRS, RFC, and design repositories.
 
-- [**Best practices**](./best-practices.md): How to scope an initiative and write a good task breakdown.
+- [**Best practices**](./best-practices.md): How to scope a plan and write a good task breakdown.
 
 - [**Development**](./development.md): Setting up the repository's local validation hooks.

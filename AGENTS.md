@@ -4,17 +4,17 @@ The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT,
 
 ## Project overview
 
-This repository holds the implementation plans for [Project Name] — _when, and in what order_, changes to the system are implemented. It is issue tracking and project management under version control. It is documentation, not code. There's nothing to build, lint, or run.
+This repository holds the implementation plans for [Project Name] — _when, and in what order_, changes to the system are implemented. It is a development planning tool, implemented in a version control system. It is documentation, not code. There's nothing to build, lint, or run.
 
-The unit of planning is an **initiative**: a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there, which owns the task's live status. This repository tracks the cross-repository decomposition and sequencing, not the moment-to-moment status of individual tasks.
+A **plan** is a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there, which owns the task's live status. This repository tracks the cross-repository decomposition and sequencing, not the moment-to-moment status of individual tasks.
 
-Unlike the sibling SRS and design repositories, the artifacts here describe _future and in-flight work_, not the current state of production. A plan is a mutable working document while its initiative is open, and settles once the initiative is done or abandoned. The plan's git history is its record.
+Unlike the sibling SRS and design repositories, the artifacts here describe _future and in-flight work_, not the current state of production. A plan is a mutable working document while it is open, and settles once the work is done or abandoned. The plan's git history is its record.
 
 ## Repository structure
 
-- `plans/`: The implementation plans, one directory per initiative (`plans/<slug>/`), each holding its `README.md` and any supporting artifacts.
+- `plans/`: The implementation plans, one directory per plan (`plans/<slug>/`), each holding its `README.md` and any supporting artifacts.
 
-  - `plans/INDEX.md` lists initiatives in the order they were implemented.
+  - `plans/INDEX.md` lists plans in the order they were implemented.
 
   - `plans/TEMPLATE.md` is the starting point for a new plan.
 
@@ -32,7 +32,7 @@ Each plan moves through a defined state machine. The current state is shown in t
 
 - `DONE`: Every task has shipped. The plan is merged into `main` and recorded in `plans/INDEX.md` in implementation order.
 
-- `ABANDONED`: The initiative is dropped before completion. The plan is merged into `main` as a permanent record of the decision, recorded in `plans/INDEX.md`.
+- `ABANDONED`: The plan is dropped before completion. It is merged into `main` as a permanent record of the decision, recorded in `plans/INDEX.md`.
 
 The only allowed state transitions are:
 
@@ -49,9 +49,9 @@ Transitions not listed above are NOT permitted. A plan MUST NOT skip states (eg.
 
 - MUST write in American English.
 
-- The `main` trunk is the default branch. Plans are developed on `plan/<slug>` branches cut from `main`, and integrated back into `main` via pull requests once the initiative is done or abandoned.
+- The `main` trunk is the default branch. Plans are developed on `plan/<slug>` branches cut from `main`, and integrated back into `main` via pull requests once the plan is done or abandoned.
 
-- Each plan is a single initiative. Author it on a `plan/<slug>` branch and open a pull request titled `plan: <description>`, where `<description>` is a short prose title, written full lowercase (not the hyphenated branch slug).
+- Each plan is a single, coherent body of work. Author it on a `plan/<slug>` branch and open a pull request titled `plan: <description>`, where `<description>` is a short prose title, written full lowercase (not the hyphenated branch slug).
 
 - The plan document MUST NOT track the live status of individual tasks. Status lives in the linked code-repo tracker for each task. The `Tracker` link is followed to see where a task stands.
 
@@ -61,17 +61,17 @@ Transitions not listed above are NOT permitted. A plan MUST NOT skip states (eg.
 
 - The `Dependency graph` MUST be kept in sync with the `Depends on` column of the task table.
 
-- Upstream linkage is loose and reference-only. A plan cites the spec proposal(s), RFC(s), and design doc(s) it implements via its `References` section. An initiative is its own planning unit and need not map 1:1 to any upstream artifact.
+- Upstream linkage is loose and reference-only. A plan cites the spec proposal(s), RFC(s), and design doc(s) it implements via its `References` section. A plan is its own unit and need not map 1:1 to any upstream artifact.
 
 - A plan PR carries exactly one lifecycle label — `#planned`, `#in-progress`, `#done`, or `#abandoned`. A pull request is opened initially as a draft while the document is refined.
 
 - Every plan PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all review feedback. The thread stays open through `DRAFT` and `PLANNED`, and is closed once implementation begins (`IN PROGRESS`), at which point review has concluded.
 
-- A plan MUST NOT be merged into `main` until the initiative is decided — either done or abandoned.
+- A plan MUST NOT be merged into `main` until it is decided — either done or abandoned.
 
 - Plan branches MUST be squash-merged to `main`, with the squash commit message `plan: <description> - DONE|ABANDONED`.
 
-- After merge, the plan is recorded in [`plans/INDEX.md`](./plans/INDEX.md), appended in the order the initiative was implemented (or abandoned). The plan directory is never renamed; the slug is its identity. No numeric ID is assigned.
+- After merge, the plan is recorded in [`plans/INDEX.md`](./plans/INDEX.md), appended in the order it was implemented (or abandoned). The plan directory is never renamed; the slug is its identity. No numeric ID is assigned.
 
 - Never delete a plan document, including abandoned ones. The git history of the plan is its permanent record.
 

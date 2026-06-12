@@ -1,10 +1,10 @@
 # Abandon plan
 
-Drops an initiative before completion, from `PLANNED` or `IN PROGRESS` to `ABANDONED`, and merges it as a record.
+Drops a plan before completion, from `PLANNED` or `IN PROGRESS` to `ABANDONED`, and merges it as a record.
 
 ## What it does
 
-- Confirms the decision to drop the initiative is settled and the reason is recorded.
+- Confirms the decision to drop the plan is settled and the reason is recorded.
 - Sets `Status: ABANDONED` and updates `Last updated` (the settled date).
 - Swaps the current lifecycle label for `#abandoned`.
 - Squash-merges the pull request into `main` (with your confirmation).

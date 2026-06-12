@@ -1,26 +1,26 @@
 ---
 name: abandon-plan
-description: Drop an initiative before completion — record the decision, label the PR, squash-merge it, and append it to the index. Use when the user says "abandon this plan", "drop the initiative", "cancel the plan", or "we're not doing this".
+description: Drop a plan before completion — record the decision, label the PR, squash-merge it, and append it to the index. Use when the user says "abandon this plan", "drop the plan", "cancel the plan", or "we're not doing this".
 license: MIT
 ---
 
 # Abandon plan
 
-Use this skill to abandon a plan from either `PLANNED` or `IN PROGRESS`, when the initiative is dropped before completion. The plan is merged into `main` as a permanent record of the decision and appended to [`plans/INDEX.md`](../../../plans/INDEX.md).
+Use this skill to abandon a plan from either `PLANNED` or `IN PROGRESS`, when it is dropped before completion. The plan is merged into `main` as a permanent record of the decision and appended to [`plans/INDEX.md`](../../../plans/INDEX.md).
 
-Do NOT use this skill to complete an initiative whose tasks all shipped (use [`complete-plan`](../complete-plan/SKILL.md)), or for any other transition — see [`draft-plan`](../draft-plan/SKILL.md), [`finalize-plan`](../finalize-plan/SKILL.md), [`implement-plan`](../implement-plan/SKILL.md).
+Do NOT use this skill to complete a plan whose tasks all shipped (use [`complete-plan`](../complete-plan/SKILL.md)), or for any other transition — see [`draft-plan`](../draft-plan/SKILL.md), [`finalize-plan`](../finalize-plan/SKILL.md), [`implement-plan`](../implement-plan/SKILL.md).
 
 ## Transition gates: `PLANNED` | `IN PROGRESS` → `ABANDONED`
 
 The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following before abandoning. If unmet, report it and pause.
 
--   **The decision to drop the initiative is settled.**
+-   **The decision to drop the plan is settled.**
 
-    Abandonment is a deliberate decision, not a pause. If the initiative is merely stalled, leave it where it is.
+    Abandonment is a deliberate decision, not a pause. If the plan is merely stalled, leave it where it is.
 
 -   **The reason is recorded.**
 
-    The plan document captures why the initiative was dropped, so the record explains itself. Add a short note to the `Summary` or `Open questions` section if one is not already present.
+    The plan document captures why it was dropped, so the record explains itself. Add a short note to the `Summary` or `Open questions` section if one is not already present.
 
 ## Instructions
 
@@ -53,7 +53,7 @@ The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following bef
 5.  **Commit.**
 
     ```sh
-    git commit -am "chore: abandon <short lowercase initiative description>"
+    git commit -am "chore: abandon <short lowercase plan description>"
     ```
 
 6.  **Merge the pull request.**
@@ -61,7 +61,7 @@ The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following bef
     Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it:
 
     ```sh
-    gh pr merge <number> --squash --subject "plan: <short lowercase initiative description> - ABANDONED"
+    gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - ABANDONED"
     ```
 
 7.  **After merge, append to the index.**
@@ -69,7 +69,7 @@ The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following bef
     On `main`, append a row to [`plans/INDEX.md`](../../../plans/INDEX.md): the plan's title, `Abandoned` status, its target repositories, and the settled date. Append at the end. The plan directory is never renamed; no number is assigned.
 
     ```sh
-    git commit -am "chore: record <short lowercase initiative description> in plan index"
+    git commit -am "chore: record <short lowercase plan description> in plan index"
     git push
     ```
 

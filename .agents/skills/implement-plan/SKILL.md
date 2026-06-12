@@ -1,12 +1,12 @@
 ---
 name: implement-plan
-description: Mark a planned initiative as in progress once execution has started. Use when the user says "start this plan", "work has begun", "the initiative is underway", or "move the plan to in progress".
+description: Mark a plan as in progress once implementation has started. Use when the user says "start this plan", "work has begun", "the plan is underway", or "move the plan to in progress".
 license: MIT
 ---
 
 # Start implementation of plan
 
-Use this skill to move a plan from `PLANNED` to `IN PROGRESS`, once execution of the initiative has begun. The pull request stays open through implementation — it is not merged here.
+Use this skill to move a plan from `PLANNED` to `IN PROGRESS`, once implementation of the plan has begun. The pull request stays open through implementation — it is not merged here.
 
 Do NOT use this skill for any other transition — see [`draft-plan`](../draft-plan/SKILL.md), [`finalize-plan`](../finalize-plan/SKILL.md), [`complete-plan`](../complete-plan/SKILL.md), or [`abandon-plan`](../abandon-plan/SKILL.md).
 
@@ -20,7 +20,7 @@ The plan MUST currently be `PLANNED` (a PR carrying `#planned`). Confirm the fol
 
 -   **Work has actually begun.**
 
-    At least one task is underway in its linked tracker. Starting a plan signals that the initiative is live, not merely agreed.
+    At least one task is underway in its linked tracker. Starting a plan signals that the work is live, not merely agreed.
 
 ## Instructions
 
@@ -65,7 +65,7 @@ The plan MUST currently be `PLANNED` (a PR carrying `#planned`). Confirm the fol
 6.  **Commit and push.**
 
     ```sh
-    git commit -am "chore: start <short lowercase initiative description>"
+    git commit -am "chore: start <short lowercase plan description>"
     git push
     ```
 

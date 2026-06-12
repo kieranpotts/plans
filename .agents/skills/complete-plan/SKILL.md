@@ -1,14 +1,14 @@
 ---
 name: complete-plan
-description: Mark an in-progress initiative as done once every task has shipped — set its status, label the PR, squash-merge it, and append it to the index. Use when the user says "complete this plan", "the initiative is done", "all tasks shipped", or "finish the plan".
+description: Mark an in-progress plan as done once every task has shipped — set its status, label the PR, squash-merge it, and append it to the index. Use when the user says "complete this plan", "the plan is done", "all tasks shipped", or "finish the plan".
 license: MIT
 ---
 
 # Complete plan
 
-Use this skill to move a plan from `IN PROGRESS` to `DONE`, once every task in the initiative has shipped. This is the point at which the plan's pull request is squash-merged into `main`, and the plan is appended to [`plans/INDEX.md`](../../../plans/INDEX.md) in implementation order.
+Use this skill to move a plan from `IN PROGRESS` to `DONE`, once every task in the plan has shipped. This is the point at which the plan's pull request is squash-merged into `main`, and the plan is appended to [`plans/INDEX.md`](../../../plans/INDEX.md) in implementation order.
 
-Do NOT use this skill for any other transition — see [`abandon-plan`](../abandon-plan/SKILL.md) to drop an initiative, or [`draft-plan`](../draft-plan/SKILL.md), [`finalize-plan`](../finalize-plan/SKILL.md), [`implement-plan`](../implement-plan/SKILL.md).
+Do NOT use this skill for any other transition — see [`abandon-plan`](../abandon-plan/SKILL.md) to drop a plan, or [`draft-plan`](../draft-plan/SKILL.md), [`finalize-plan`](../finalize-plan/SKILL.md), [`implement-plan`](../implement-plan/SKILL.md).
 
 ## Transition gates: `IN PROGRESS` → `DONE`
 
@@ -20,7 +20,7 @@ The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
 
 -   **The breakdown reflects what was actually done.**
 
-    Any tasks added, dropped, or re-sequenced during execution are reflected in the final breakdown and dependency graph.
+    Any tasks added, dropped, or re-sequenced during implementation are reflected in the final breakdown and dependency graph.
 
 ## Instructions
 
@@ -51,7 +51,7 @@ The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
 5.  **Commit.**
 
     ```sh
-    git commit -am "chore: complete <short lowercase initiative description>"
+    git commit -am "chore: complete <short lowercase plan description>"
     ```
 
 6.  **Merge the pull request.**
@@ -59,7 +59,7 @@ The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
     Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it:
 
     ```sh
-    gh pr merge <number> --squash --subject "plan: <short lowercase initiative description> - DONE"
+    gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - DONE"
     ```
 
 7.  **After merge, append to the index.**
@@ -67,7 +67,7 @@ The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
     On `main`, append a row to [`plans/INDEX.md`](../../../plans/INDEX.md): the plan's title, `Done` status, its target repositories, and the settled date (the document's `Last updated`). Append at the end — the index is ordered by implementation. The plan directory is never renamed; no number is assigned.
 
     ```sh
-    git commit -am "chore: record <short lowercase initiative description> in plan index"
+    git commit -am "chore: record <short lowercase plan description> in plan index"
     git push
     ```
 
@@ -75,7 +75,7 @@ The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
 
 -   **Only from `IN PROGRESS`.**
 
-    Never complete a draft or planned initiative.
+    Never complete a plan that is still in `DRAFT` or `PLANNED`.
 
 -   **Done means every task shipped.**
 

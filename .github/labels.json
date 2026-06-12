@@ -11,7 +11,7 @@
   },
   {
     "name": "#in-progress",
-    "description": "A plan whose initiative is being executed across the code repositories.",
+    "description": "A plan that is being implemented across the code repositories.",
     "color": "FFFFFF"
   },
   {
@@ -21,7 +21,7 @@
   },
   {
     "name": "#abandoned",
-    "description": "A plan whose initiative was dropped before completion.",
+    "description": "A plan whose implementation was dropped before completion.",
     "color": "FFFFFF"
   }
 ]

@@ -1,6 +1,6 @@
 ---
 name: draft-plan
-description: Scaffold a new implementation plan for an initiative and open it as a draft pull request. Use when the user wants to plan the implementation of a body of work, or says "draft a plan", "new plan", "start a plan", or "plan this initiative".
+description: Scaffold a new implementation plan and open it as a draft pull request. Use when the user wants to plan the implementation of a body of work, or says "draft a plan", "new plan", "start a plan", or "plan this".
 license: MIT
 ---
 
@@ -14,13 +14,13 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
 
 ## Instructions
 
-1.  **Capture the initiative.**
+1.  **Capture the plan.**
 
-    Establish the goal of the initiative, its scope, and the code repositories it is expected to touch. If the user did not provide this, prompt them for it.
+    Establish the goal of the plan, its scope, and the code repositories it is expected to touch. If the user did not provide this, prompt them for it.
 
 2.  **Create a short, descriptive slug.**
 
-    For example, an initiative to harden the checkout flow against duplicate submissions might have the description "checkout hardening" and the slug "checkout-hardening". Confirm with the user if unsure.
+    For example, a plan to harden the checkout flow against duplicate submissions might have the description "checkout hardening" and the slug "checkout-hardening". Confirm with the user if unsure.
 
 3.  **Create the branch.**
 
@@ -41,7 +41,7 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
     - `Authors`: the Git user's name and GitHub handle (run `git config user.name` if needed).
     - `Created` and `Last updated`: today's date in `YYYY-MM-DD` format.
     - `Status`: `DRAFT`.
-    - `Target repositories`: the repositories the initiative is expected to touch, if known.
+    - `Target repositories`: the repositories the plan is expected to touch, if known.
     - Leave `Plan PR` and `Discussion thread` to be filled once the PR and thread exist.
 
     Leave the prose sections (`Summary`, `Scope`, `Approach`) and the `Task breakdown` / `Dependency graph` as template placeholders for the user to complete. You MAY seed the `References` section with any upstream artifacts the user named (spec proposals, RFCs, design docs).
@@ -50,9 +50,9 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
 
     ```sh
     git add plans/<slug>/
-    git commit -m "plan: <short lowercase initiative description>"
+    git commit -m "plan: <short lowercase plan description>"
     git push -u origin plan/<slug>
-    gh pr create --draft --title "plan: <short lowercase initiative description>" --fill
+    gh pr create --draft --title "plan: <short lowercase plan description>" --fill
     ```
 
     Record the PR number in the document's `Plan PR` field, then commit and push:
@@ -85,8 +85,8 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
           discussion { url }
         }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
-        -f title="plan: <short lowercase initiative description>" \
-        -f body="Discussion thread for the **<short lowercase initiative description>** plan (PR #<number>). Please leave all feedback here, not on the pull request."
+        -f title="plan: <short lowercase plan description>" \
+        -f body="Discussion thread for the **<short lowercase plan description>** plan (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 
     Record the returned URL in the document's `Discussion thread` field, and add it to the pull request description, so the two cross-reference each other:
@@ -106,13 +106,13 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
 
 ## Rules
 
--   **A plan is for an initiative — a coherent body of work.**
+-   **A plan is for a coherent body of work.**
 
     If the request decomposes into a single task, it does not need a plan; the user should open a ticket directly in the relevant code repository. Say so before scaffolding.
 
--   **One initiative per branch and pull request.**
+-   **One plan per branch and pull request.**
 
-    Never bundle multiple initiatives into one plan. If the user describes several independent bodies of work, scaffold separate plan branches.
+    Never bundle multiple plans into one branch. If the user describes several independent bodies of work, scaffold separate plan branches.
 
 -   **Branch from `main`, not from any other branch.**
 
@@ -136,7 +136,7 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
 
 - `plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
 
-- A draft pull request is open, titled `plan: <short lowercase initiative description>`, carrying no lifecycle label.
+- A draft pull request is open, titled `plan: <short lowercase plan description>`, carrying no lifecycle label.
 
 - An associated discussion thread is open, linked from the document's `Discussion thread` field and from the PR.
 

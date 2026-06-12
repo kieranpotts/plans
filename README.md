@@ -2,7 +2,7 @@
 
 **A template for planning the implementation of changes across a software system, via version control.**
 
-This repository is the home of the implementation plans for [Project Name]. It is issue tracking and project management in one, kept under version control.
+This repository is the home of the implementation plans for [Project Name]. It is a development planning system, kept under version control.
 
 This repository answers _when, and in what order_, work gets done. It is the fourth stage in a chain of version-controlled documentation:
 
@@ -14,15 +14,15 @@ This repository answers _when, and in what order_, work gets done. It is the fou
 
 - This repository plans the implementation: given those upstream artifacts, _what concrete work, in what order, across which repositories_, gets us from the present system to the intended one?
 
-The unit of planning is an **initiative**: a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there. That linked tracker — not this repository — owns the task's live status. This repository's value is the cross-repository decomposition and sequencing that no individual issue tracker can see across.
+A **plan** is a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there. That linked tracker — not this repository — owns the task's live status. This repository's value is the cross-repository decomposition and sequencing that no individual issue tracker can see across.
 
-This is NOT a living description of production. A plan describes _future and in-flight work_, which is inherently provisional. A plan is a mutable working document while its initiative is open, and settles once the initiative is done or abandoned. A plan's own Git history is its record; there is no separate decision log.
+This is NOT a living description of production. A plan describes _future and in-flight work_, which is inherently provisional. A plan is a mutable working document while it is open, and settles once the work is done or abandoned. A plan's own Git history is its record; there is no separate decision log.
 
 ## Contents
 
-- [**Plans**](./plans/): The implementation plans, one directory per initiative. Each holds its `README.md` (the plan) plus any supporting artifacts — sequence diagrams, data, mock-ups.
+- [**Plans**](./plans/): The implementation plans, one directory per plan. Each holds its `README.md` (the plan) plus any supporting artifacts — sequence diagrams, data, mock-ups.
 
-  - The [`INDEX`](./plans/INDEX.md) lists initiatives in the order they were implemented.
+  - The [`INDEX`](./plans/INDEX.md) lists plans in the order they were implemented.
 
   - The [`TEMPLATE`](./plans/TEMPLATE.md) is the starting point for a new plan.
 

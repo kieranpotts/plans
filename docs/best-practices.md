@@ -1,12 +1,12 @@
 # Best practices
 
-Guidance on scoping an initiative and writing a task breakdown that earns its keep. For the lifecycle mechanics, see the [contributing guide](../CONTRIBUTING.md).
+Guidance on scoping a plan and writing a task breakdown that earns its keep. For the lifecycle mechanics, see the [contributing guide](../CONTRIBUTING.md).
 
-## Scoping an initiative
+## Scoping a plan
 
-- **One initiative, one goal.** An initiative should have a single, statable outcome — what "done" looks like in one sentence. If you cannot write that sentence, the initiative is probably two initiatives.
+- **One plan, one goal.** A plan should have a single, statable outcome — what "done" looks like in one sentence. If you cannot write that sentence, it is probably two plans.
 
-- **Size it to a coherent body of work, not a single ticket.** An initiative that decomposes into one task does not need a plan — open the ticket directly in the code repository. An initiative that sprawls across a dozen loosely-related goals is too big to sequence meaningfully; split it.
+- **Size it to a coherent body of work, not a single ticket.** A plan that decomposes into one task is not needed — open the ticket directly in the code repository. A plan that sprawls across a dozen loosely-related goals is too big to sequence meaningfully; split it.
 
 - **Name what is out of scope.** The `Scope` section should be explicit about boundaries. A clear "not this" is what lets a reader judge whether the breakdown is complete.
 
@@ -20,7 +20,7 @@ Guidance on scoping an initiative and writing a task breakdown that earns its ke
 
 - **Make dependencies real.** A dependency means task B genuinely cannot start until task A is done — a schema must exist before code uses it, an endpoint before a client calls it. Do not encode mere preference as dependency; over-constraining the graph hides parallelism that would speed the work up.
 
-- **Keep the graph in sync.** The dependency graph is built from the `Depends on` column. They must agree. The graph is the highest-value artifact in the plan — it is the one view that spans every repository the initiative touches — so it is worth keeping honest.
+- **Keep the graph in sync.** The dependency graph is built from the `Depends on` column. They must agree. The graph is the highest-value artifact in the plan — it is the one view that spans every repository the plan touches — so it is worth keeping honest.
 
 ## Keeping a plan healthy while it runs
 

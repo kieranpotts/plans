@@ -16,7 +16,7 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 
 -   **The document is reasonably complete.**
 
-    `Summary`, `Scope`, and `Approach` contain substantive, initiative-specific content — not the generic placeholder prose carried over from `TEMPLATE.md`.
+    `Summary`, `Scope`, and `Approach` contain substantive, plan-specific content — not the generic placeholder prose carried over from `TEMPLATE.md`.
 
 -   **The task breakdown is present and well-formed.**
 
@@ -69,7 +69,7 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 6.  **Commit and push.**
 
     ```sh
-    git commit -am "chore: mark <short lowercase initiative description> ready for review"
+    git commit -am "chore: mark <short lowercase plan description> ready for review"
     git push
     ```
 

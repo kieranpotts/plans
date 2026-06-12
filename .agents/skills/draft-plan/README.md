@@ -18,7 +18,7 @@ Scaffolds a new implementation plan and opens it as a draft pull request.
 /draft-plan
 ```
 
-Optionally describe the initiative:
+Optionally describe the plan:
 
 ```
 /draft-plan checkout hardening

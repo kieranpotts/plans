@@ -9,11 +9,11 @@ Implementation plans are produced and maintained by the technical teams. Anyone 
 > [!NOTE]
 > The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
-## The unit of planning
+## What a plan is
 
-The unit of planning is an initiative: a self-contained body of work with a goal, a scope, and a decomposition into tasks. An initiative is its own planning unit. It draws on upstream artifacts — a requirement in the [SRS](https://github.com/kieranpotts/specs), a decision in the [RFC](https://github.com/kieranpotts/rfc) archive, a target in the [design docs](https://github.com/kieranpotts/design) — but it need not map one-to-one to any of them. Those upstream links are loose and reference-only.
+A plan is a self-contained body of work with a goal, a scope, and a decomposition into tasks. A plan is its own unit. It draws on upstream artifacts — a requirement in the [SRS](https://github.com/kieranpotts/specs), a decision in the [RFC](https://github.com/kieranpotts/rfc) archive, a target in the [design docs](https://github.com/kieranpotts/design) — but it need not map one-to-one to any of them. Those upstream links are loose and reference-only.
 
-Each task in an initiative lives in exactly one code repository and links out to a concrete issue or pull request there. That linked tracker owns the task's live status — this repository does not track it. What this repository contributes is the cross-repository decomposition and sequencing: the breakdown of the initiative into tasks, and the dependency graph that orders them across as many repositories as the initiative touches.
+Each task in a plan lives in exactly one code repository and links out to a concrete issue or pull request there. That linked tracker owns the task's live status — this repository does not track it. What this repository contributes is the cross-repository decomposition and sequencing: the breakdown of the plan into tasks, and the dependency graph that orders them across as many repositories as the plan touches.
 
 ## The plan lifecycle
 
@@ -27,7 +27,7 @@ Each plan moves through a defined state machine. The current state is shown in t
 
 - `DONE`: Every task has shipped. The plan is merged into `main` and appended to the [plans index](./plans/INDEX.md), in implementation order.
 
-- `ABANDONED`: The initiative is dropped before completion. The plan is merged into `main` as a permanent record of the decision, and appended to the index.
+- `ABANDONED`: The plan is dropped before completion. It is merged into `main` as a permanent record of the decision, and appended to the index.
 
 ```mermaid
 stateDiagram-v2
@@ -82,7 +82,7 @@ When review has concluded and work starts, move the plan to `#in-progress` and c
 
 ### Step 3: Settle
 
-When every task has shipped, mark the plan `DONE`, squash-merge it to `main`, and append it to [`plans/INDEX.md`](./plans/INDEX.md). If the initiative is dropped, mark it `ABANDONED` and do the same — the record is preserved either way.
+When every task has shipped, mark the plan `DONE`, squash-merge it to `main`, and append it to [`plans/INDEX.md`](./plans/INDEX.md). If the plan is dropped, mark it `ABANDONED` and do the same — the record is preserved either way.
 
 ## Rules
 
@@ -90,7 +90,7 @@ When every task has shipped, mark the plan `DONE`, squash-merge it to `main`, an
 
 - The `main` trunk is the default branch.
 
-- Each plan is a single initiative, developed on a `plan/<slug>` branch cut from `main`, with a pull request titled `plan: <description>`. The `<description>` is a short prose title, not the hyphenated branch slug. The slug is used only for the branch name and the plan directory (`plans/<slug>/`).
+- Each plan is a single, coherent body of work, developed on a `plan/<slug>` branch cut from `main`, with a pull request titled `plan: <description>`. The `<description>` is a short prose title, not the hyphenated branch slug. The slug is used only for the branch name and the plan directory (`plans/<slug>/`).
 
 - The plan document MUST NOT track the live status of individual tasks. Status lives in each task's linked code repository tracker.
 
@@ -106,7 +106,7 @@ When every task has shipped, mark the plan `DONE`, squash-merge it to `main`, an
 
 - Every plan PR MUST have an associated discussion thread, opened with the PR and used for all review feedback. The thread is closed once implementation begins (`IN PROGRESS`).
 
-- A plan MUST NOT be merged into `main` until the initiative is decided — done or abandoned.
+- A plan MUST NOT be merged into `main` until it is decided — done or abandoned.
 
 - Plan branches MUST be squash-merged to `main`, with the squash commit message `plan: <description> - DONE|ABANDONED`.
 
