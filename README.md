@@ -1,4 +1,4 @@
-# Implementation Plans
+# 🗺️ Implementation Plans
 
 **A template for planning the implementation of changes across a software system, via version control.**
 
@@ -14,13 +14,13 @@ This is NOT a living description of production. A plan describes _future and in-
 
 This repository is one of four that form a coherent, version-controlled documentation ecosystem modeling the software development lifecycle. Each is the reference implementation of an opinionated workflow, and answers a different question about the system:
 
-- [**Software requirements specification (SRS)**](https://github.com/kieranpotts/specs): Records _what_ the system does, in business terms.
+- [**📋 Software requirements specification (SRS)**](https://github.com/kieranpotts/specs): Records _what_ the system does, in business terms.
 
-- [**Requests for comments (RFC)**](https://github.com/kieranpotts/rfc): Records _how_ significant technical decisions were made, and _why_.
+- [**💬 Requests for comments (RFC)**](https://github.com/kieranpotts/rfc): Records _how_ significant technical decisions were made, and _why_.
 
-- [**Design docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
+- [**📐 Design docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
 
-- **Implementation plans**: Capture _when, and in what order_, the work gets done (this repository).
+- **🗺️ Implementation plans**: Capture _when, and in what order_, the work gets done (this repository).
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 
