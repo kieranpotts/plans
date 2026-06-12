@@ -48,9 +48,23 @@ The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
     gh pr edit <number> --add-label "#done" --remove-label "#in-progress"
     ```
 
-5.  **Close the associated discussion thread.**
+5.  **Commit.**
 
-    The plan is settled, so its discussion is closed. Find the discussion linked in the `Discussion thread` field, look up its node ID, and close it as resolved (`gh` has no native discussion command, so use the GraphQL API):
+    ```sh
+    git commit -am "chore: complete <short lowercase plan description>"
+    ```
+
+6.  **Merge the pull request.**
+
+    Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it:
+
+    ```sh
+    gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - DONE"
+    ```
+
+7.  **Close the associated discussion thread.**
+
+    The plan has merged, so its discussion is now closed. Find the discussion linked in the `Discussion thread` field, look up its node ID, and close it as resolved (`gh` has no native discussion command, so use the GraphQL API):
 
     ```sh
     gh api graphql -f query='
@@ -62,20 +76,6 @@ The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
       mutation($id:ID!) {
         closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
       }' -F id=<discussionId>
-    ```
-
-6.  **Commit.**
-
-    ```sh
-    git commit -am "chore: complete <short lowercase plan description>"
-    ```
-
-7.  **Merge the pull request.**
-
-    Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it:
-
-    ```sh
-    gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - DONE"
     ```
 
 8.  **After merge, append to the index.**

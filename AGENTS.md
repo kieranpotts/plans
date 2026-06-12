@@ -65,7 +65,7 @@ Transitions not listed above are NOT permitted. A plan MUST NOT skip states (eg.
 
 - A plan PR carries exactly one lifecycle label — `#planned`, `#in-progress`, `#done`, or `#abandoned`. A pull request is opened initially as a draft while the document is refined.
 
-- Every plan PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all feedback. The thread stays open for the life of the plan — through `DRAFT`, `PLANNED`, and `IN PROGRESS` — and is closed only when the plan is done or abandoned.
+- Every plan PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all feedback. The thread stays open for the life of the plan — through `DRAFT`, `PLANNED`, and `IN PROGRESS` — and is closed when the PR is merged.
 
 - A plan MUST NOT be merged into `main` until it is decided — either done or abandoned.
 

@@ -46,7 +46,7 @@ The plan MUST currently be `PLANNED` (a PR carrying `#planned`). Confirm the fol
     gh pr edit <number> --add-label "#in-progress" --remove-label "#planned"
     ```
 
-    Leave the discussion thread open — it stays open through implementation, as feedback may continue while the plan evolves, and is closed only when the plan is done or abandoned.
+    Leave the discussion thread open — it stays open through implementation, as feedback may continue while the plan evolves, and is closed when the PR is merged.
 
 5.  **Commit and push.**
 
