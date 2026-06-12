@@ -18,14 +18,19 @@ The unit of planning is an **initiative**: a self-contained body of work with a 
 
 This is NOT a living description of production. A plan describes _future and in-flight work_, which is inherently provisional. A plan is a mutable working document while its initiative is open, and settles once the initiative is done or abandoned. A plan's own Git history is its record; there is no separate decision log.
 
-A template for new code repositories.
+## Contents
 
-## 📓 Documentation
+- [**Plans**](./plans/): The implementation plans, one directory per initiative. Each holds its `README.md` (the plan) plus any supporting artifacts — sequence diagrams, data, mock-ups.
 
-- [**Requirements**](./docs/requirements.md)
-- [**Installation**](./docs/installation.md)
-- [**Usage**](./docs/usage.md)
-- [**Development**](./docs/development.md)
+  - The [`INDEX`](./plans/INDEX.md) lists initiatives in the order they were implemented.
+
+  - The [`TEMPLATE`](./plans/TEMPLATE.md) is the starting point for a new plan.
+
+- [**Contributing**](./CONTRIBUTING.md): Step-by-step instructions for shepherding a plan through its lifecycle.
+
+- [**Agents**](./AGENTS.md) and [**Skills**](./.agents/skills/): Instructions for agentic tools to manage the planning workflow with a high degree of autonomy.
+
+- [**Documentation**](./docs/): General guidance on how to get the most out of the planning process.
 
 -----
 
