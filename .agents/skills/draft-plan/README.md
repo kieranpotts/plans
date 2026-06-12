@@ -10,6 +10,7 @@ Scaffolds a new implementation plan and opens it as a draft pull request.
 - Seeds the `References` section with any upstream artifacts you named.
 - Commits and pushes the change.
 - Opens a draft pull request and links it from the document.
+- Opens an associated discussion thread for review feedback, cross-linked with the PR.
 
 ## How to invoke
 

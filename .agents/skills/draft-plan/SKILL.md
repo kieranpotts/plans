@@ -42,7 +42,7 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
     - `Created` and `Last updated`: today's date in `YYYY-MM-DD` format.
     - `Status`: `DRAFT`.
     - `Target repositories`: the repositories the initiative is expected to touch, if known.
-    - Leave `Plan PR` to be filled once the PR exists.
+    - Leave `Plan PR` and `Discussion thread` to be filled once the PR and thread exist.
 
     Leave the prose sections (`Summary`, `Scope`, `Approach`) and the `Task breakdown` / `Dependency graph` as template placeholders for the user to complete. You MAY seed the `References` section with any upstream artifacts the user named (spec proposals, RFCs, design docs).
 
@@ -59,6 +59,48 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
 
     ```sh
     git commit -am "chore: link plan PR"
+    git push
+    ```
+
+7.  **Open a discussion thread.**
+
+    Every plan PR MUST have an associated discussion thread, where all review feedback is gathered. `gh` has no native discussion command, so use the GraphQL API. Look up the repository ID and the `Plans` discussion category:
+
+    ```sh
+    gh api graphql -f query='
+      query($owner:String!, $name:String!) {
+        repository(owner:$owner, name:$name) {
+          id
+          discussionCategories(first:20) { nodes { id name } }
+        }
+      }' -F owner=<owner> -F name=<repo>
+    ```
+
+    Create the discussion, referencing the PR, and capture its URL:
+
+    ```sh
+    gh api graphql -f query='
+      mutation($repoId:ID!, $categoryId:ID!, $title:String!, $body:String!) {
+        createDiscussion(input:{repositoryId:$repoId, categoryId:$categoryId, title:$title, body:$body}) {
+          discussion { url }
+        }
+      }' -F repoId=<repoId> -F categoryId=<categoryId> \
+        -f title="plan: <short lowercase initiative description>" \
+        -f body="Discussion thread for the **<short lowercase initiative description>** plan (PR #<number>). Please leave all feedback here, not on the pull request."
+    ```
+
+    Record the returned URL in the document's `Discussion thread` field, and add it to the pull request description, so the two cross-reference each other:
+
+    ```sh
+    gh pr edit <number> --body "$(gh pr view <number> --json body -q .body)
+
+    Discussion thread: <discussionUrl> — Please leave all review feedback there, not on this pull request."
+    ```
+
+    Then commit and push the document change:
+
+    ```sh
+    git commit -am "chore: link discussion thread"
     git push
     ```
 
@@ -80,6 +122,10 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
 
     A new plan is not yet ready for review. It MUST be opened as a draft pull request, carrying no lifecycle label.
 
+-   **Every plan PR has an associated discussion thread.**
+
+    Opened with the PR (even as a draft) using the `Plans` discussion category, and linked from both the document's `Discussion thread` field and the PR. All review feedback belongs in the discussion, not the PR's comments.
+
 -   **Do not assign a numeric ID.**
 
     Plans have no numeric ID. The slug is the identity. Plans are recorded in `plans/INDEX.md` only after merge.
@@ -91,6 +137,8 @@ Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../fina
 - `plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata header filled in and `Status: DRAFT`.
 
 - A draft pull request is open, titled `plan: <short lowercase initiative description>`, carrying no lifecycle label.
+
+- An associated discussion thread is open, linked from the document's `Discussion thread` field and from the PR.
 
 ## References
 

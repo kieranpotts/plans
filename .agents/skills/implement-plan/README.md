@@ -4,9 +4,10 @@ Moves a plan from `PLANNED` to `IN PROGRESS` — execution has begun.
 
 ## What it does
 
-- Confirms work on at least one task has actually started.
+- Confirms review has concluded and work on at least one task has actually started.
 - Sets `Status: IN PROGRESS` and updates `Last updated`.
 - Swaps the `#planned` label for `#in-progress`.
+- Closes the associated discussion thread.
 
 The pull request stays open and the plan stays mutable — the breakdown and dependency graph may continue to evolve as the work unfolds.
 

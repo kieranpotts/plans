@@ -32,7 +32,7 @@ Before removing draft status, confirm _all_ of the following. If any fails, repo
 
 -   **The metadata header is filled in.**
 
-    `Authors`, `Created`, `Last updated`, `Plan PR`, and `Target repositories` are set; `Status` is `DRAFT` (this skill advances it to `PLANNED`).
+    `Authors`, `Created`, `Last updated`, `Plan PR`, and `Target repositories` are set; the `Discussion thread` field links the thread (which stays open for review); `Status` is `DRAFT` (this skill advances it to `PLANNED`).
 
 ## Instructions
 

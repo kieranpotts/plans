@@ -21,9 +21,9 @@ Each plan moves through a defined state machine. The current state is shown in t
 
 - `DRAFT`: The plan is being written. Its pull request is open as a draft — not yet ready for review.
 
-- `PLANNED`: The decomposition is complete and agreed. The pull request is marked ready for review and labeled `#planned`. Work has not yet started.
+- `PLANNED`: The decomposition is complete and open for review. The pull request is marked ready for review and labeled `#planned`, and its discussion thread is where review feedback is gathered. Work has not yet started.
 
-- `IN PROGRESS`: Implementation is underway. Tasks are being delivered through their linked trackers in the code repositories. The PR carries `#in-progress`. The plan document MAY continue to evolve — tasks added, dropped, or re-sequenced as reality unfolds.
+- `IN PROGRESS`: Review has concluded and implementation is underway. The discussion thread is closed. Tasks are being delivered through their linked trackers in the code repositories. The PR carries `#in-progress`. The plan document MAY continue to evolve — tasks added, dropped, or re-sequenced as reality unfolds.
 
 - `DONE`: Every task has shipped. The plan is merged into `main` and appended to the [plans index](./plans/INDEX.md), in implementation order.
 
@@ -60,7 +60,7 @@ Transitions not listed are not permitted. A plan MUST NOT move backwards or skip
 
 ## Workflow
 
-### Step 1: Open a pull request
+### Step 1: Open a pull request and a discussion thread
 
 A pull request is the vehicle for a plan. Open it as soon as you are ready to start writing.
 
@@ -72,11 +72,13 @@ A pull request is the vehicle for a plan. Open it as soon as you are ready to st
 
 4. Commit and open the pull request as a draft, titled `plan: <description>`, where `<description>` is a short prose title written full lowercase.
 
-5. Keep the pull request in draft while you refine the breakdown. When it is complete and agreed, mark the PR ready for review and apply the `#planned` label.
+5. Open an associated [discussion thread](https://github.com/kieranpotts/plans/discussions) for the plan, and link it from the plan document's `Discussion thread` field and from the pull request. All review feedback belongs in the discussion, not on the pull request — this keeps the PR focused on the evolution of the plan document. The thread stays open while the breakdown is reviewed, and is closed once implementation begins.
+
+6. Keep the pull request in draft while you refine the breakdown. When it is complete and agreed, mark the PR ready for review and apply the `#planned` label.
 
 ### Step 2: Implement
 
-When work starts, move the plan to `#in-progress`. Deliver each task through its linked tracker in the relevant code repository. As reality unfolds, keep the breakdown and dependency graph current — add, drop, or re-sequence tasks — but never repurpose a task ID.
+When review has concluded and work starts, move the plan to `#in-progress` and close the discussion thread. Deliver each task through its linked tracker in the relevant code repository. As reality unfolds, keep the breakdown and dependency graph current — add, drop, or re-sequence tasks — but never repurpose a task ID.
 
 ### Step 3: Settle
 
@@ -101,6 +103,8 @@ When every task has shipped, mark the plan `DONE`, squash-merge it to `main`, an
 - Upstream linkage is loose and reference-only, via the `References` section.
 
 - A plan PR carries exactly one lifecycle label — `#planned`, `#in-progress`, `#done`, or `#abandoned`. The PR is opened initially as a draft.
+
+- Every plan PR MUST have an associated discussion thread, opened with the PR and used for all review feedback. The thread is closed once implementation begins (`IN PROGRESS`).
 
 - A plan MUST NOT be merged into `main` until the initiative is decided — done or abandoned.
 

@@ -4,6 +4,7 @@
 - Created: YYYY-MM-DD
 - Last updated: YYYY-MM-DD
 - Plan PR: #...
+- Discussion thread:
 - Target repositories: owner/repo, owner/repo, ...
 
 ## Status

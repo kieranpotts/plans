@@ -1,6 +1,6 @@
 # Finalize plan
 
-Moves a plan from `DRAFT` to `PLANNED` — ready for review.
+Moves a plan from `DRAFT` to `PLANNED` — the breakdown is complete and open for review.
 
 ## What it does
 
@@ -8,7 +8,7 @@ Moves a plan from `DRAFT` to `PLANNED` — ready for review.
 - Checks no leftover template text remains.
 - Sets `Status: PLANNED` and updates `Last updated`.
 - Applies the `#planned` label.
-- Takes the pull request out of draft.
+- Takes the pull request out of draft so it can be reviewed. The discussion thread stays open for review feedback.
 
 ## How to invoke
 

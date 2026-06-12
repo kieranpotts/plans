@@ -26,9 +26,9 @@ Each plan moves through a defined state machine. The current state is shown in t
 
 - `DRAFT`: The plan is being written. The pull request is open as a draft. Not yet ready for review.
 
-- `PLANNED`: The decomposition is complete and agreed. The pull request is marked ready for review and labeled `#planned`. Work has not yet started.
+- `PLANNED`: The decomposition is complete and open for review. The pull request is marked ready for review and labeled `#planned`, with review feedback gathered on its discussion thread. Work has not yet started.
 
-- `IN PROGRESS`: Implementation is underway. Tasks are being delivered through their linked trackers in the code repositories. The pull request carries `#in-progress`.
+- `IN PROGRESS`: Review has concluded and implementation is underway. The discussion thread is closed. Tasks are being delivered through their linked trackers in the code repositories. The pull request carries `#in-progress`.
 
 - `DONE`: Every task has shipped. The plan is merged into `main` and recorded in `plans/INDEX.md` in implementation order.
 
@@ -64,6 +64,8 @@ Transitions not listed above are NOT permitted. A plan MUST NOT skip states (eg.
 - Upstream linkage is loose and reference-only. A plan cites the spec proposal(s), RFC(s), and design doc(s) it implements via its `References` section. An initiative is its own planning unit and need not map 1:1 to any upstream artifact.
 
 - A plan PR carries exactly one lifecycle label — `#planned`, `#in-progress`, `#done`, or `#abandoned`. A pull request is opened initially as a draft while the document is refined.
+
+- Every plan PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all review feedback. The thread stays open through `DRAFT` and `PLANNED`, and is closed once implementation begins (`IN PROGRESS`), at which point review has concluded.
 
 - A plan MUST NOT be merged into `main` until the initiative is decided — either done or abandoned.
 

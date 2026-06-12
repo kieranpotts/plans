@@ -6,11 +6,11 @@ There is one skill per state transition: `DRAFT` → `PLANNED` → `IN PROGRESS`
 
 The skills are, in lifecycle order:
 
-- **[`/draft-plan`](./draft-plan/)**: Scaffolds a new draft plan, ready for the user to complete. Sets up the branch and plan document from the template, and opens a draft pull request.
+- **[`/draft-plan`](./draft-plan/)**: Scaffolds a new draft plan, ready for the user to complete. Sets up the branch and plan document from the template, and opens a draft pull request with an associated discussion thread.
 
 - **[`/finalize-plan`](./finalize-plan/)**: `DRAFT` → `PLANNED` — Confirms the breakdown and dependency graph are complete and free of leftover template text. Applies the `#planned` label and takes the pull request out of draft.
 
-- **[`/implement-plan`](./implement-plan/)**: `PLANNED` → `IN PROGRESS` — Marks the initiative as underway once execution has begun. The pull request stays open and the plan stays mutable.
+- **[`/implement-plan`](./implement-plan/)**: `PLANNED` → `IN PROGRESS` — Marks the initiative as underway once review has concluded and execution has begun. Closes the discussion thread. The pull request stays open and the plan stays mutable.
 
 - **[`/complete-plan`](./complete-plan/)**: `IN PROGRESS` → `DONE` — Confirms every task has shipped (by following each linked tracker), squash-merges the pull request to `main`, and appends the plan to `plans/INDEX.md`.
 
