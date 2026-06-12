@@ -14,9 +14,9 @@ Do NOT use this skill for any other transition — see [`draft-plan`](../draft-p
 
 The plan MUST currently be `PLANNED` (a PR carrying `#planned`). Confirm the following before starting. If unmet, report it and pause.
 
--   **Review has concluded.**
+-   **The breakdown is agreed.**
 
-    Feedback gathered on the plan PR's discussion thread has been resolved and the breakdown has stabilized. Starting implementation closes the review.
+    Initial review has settled and the breakdown is stable enough to start building. The discussion thread stays open — feedback may continue as the plan evolves during implementation.
 
 -   **Work has actually begun.**
 
@@ -46,23 +46,9 @@ The plan MUST currently be `PLANNED` (a PR carrying `#planned`). Confirm the fol
     gh pr edit <number> --add-label "#in-progress" --remove-label "#planned"
     ```
 
-5.  **Close the associated discussion thread.**
+    Leave the discussion thread open — it stays open through implementation, as feedback may continue while the plan evolves, and is closed only when the plan is done or abandoned.
 
-    Review has concluded once implementation begins, so the plan's discussion is closed. Find the discussion linked in the `Discussion thread` field, look up its node ID, and close it as resolved (`gh` has no native discussion command, so use the GraphQL API):
-
-    ```sh
-    gh api graphql -f query='
-      query($owner:String!, $name:String!, $number:Int!) {
-        repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
-      }' -F owner=<owner> -F name=<repo> -F number=<discussionNumber>
-
-    gh api graphql -f query='
-      mutation($id:ID!) {
-        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
-      }' -F id=<discussionId>
-    ```
-
-6.  **Commit and push.**
+5.  **Commit and push.**
 
     ```sh
     git commit -am "chore: start <short lowercase plan description>"
@@ -89,7 +75,7 @@ The plan MUST currently be `PLANNED` (a PR carrying `#planned`). Confirm the fol
 
 - The PR carries `#in-progress`, not `#planned`.
 
-- The associated discussion thread is closed.
+- The discussion thread remains open.
 
 ## References
 

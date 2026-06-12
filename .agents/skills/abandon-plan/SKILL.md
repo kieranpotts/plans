@@ -50,13 +50,29 @@ The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following bef
     gh pr edit <number> --add-label "#abandoned" --remove-label "#planned"      # or --remove-label "#in-progress"
     ```
 
-5.  **Commit.**
+5.  **Close the associated discussion thread.**
+
+    The plan is settled, so its discussion is closed. Find the discussion linked in the `Discussion thread` field, look up its node ID, and close it as resolved (`gh` has no native discussion command, so use the GraphQL API):
+
+    ```sh
+    gh api graphql -f query='
+      query($owner:String!, $name:String!, $number:Int!) {
+        repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
+      }' -F owner=<owner> -F name=<repo> -F number=<discussionNumber>
+
+    gh api graphql -f query='
+      mutation($id:ID!) {
+        closeDiscussion(input:{discussionId:$id, reason:RESOLVED}) { discussion { closed } }
+      }' -F id=<discussionId>
+    ```
+
+6.  **Commit.**
 
     ```sh
     git commit -am "chore: abandon <short lowercase plan description>"
     ```
 
-6.  **Merge the pull request.**
+7.  **Merge the pull request.**
 
     Confirm with the user that the PR is ready to merge — do not merge without explicit instruction. Once confirmed, squash-merge it:
 
@@ -64,7 +80,7 @@ The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following bef
     gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - ABANDONED"
     ```
 
-7.  **After merge, append to the index.**
+8.  **After merge, append to the index.**
 
     On `main`, append a row to [`plans/INDEX.md`](../../../plans/INDEX.md): the plan's title, `Abandoned` status, its target repositories, and the settled date. Append at the end. The plan directory is never renamed; no number is assigned.
 
@@ -94,6 +110,8 @@ The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following bef
 - `Status` is `ABANDONED` and `Last updated` is today's date.
 
 - The PR carries `#abandoned`, and is squash-merged into `main`.
+
+- The associated discussion thread is closed.
 
 - After merge: a `plans/INDEX.md` row is appended on `main`, with `Abandoned` status, in implementation order.
 

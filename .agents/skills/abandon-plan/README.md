@@ -7,6 +7,7 @@ Drops a plan before completion, from `PLANNED` or `IN PROGRESS` to `ABANDONED`, 
 - Confirms the decision to drop the plan is settled and the reason is recorded.
 - Sets `Status: ABANDONED` and updates `Last updated` (the settled date).
 - Swaps the current lifecycle label for `#abandoned`.
+- Closes the associated discussion thread.
 - Squash-merges the pull request into `main` (with your confirmation).
 - Appends the plan to `plans/INDEX.md`, in implementation order.
 

@@ -7,6 +7,7 @@ Moves a plan from `IN PROGRESS` to `DONE`, and merges it.
 - Confirms every task has shipped, by following each task's linked tracker.
 - Sets `Status: DONE` and updates `Last updated` (the settled date).
 - Swaps the `#in-progress` label for `#done`.
+- Closes the associated discussion thread.
 - Squash-merges the pull request into `main` (with your confirmation).
 - Appends the plan to `plans/INDEX.md`, in implementation order.
 
