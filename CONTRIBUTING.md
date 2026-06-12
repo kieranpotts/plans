@@ -11,19 +11,19 @@ Implementation plans are produced and maintained by the technical teams. Anyone 
 
 ## What a plan is
 
-A plan is a self-contained body of work with a goal, a scope, and a decomposition into tasks. A plan is its own unit. It draws on upstream artifacts — a requirement in the [SRS](https://github.com/kieranpotts/specs), a decision in the [RFC](https://github.com/kieranpotts/rfc) archive, a target in the [design docs](https://github.com/kieranpotts/design) — but it need not map one-to-one to any of them. Those upstream links are loose and reference-only.
+A plan is a self-contained body of work with a goal, a scope, and a decomposition into tasks. A plan is its own unit. It draws on upstream artifacts – a requirement in the [SRS](https://github.com/kieranpotts/specs), a decision in the [RFC](https://github.com/kieranpotts/rfc) archive, a target in the [design docs](https://github.com/kieranpotts/design) – but it need not map one-to-one to any of them. Those upstream links are loose and reference-only.
 
-Each task in a plan lives in exactly one code repository and links out to a concrete issue or pull request there. That linked tracker owns the task's live status — this repository does not track it. What this repository contributes is the cross-repository decomposition and sequencing: the breakdown of the plan into tasks, and the dependency graph that orders them across as many repositories as the plan touches.
+Each task in a plan lives in exactly one code repository and links out to a concrete issue or pull request there. That linked tracker owns the task's live status – this repository does not track it. What this repository contributes is the cross-repository decomposition and sequencing: the breakdown of the plan into tasks, and the dependency graph that orders them across as many repositories as the plan touches.
 
 ## The plan lifecycle
 
 Each plan moves through a defined state machine. The current state is shown in the plan document's `Status` field, and mirrored by a label on its pull request.
 
-- `DRAFT`: The plan is being written. Its pull request is open as a draft — not yet ready for review.
+- `DRAFT`: The plan is being written. Its pull request is open as a draft – not yet ready for review.
 
 - `PLANNED`: The decomposition is complete and open for review. The pull request is marked ready for review and labeled `#planned`, and its discussion thread is where feedback is gathered. Work has not yet started.
 
-- `IN PROGRESS`: Implementation is underway. Tasks are being delivered through their linked trackers in the code repositories. The PR carries `#in-progress`. The plan document MAY continue to evolve — tasks added, dropped, or re-sequenced as reality unfolds — and the discussion thread stays open for feedback throughout.
+- `IN PROGRESS`: Implementation is underway. Tasks are being delivered through their linked trackers in the code repositories. The PR carries `#in-progress`. The plan document MAY continue to evolve – tasks added, dropped, or re-sequenced as reality unfolds – and the discussion thread stays open for feedback throughout.
 
 - `DONE`: Every task has shipped. The plan is merged into `main` and appended to the [plans index](./plans/INDEX.md), in implementation order.
 
@@ -66,23 +66,23 @@ A pull request is the vehicle for a plan. Open it as soon as you are ready to st
 
 1. Branch off `main` as `plan/<slug>`.
 
-2. Copy [`plans/TEMPLATE.md`](./plans/TEMPLATE.md) to `plans/<slug>/README.md`. The plan lives in its own directory, so you may add supporting artifacts — sequence diagrams, data, mock-ups — alongside the `README.md`. Fill in the metadata header and write the `Summary`, `Scope`, and `Approach`.
+2. Copy [`plans/TEMPLATE.md`](./plans/TEMPLATE.md) to `plans/<slug>/README.md`. The plan lives in its own directory, so you may add supporting artifacts – sequence diagrams, data, mock-ups – alongside the `README.md`. Fill in the metadata header and write the `Summary`, `Scope`, and `Approach`.
 
 3. Build the `Task breakdown`. Each row is one task: a stable ID, a short imperative title, the target repository, the link to its concrete tracker item, and its dependencies. Then draw the `Dependency graph` from the `Depends on` column.
 
 4. Commit and open the pull request as a draft, titled `plan: <description>`, where `<description>` is a short prose title written full lowercase.
 
-5. Open an associated [discussion thread](https://github.com/kieranpotts/plans/discussions) for the plan, and link it from the plan document's `Discussion thread` field and from the pull request. All feedback belongs in the discussion, not on the pull request — this keeps the PR focused on the evolution of the plan document. The thread stays open for the life of the plan, and is closed when the PR is merged.
+5. Open an associated [discussion thread](https://github.com/kieranpotts/plans/discussions) for the plan, and link it from the plan document's `Discussion thread` field and from the pull request. All feedback belongs in the discussion, not on the pull request – this keeps the PR focused on the evolution of the plan document. The thread stays open for the life of the plan, and is closed when the PR is merged.
 
 6. Keep the pull request in draft while you refine the breakdown. When it is complete and agreed, mark the PR ready for review and apply the `#planned` label.
 
 ### Step 2: Implement
 
-When work starts, move the plan to `#in-progress`. The discussion thread stays open — feedback may continue as the plan evolves. Deliver each task through its linked tracker in the relevant code repository. As reality unfolds, keep the breakdown and dependency graph current — add, drop, or re-sequence tasks — but never repurpose a task ID.
+When work starts, move the plan to `#in-progress`. The discussion thread stays open – feedback may continue as the plan evolves. Deliver each task through its linked tracker in the relevant code repository. As reality unfolds, keep the breakdown and dependency graph current – add, drop, or re-sequence tasks – but never repurpose a task ID.
 
 ### Step 3: Settle
 
-When every task has shipped, mark the plan `DONE`, squash-merge it to `main` (which closes the discussion thread), and append it to [`plans/INDEX.md`](./plans/INDEX.md). If the plan is dropped, mark it `ABANDONED` and do the same — the record is preserved either way.
+When every task has shipped, mark the plan `DONE`, squash-merge it to `main` (which closes the discussion thread), and append it to [`plans/INDEX.md`](./plans/INDEX.md). If the plan is dropped, mark it `ABANDONED` and do the same – the record is preserved either way.
 
 ## Rules
 
@@ -102,11 +102,11 @@ When every task has shipped, mark the plan `DONE`, squash-merge it to `main` (wh
 
 - Upstream linkage is loose and reference-only, via the `References` section.
 
-- A plan PR carries exactly one lifecycle label — `#planned`, `#in-progress`, `#done`, or `#abandoned`. The PR is opened initially as a draft.
+- A plan PR carries exactly one lifecycle label – `#planned`, `#in-progress`, `#done`, or `#abandoned`. The PR is opened initially as a draft.
 
 - Every plan PR MUST have an associated discussion thread, opened with the PR and used for all feedback. The thread stays open for the life of the plan, and is closed when the PR is merged.
 
-- A plan MUST NOT be merged into `main` until it is decided — done or abandoned.
+- A plan MUST NOT be merged into `main` until it is decided – done or abandoned.
 
 - Plan branches MUST be squash-merged to `main`, with the squash commit message `plan: <description> - DONE|ABANDONED`.
 

@@ -6,7 +6,7 @@ This repository is the home of the implementation plans for [Project Name]. It i
 
 This repository answers _when, and in what order_, work gets done. Given the upstream artifacts, it plans the implementation: _what concrete work, in what order, across which repositories_, gets us from the present system to the intended one?
 
-A plan is a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there. That linked tracker — not this repository — owns the task's live status. This repository's value is the cross-repository decomposition and sequencing that no individual issue tracker can see across.
+A plan is a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there. That linked tracker – not this repository – owns the task's live status. This repository's value is the cross-repository decomposition and sequencing that no individual issue tracker can see across.
 
 This is NOT a living description of production. A plan describes _future and in-flight work_, which is inherently provisional. A plan is a mutable working document while it is open, and settles once the work is done or abandoned. A plan's own Git history is its record; there is no separate decision log.
 
@@ -24,11 +24,11 @@ This repository is one of four that form a coherent, version-controlled document
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 
-This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository — a small utility library, say — it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
+This separation into dedicated repositories is intended for application software that spans multiple code repositories, and potentially multiple teams, where the requirements, decisions, designs, and plans are shared concerns that sit above any single codebase. For a standalone code repository – a small utility library, say – it is better to fold these artifacts and skills directly into that repository, rather than maintain them separately.
 
 ## Contents
 
-- [**Plans**](./plans/): The implementation plans, one directory per plan. Each holds its `README.md` (the plan) plus any supporting artifacts — sequence diagrams, data, mock-ups.
+- [**Plans**](./plans/): The implementation plans, one directory per plan. Each holds its `README.md` (the plan) plus any supporting artifacts – sequence diagrams, data, mock-ups.
 
   - The [`INDEX`](./plans/INDEX.md) lists plans in the order they were implemented.
 

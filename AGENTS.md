@@ -1,10 +1,10 @@
-# [Project Name] — Implementation Plans
+# [Project Name] – Implementation Plans
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and [agent skills](./.agents/skills/) definitions, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Project overview
 
-This repository holds the implementation plans for [Project Name] — _when, and in what order_, changes to the system are implemented. It is a development planning tool, implemented in a version control system. It is documentation, not code. There's nothing to build, lint, or run.
+This repository holds the implementation plans for [Project Name] – _when, and in what order_, changes to the system are implemented. It is a development planning tool, implemented in a version control system. It is documentation, not code. There's nothing to build, lint, or run.
 
 A **plan** is a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there, which owns the task's live status. This repository tracks the cross-repository decomposition and sequencing, not the moment-to-moment status of individual tasks.
 
@@ -28,7 +28,7 @@ Each plan moves through a defined state machine. The current state is shown in t
 
 - `PLANNED`: The decomposition is complete and open for review. The pull request is marked ready for review and labeled `#planned`, with feedback gathered on its discussion thread. Work has not yet started.
 
-- `IN PROGRESS`: Implementation is underway. Tasks are being delivered through their linked trackers in the code repositories. The pull request carries `#in-progress`. The discussion thread stays open — feedback may continue as the plan evolves.
+- `IN PROGRESS`: Implementation is underway. Tasks are being delivered through their linked trackers in the code repositories. The pull request carries `#in-progress`. The discussion thread stays open – feedback may continue as the plan evolves.
 
 - `DONE`: Every task has shipped. The plan is merged into `main` and recorded in `plans/INDEX.md` in implementation order.
 
@@ -63,11 +63,11 @@ Transitions not listed above are NOT permitted. A plan MUST NOT skip states (eg.
 
 - Upstream linkage is loose and reference-only. A plan cites the spec proposal(s), RFC(s), and design doc(s) it implements via its `References` section. A plan is its own unit and need not map 1:1 to any upstream artifact.
 
-- A plan PR carries exactly one lifecycle label — `#planned`, `#in-progress`, `#done`, or `#abandoned`. A pull request is opened initially as a draft while the document is refined.
+- A plan PR carries exactly one lifecycle label – `#planned`, `#in-progress`, `#done`, or `#abandoned`. A pull request is opened initially as a draft while the document is refined.
 
-- Every plan PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all feedback. The thread stays open for the life of the plan — through `DRAFT`, `PLANNED`, and `IN PROGRESS` — and is closed when the PR is merged.
+- Every plan PR MUST have an associated discussion thread, opened with the PR (even as a draft) and used for all feedback. The thread stays open for the life of the plan – through `DRAFT`, `PLANNED`, and `IN PROGRESS` – and is closed when the PR is merged.
 
-- A plan MUST NOT be merged into `main` until it is decided — either done or abandoned.
+- A plan MUST NOT be merged into `main` until it is decided – either done or abandoned.
 
 - Plan branches MUST be squash-merged to `main`, with the squash commit message `plan: <description> - DONE|ABANDONED`.
 
