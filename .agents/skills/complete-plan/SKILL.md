@@ -4,11 +4,11 @@ description: Mark an in-progress plan as done once every task has shipped — se
 license: MIT
 ---
 
-# Complete plan
+# `/complete-plan`
 
 Use this skill to move a plan from `IN PROGRESS` to `DONE`, once every task in the plan has shipped. This is the point at which the plan's pull request is squash-merged into `main`, and the plan is appended to [`plans/INDEX.md`](../../../plans/INDEX.md) in implementation order.
 
-Do NOT use this skill for any other transition — see [`abandon-plan`](../abandon-plan/SKILL.md) to drop a plan, or [`draft-plan`](../draft-plan/SKILL.md), [`finalize-plan`](../finalize-plan/SKILL.md), [`implement-plan`](../implement-plan/SKILL.md).
+Do NOT use this skill for any other transition — see [`/abandon-plan`](../abandon-plan/SKILL.md) to drop a plan, or [`/draft-plan`](../draft-plan/SKILL.md), [`/finalize-plan`](../finalize-plan/SKILL.md), [`/implement-plan`](../implement-plan/SKILL.md).
 
 ## Transition gates: `IN PROGRESS` → `DONE`
 

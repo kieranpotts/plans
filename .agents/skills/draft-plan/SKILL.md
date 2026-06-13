@@ -4,13 +4,13 @@ description: Scaffold a new implementation plan and open it as a draft pull requ
 license: MIT
 ---
 
-# Draft plan
+# `/draft-plan`
 
 Use this skill to start a new implementation plan: scaffold the branch and document from the template, then open a draft pull request with the artifacts in place, ready for the user to complete.
 
 This is the entry point to the plan lifecycle. The PR stays a draft while the user writes it.
 
-Do NOT use this skill to advance an existing plan. See [`finalize-plan`](../finalize-plan/SKILL.md), [`implement-plan`](../implement-plan/SKILL.md), [`complete-plan`](../complete-plan/SKILL.md), or [`abandon-plan`](../abandon-plan/SKILL.md).
+Do NOT use this skill to advance an existing plan. See [`/finalize-plan`](../finalize-plan/SKILL.md), [`/implement-plan`](../implement-plan/SKILL.md), [`/complete-plan`](../complete-plan/SKILL.md), or [`/abandon-plan`](../abandon-plan/SKILL.md).
 
 ## Instructions
 

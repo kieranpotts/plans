@@ -4,11 +4,11 @@ description: Mark a draft implementation plan ready for review once its decompos
 license: MIT
 ---
 
-# Finalize plan
+# `/finalize-plan`
 
 Use this skill to move a plan from `DRAFT` to `PLANNED`: confirm the breakdown and dependency graph are complete, apply the `#planned` label, and remove the pull request's draft status so the plan can be reviewed.
 
-Do NOT use this skill to scaffold a new plan (use [`draft-plan`](../draft-plan/SKILL.md)) or to advance an agreed plan (use [`implement-plan`](../implement-plan/SKILL.md), [`complete-plan`](../complete-plan/SKILL.md), or [`abandon-plan`](../abandon-plan/SKILL.md)).
+Do NOT use this skill to scaffold a new plan (use [`/draft-plan`](../draft-plan/SKILL.md)) or to advance an agreed plan (use [`/implement-plan`](../implement-plan/SKILL.md), [`/complete-plan`](../complete-plan/SKILL.md), or [`/abandon-plan`](../abandon-plan/SKILL.md)).
 
 ## Transition gates: `DRAFT` → `PLANNED`
 

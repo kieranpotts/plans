@@ -1,4 +1,4 @@
-# Finalize plan
+# `/finalize-plan`
 
 Moves a plan from `DRAFT` to `PLANNED` — the breakdown is complete and open for review.
 
@@ -20,4 +20,4 @@ Run it on a `plan/<slug>` branch, or from `main` to pick from the open draft PRs
 
 ## Notes
 
-Will not proceed unless the breakdown and dependency graph are complete and free of placeholder text. Next step once work begins: [`implement-plan`](../implement-plan/README.md).
+Will not proceed unless the breakdown and dependency graph are complete and free of placeholder text. Next step once work begins: [`/implement-plan`](../implement-plan/README.md).

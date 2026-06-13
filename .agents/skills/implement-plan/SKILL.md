@@ -4,11 +4,11 @@ description: Mark a plan as in progress once implementation has started. Use whe
 license: MIT
 ---
 
-# Start implementation of plan
+# `/implement-plan`
 
 Use this skill to move a plan from `PLANNED` to `IN PROGRESS`, once implementation of the plan has begun. The pull request stays open through implementation — it is not merged here.
 
-Do NOT use this skill for any other transition — see [`draft-plan`](../draft-plan/SKILL.md), [`finalize-plan`](../finalize-plan/SKILL.md), [`complete-plan`](../complete-plan/SKILL.md), or [`abandon-plan`](../abandon-plan/SKILL.md).
+Do NOT use this skill for any other transition — see [`/draft-plan`](../draft-plan/SKILL.md), [`/finalize-plan`](../finalize-plan/SKILL.md), [`/complete-plan`](../complete-plan/SKILL.md), or [`/abandon-plan`](../abandon-plan/SKILL.md).
 
 ## Transition gates: `PLANNED` → `IN PROGRESS`
 

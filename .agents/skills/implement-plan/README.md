@@ -1,4 +1,4 @@
-# Start implementation of plan
+# `/implement-plan`
 
 Moves a plan from `PLANNED` to `IN PROGRESS` — implementation has begun.
 
@@ -21,4 +21,4 @@ Run it on a `plan/<slug>` branch, or from `main` to pick from the `#planned` PRs
 
 ## Notes
 
-Live task status is not tracked here — it lives in each task's linked tracker. Next step when every task ships: [`complete-plan`](../complete-plan/README.md). To drop the plan instead: [`abandon-plan`](../abandon-plan/README.md).
+Live task status is not tracked here — it lives in each task's linked tracker. Next step when every task ships: [`/complete-plan`](../complete-plan/README.md). To drop the plan instead: [`/abandon-plan`](../abandon-plan/README.md).

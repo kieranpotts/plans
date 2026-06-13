@@ -1,4 +1,4 @@
-# Abandon plan
+# `/abandon-plan`
 
 Drops a plan before completion, from `PLANNED` or `IN PROGRESS` to `ABANDONED`, and merges it as a record.
 

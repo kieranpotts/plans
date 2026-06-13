@@ -1,4 +1,4 @@
-# Complete plan
+# `/complete-plan`
 
 Moves a plan from `IN PROGRESS` to `DONE`, and merges it.
 
@@ -21,4 +21,4 @@ Run it on a `plan/<slug>` branch, or from `main` to pick from the `#in-progress`
 
 ## Notes
 
-Will not complete a plan whose tasks have not all shipped. Does not merge without your explicit go-ahead. To drop a plan instead of completing it: [`abandon-plan`](../abandon-plan/README.md).
+Will not complete a plan whose tasks have not all shipped. Does not merge without your explicit go-ahead. To drop a plan instead of completing it: [`/abandon-plan`](../abandon-plan/README.md).

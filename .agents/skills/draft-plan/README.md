@@ -1,4 +1,4 @@
-# Draft plan
+# `/draft-plan`
 
 Scaffolds a new implementation plan and opens it as a draft pull request.
 
@@ -30,4 +30,4 @@ Optionally describe the plan:
 
 - `/draft-plan <Description>`: Scaffolds immediately based on your description.
 
-You complete the `Summary`, `Scope`, `Approach`, task breakdown, and dependency graph yourself. Once done, use [`finalize-plan`](../finalize-plan/README.md) to mark the PR as ready for review.
+You complete the `Summary`, `Scope`, `Approach`, task breakdown, and dependency graph yourself. Once done, use [`/finalize-plan`](../finalize-plan/README.md) to mark the PR as ready for review.
