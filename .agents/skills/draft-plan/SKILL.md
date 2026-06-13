@@ -2,6 +2,8 @@
 name: draft-plan
 description: Scaffold a new implementation plan and open it as a draft pull request. Use when the user wants to plan the implementation of a body of work, or says "draft a plan", "new plan", "start a plan", or "plan this".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/draft-plan`

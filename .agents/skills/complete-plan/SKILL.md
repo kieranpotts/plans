@@ -2,6 +2,8 @@
 name: complete-plan
 description: Mark an in-progress plan as done once every task has shipped — set its status, label the PR, squash-merge it, and append it to the index. Use when the user says "complete this plan", "the plan is done", "all tasks shipped", or "finish the plan".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/complete-plan`

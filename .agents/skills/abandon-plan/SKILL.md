@@ -2,6 +2,8 @@
 name: abandon-plan
 description: Drop a plan before completion — record the decision, label the PR, squash-merge it, and append it to the index. Use when the user says "abandon this plan", "drop the plan", "cancel the plan", or "we're not doing this".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/abandon-plan`

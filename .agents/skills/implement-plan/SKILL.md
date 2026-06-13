@@ -2,6 +2,8 @@
 name: implement-plan
 description: Mark a plan as in progress once implementation has started. Use when the user says "start this plan", "work has begun", "the plan is underway", or "move the plan to in progress".
 license: MIT
+metadata:
+  interactive: yes
 ---
 
 # `/implement-plan`
