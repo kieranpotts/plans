@@ -1,6 +1,6 @@
 # `/draft-plan`
 
-Scaffolds a new implementation plan and opens it as a draft pull request.
+Scaffolds a new delivery plan and opens it as a draft pull request.
 
 ## What it does
 

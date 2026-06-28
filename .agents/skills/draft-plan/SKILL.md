@@ -1,6 +1,6 @@
 ---
 name: draft-plan
-description: Scaffold a new implementation plan and open it as a draft pull request. Use when the user wants to plan the implementation of a body of work, or says "draft a plan", "new plan", "start a plan", or "plan this".
+description: Scaffold a new delivery plan and open it as a draft pull request. Use when the user wants to plan the implementation of a body of work, or says "draft a plan", "new plan", "start a plan", or "plan this".
 license: MIT
 metadata:
   interactive: yes
@@ -8,7 +8,7 @@ metadata:
 
 # `/draft-plan`
 
-Use this skill to start a new implementation plan: scaffold the branch and document from the template, then open a draft pull request with the artifacts in place, ready for the user to complete.
+Use this skill to start a new delivery plan: scaffold the branch and document from the template, then open a draft pull request with the artifacts in place, ready for the user to complete.
 
 This is the entry point to the plan lifecycle. The PR stays a draft while the user writes it.
 

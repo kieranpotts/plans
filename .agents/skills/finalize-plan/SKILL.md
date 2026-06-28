@@ -1,6 +1,6 @@
 ---
 name: finalize-plan
-description: Mark a draft implementation plan ready for review once its decomposition is complete. Use when the user says "this plan is ready", "mark the plan ready", "the breakdown is done", or "take the plan out of draft".
+description: Mark a draft delivery plan ready for review once its decomposition is complete. Use when the user says "this plan is ready", "mark the plan ready", "the breakdown is done", or "take the plan out of draft".
 license: MIT
 metadata:
   interactive: yes

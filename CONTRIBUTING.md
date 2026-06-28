@@ -4,7 +4,7 @@
 
 These contributing guidelines provide step-by-step instructions for planning the implementation of changes to the system. The focus here is on the mechanics and guardrails of the planning process. See the [documentation](./docs/) for more general guidance on how to get the most out of it.
 
-Implementation plans are produced and maintained by the technical teams. Anyone with write access to this repository may draft a plan.
+Delivery plans are produced and maintained by the technical teams. Anyone with write access to this repository may draft a plan.
 
 > [!NOTE]
 > The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).

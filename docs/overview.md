@@ -1,6 +1,6 @@
 # Overview
 
-An implementation plan is a version-controlled answer to a single question: given an agreed requirement, a settled technical decision, and a target design, _what concrete work, in what order, across which repositories_, gets us from the present system to the intended one?
+A delivery plan is a version-controlled answer to a single question: given an agreed requirement, a settled technical decision, and a target design, _what concrete work, in what order, across which repositories_, gets us from the present system to the intended one?
 
 This repository is the fourth stage in a chain of version-controlled documentation. The process flows: specify the requirement → RFC any architecturally-significant decisions → design the solution → then plan the implementation.
 

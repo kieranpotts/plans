@@ -1,8 +1,8 @@
-# 🗺️ Implementation Plans
+# 🗺️ Delivery Plans
 
 **A template for planning the implementation of changes across a software system, via version control.**
 
-This repository is the home of the implementation plans for [Project Name]. It is a development planning system, kept under version control.
+This repository is the home of the delivery plans for [Project Name]. It is a development planning system, kept under version control.
 
 This repository answers _when, and in what order_, work gets done. Given the upstream artifacts, it plans the implementation: _what concrete work, in what order, across which repositories_, gets us from the present system to the intended one?
 
@@ -20,7 +20,7 @@ This repository is one of four that form a coherent, version-controlled document
 
 - [**📐 Design Docs**](https://github.com/kieranpotts/design): Describe _what the system looks like_, its as-is architecture.
 
-- **🗺️ Implementation Plans**: Capture _when, and in what order_, the work gets done (this repository).
+- **🗺️ Delivery Plans**: Capture _when, and in what order_, the work gets done (this repository).
 
 The [**skills**](https://github.com/kieranpotts/skills) collection provides an agentic workflow that operates across all four.
 
@@ -28,7 +28,7 @@ This separation into dedicated repositories is intended for application software
 
 ## Contents
 
-- [**Plans**](./plans/): The implementation plans, one directory per plan. Each holds its `README.md` (the plan) plus any supporting artifacts – sequence diagrams, data, mock-ups.
+- [**Plans**](./plans/): The delivery plans, one directory per plan. Each holds its `README.md` (the plan) plus any supporting artifacts – sequence diagrams, data, mock-ups.
 
   - The [`INDEX`](./plans/INDEX.md) lists plans in the order they were implemented.
 

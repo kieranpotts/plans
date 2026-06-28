@@ -1,6 +1,6 @@
 # Plans
 
-This directory holds the implementation plans, one directory per plan. A plan is a self-contained body of work with a goal, a scope, and a decomposition into tasks that span one or more code repositories.
+This directory holds the delivery plans, one directory per plan. A plan is a self-contained body of work with a goal, a scope, and a decomposition into tasks that span one or more code repositories.
 
 ## Layout
 
@@ -10,7 +10,7 @@ Each plan is a directory:
 plans/
 ├── INDEX.md          # The catalog of merged plans, in implementation order.
 ├── TEMPLATE.md       # The starting point for a new plan.
-└── <slug>/           # The root directory for one discrete implementation plan.
+└── <slug>/           # The root directory for one discrete delivery plan.
     ├── README.md     # The main plan document.
     └── …             # Sequence diagrams, data, mock-ups, or other artifacts.
 ```

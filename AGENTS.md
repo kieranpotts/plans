@@ -1,10 +1,10 @@
-# [Project Name] – Implementation Plans
+# [Project Name] – Delivery Plans
 
 The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD NOT, OPTIONAL, and MAY, in the context of this document and [agent skills](./.agents/skills/) definitions, are to be interpreted as described in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 
 ## Project overview
 
-This repository holds the implementation plans for [Project Name] – _when, and in what order_, changes to the system are implemented. It is a development planning tool, implemented in a version control system. It is documentation, not code. There's nothing to build, lint, or run.
+This repository holds the delivery plans for [Project Name] – _when, and in what order_, changes to the system are implemented. It is a development planning tool, implemented in a version control system. It is documentation, not code. There's nothing to build, lint, or run.
 
 A **plan** is a self-contained body of work with a goal, a scope, and a decomposition into tasks. Each task lives in exactly one code repository and links out to the concrete issue or pull request there, which owns the task's live status. This repository tracks the cross-repository decomposition and sequencing, not the moment-to-moment status of individual tasks.
 
@@ -12,7 +12,7 @@ Unlike the sibling SRS and design repositories, the artifacts here describe _fut
 
 ## Repository structure
 
-- `plans/`: The implementation plans, one directory per plan (`plans/<slug>/`), each holding its `README.md` and any supporting artifacts.
+- `plans/`: The delivery plans, one directory per plan (`plans/<slug>/`), each holding its `README.md` and any supporting artifacts.
 
   - `plans/INDEX.md` lists plans in the order they were implemented.
 
