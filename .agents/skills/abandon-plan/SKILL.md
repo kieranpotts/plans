@@ -8,6 +8,8 @@ metadata:
 
 # `/abandon-plan`
 
+<!-- TODO: Review these skills against the latest template. -->
+
 Use this skill to abandon a plan from either `PLANNED` or `IN PROGRESS`, when it is dropped before completion. The plan is merged into `main` as a permanent record of the decision and appended to [`plans/INDEX.md`](../../../plans/INDEX.md).
 
 Do NOT use this skill to complete a plan whose tasks all shipped (use [`/complete-plan`](../complete-plan/SKILL.md)), or for any other transition — see [`/draft-plan`](../draft-plan/SKILL.md), [`/finalize-plan`](../finalize-plan/SKILL.md), [`/implement-plan`](../implement-plan/SKILL.md).
