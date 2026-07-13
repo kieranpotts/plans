@@ -1,6 +1,7 @@
 # `/abandon-plan`
 
-Drops a plan before completion, from `PLANNED` or `IN PROGRESS` to `ABANDONED`, and merges it as a record.
+Drops a plan before completion, from `PLANNED` or `IN PROGRESS` to `ABANDONED`,
+and merges it as a record.
 
 ## What it does
 
@@ -21,4 +22,6 @@ Run it on a `plan/<slug>` branch, or from `main` to pick from the open plan PRs.
 
 ## Notes
 
-An abandoned plan is preserved permanently — its value is the record of why it was dropped. A plan still being written (never agreed) should have its PR closed instead of being recorded as abandoned.
+An abandoned plan is preserved permanently — its value is the record of why it
+was dropped. A plan still being written (never agreed) should have its PR closed
+instead of being recorded as abandoned.

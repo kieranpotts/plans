@@ -13,7 +13,8 @@ DRAFT | PLANNED | IN PROGRESS | DONE | ABANDONED
 
 ## References
 
-_Link out to upstream artifacts this plan implements. Cite by URL or index number._
+_Link out to upstream artifacts this plan implements. Cite by URL or index
+number._
 
 - Implements: SRS #NNNN, ...
 - Informed by: RFC #NNNN, ...
@@ -22,19 +23,27 @@ _Link out to upstream artifacts this plan implements. Cite by URL or index numbe
 
 ## Summary
 
-_A short, single-paragraph statement of what this plan delivers and why it is being undertaken now. What does "done" look like?_
+_A short, single-paragraph statement of what this plan delivers and why it is
+being undertaken now. What does "done" look like?_
 
 ## Scope
 
-_What is included in this plan, and — just as important — what is explicitly out of scope. Name the boundaries so the breakdown below can be judged complete._
+_What is included in this plan, and — just as important — what is explicitly out
+of scope. Name the boundaries so the breakdown below can be judged complete._
 
 ## Approach
 
-_A short narrative of the implementation strategy: the order of attack, the sequencing rationale, any phasing (eg. behind a feature flag, staged rollout), and the key risks or unknowns that shape the plan. This is the prose that the task tree below makes concrete._
+_A short narrative of the implementation strategy: the order of attack, the
+sequencing rationale, any phasing (eg. behind a feature flag, staged rollout),
+and the key risks or unknowns that shape the plan. This is the prose that the
+task tree below makes concrete._
 
 ## Task breakdown
 
-_Decompose the plan into units of work ("tasks") that target exactly one code repository. Link out to concrete issues and/or PRs – these track the live status of each task's implementation. Keep `Depends on` accurate – it is what the dependency graph, below, is built from._
+_Decompose the plan into units of work ("tasks") that target exactly one code
+repository. Link out to concrete issues and/or PRs – these track the live status
+of each task's implementation. Keep `Depends on` accurate – it is what the
+dependency graph, below, is built from._
 
 | ID  | Task | Repo | Tracker | Depends on |
 | --- | ---- | ---- | ------- | ---------- |
@@ -55,4 +64,5 @@ graph LR
 
 ## Open questions
 
-_Unresolved questions, decisions deferred, or items parked as out of scope that will need a plan of their own later._
+_Unresolved questions, decisions deferred, or items parked as out of scope that
+will need a plan of their own later._
