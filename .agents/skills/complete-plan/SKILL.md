@@ -10,7 +10,7 @@ metadata:
   interactive: yes
 ---
 
-# `/complete-plan`
+# Complete plan
 
 Use this skill to move a plan from `IN PROGRESS` to `DONE`, once every task in
 the plan has shipped. This is the point at which the plan's pull request is

@@ -1,4 +1,4 @@
-# `/draft-plan`
+# Draft plan
 
 Scaffolds a new delivery plan and opens it as a draft pull request.
 
@@ -16,15 +16,9 @@ Scaffolds a new delivery plan and opens it as a draft pull request.
 
 ## How to invoke
 
-```
-/draft-plan
-```
+> Draft plan
 
-Optionally describe the plan:
-
-```
-/draft-plan checkout hardening
-```
+> Draft checkout hardening.
 
 ## Examples
 

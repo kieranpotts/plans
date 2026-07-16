@@ -1,4 +1,4 @@
-# `/implement-plan`
+# Implement plan
 
 Moves a plan from `PLANNED` to `IN PROGRESS` — implementation has begun.
 
@@ -15,9 +15,7 @@ dependency graph may continue to evolve as the work unfolds.
 
 ## How to invoke
 
-```
-/implement-plan
-```
+> Implement plan
 
 Run it on a `plan/<slug>` branch, or from `main` to pick from the `#planned`
 PRs.

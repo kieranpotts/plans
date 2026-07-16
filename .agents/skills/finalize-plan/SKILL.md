@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# `/finalize-plan`
+# Finalize plan
 
 Use this skill to move a plan from `DRAFT` to `PLANNED`: confirm the breakdown
 and dependency graph are complete, apply the `#planned` label, and remove the

@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# `/implement-plan`
+# Implement plan
 
 Use this skill to move a plan from `PLANNED` to `IN PROGRESS`, once
 implementation of the plan has begun. The pull request stays open through

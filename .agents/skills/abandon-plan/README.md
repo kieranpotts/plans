@@ -1,4 +1,4 @@
-# `/abandon-plan`
+# Abandon plan
 
 Drops a plan before completion, from `PLANNED` or `IN PROGRESS` to `ABANDONED`,
 and merges it as a record.
@@ -14,9 +14,7 @@ and merges it as a record.
 
 ## How to invoke
 
-```
-/abandon-plan
-```
+> Abandon plan
 
 Run it on a `plan/<slug>` branch, or from `main` to pick from the open plan PRs.
 

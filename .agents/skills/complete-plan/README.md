@@ -1,4 +1,4 @@
-# `/complete-plan`
+# Complete plan
 
 Moves a plan from `IN PROGRESS` to `DONE`, and merges it.
 
@@ -13,9 +13,7 @@ Moves a plan from `IN PROGRESS` to `DONE`, and merges it.
 
 ## How to invoke
 
-```
-/complete-plan
-```
+> Complete plan
 
 Run it on a `plan/<slug>` branch, or from `main` to pick from the `#in-progress`
 PRs.

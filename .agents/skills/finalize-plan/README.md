@@ -1,4 +1,4 @@
-# `/finalize-plan`
+# Finalize plan
 
 Moves a plan from `DRAFT` to `PLANNED` — the breakdown is complete and open for
 review.
@@ -16,9 +16,7 @@ review.
 
 ## How to invoke
 
-```
-/finalize-plan
-```
+> Finalize plan
 
 Run it on a `plan/<slug>` branch, or from `main` to pick from the open draft
 PRs.

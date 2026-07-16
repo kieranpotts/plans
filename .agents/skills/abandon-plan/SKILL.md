@@ -10,7 +10,7 @@ metadata:
   interactive: yes
 ---
 
-# `/abandon-plan`
+# Abandon plan
 
 <!-- TODO: Review these skills against the latest template. -->
 

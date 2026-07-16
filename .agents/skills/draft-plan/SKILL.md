@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# `/draft-plan`
+# Draft plan
 
 Use this skill to start a new delivery plan: scaffold the branch and document
 from the template, then open a draft pull request with the artifacts in place,
