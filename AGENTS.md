@@ -24,7 +24,7 @@ abandoned. The plan's git history is its record.
 
 ## Project structure
 
-- **`plans/`**:
+- **`plans/`:**
   The delivery plans, one directory per plan (`plans/<slug>/`), each holding its
   `README.md` and any supporting artifacts.
 
@@ -32,7 +32,7 @@ abandoned. The plan's git history is its record.
 
   - **`plans/TEMPLATE.md`** is the starting point for a new plan.
 
-- **`docs/`**:
+- **`docs/`:**
   General guidelines for humans to get the most out of the planning process.
 
 ## Plan lifecycle
@@ -41,25 +41,25 @@ Each plan moves through a defined state machine. The current state is shown in
 the plan document's `Status` field, and tracked via a lifecycle label on its
 pull request.
 
-- **`DRAFT`**:
+- **`DRAFT`:**
   The plan is being written. The pull request is open as a draft. Not yet ready
   for review.
 
-- **`PLANNED`**:
+- **`PLANNED`:**
   The decomposition is complete and open for review. The pull request is marked
   ready for review and labeled `#planned`, with feedback gathered on its
   discussion thread. Work has not yet started.
 
-- **`IN PROGRESS`**:
+- **`IN PROGRESS`:**
   Implementation is underway. Tasks are being delivered through their linked
   trackers in the code repositories. The pull request carries `#in-progress`.
   The discussion thread stays open – feedback may continue as the plan evolves.
 
-- **`DONE`**:
+- **`DONE`:**
   Every task has shipped. The plan is merged into `main` and recorded in
   `plans/INDEX.md` in implementation order.
 
-- **`ABANDONED`**:
+- **`ABANDONED`:**
   The plan is dropped before completion. It is merged into `main` as a permanent
   record of the decision, recorded in `plans/INDEX.md`.
 
