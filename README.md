@@ -1,7 +1,7 @@
 # 🗺️ Delivery Plans
 
-**A template for planning the implementation of changes across a software
-system, via version control.**
+**A template for planning the implementation of changes** across a software
+system, via version control.
 
 This repository is the home of the delivery plans for [Project Name]. It is a
 development planning system, kept under version control.

@@ -3,9 +3,11 @@
 <!-- Agents MUST read ./AGENTS.md. This document is for humans. -->
 
 These contributing guidelines provide step-by-step instructions for planning the
-implementation of changes to the system. The focus here is on the mechanics and
-guardrails of the planning process. See the [documentation](./docs/) for more
-general guidance on how to get the most out of it.
+implementation of changes to the system.
+
+The focus here is on the mechanics and guardrails of the planning process. See
+the [documentation](./docs/) for more general guidance on how to get the most
+out of it.
 
 Delivery plans are produced and maintained by the technical teams. Anyone with
 write access to this repository may draft a plan.
