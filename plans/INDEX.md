@@ -10,5 +10,5 @@ at merge.
 
 | Title | Status | Target repositories | Settled date |
 | --- | --- | --- | --- |
-| [Checkout hardening](./checkout-hardening/) | Done | storefront-api, storefront-web | 2024-09-30 |
-| [Multi-currency catalog](./multi-currency-catalog/) | Abandoned | storefront-api | 2024-11-15 |
+| [Checkout hardening](./acme-checkout-hardening/) | Done | acme/storefront-api, acme/storefront-web | 2026-02-20 |
+| [Multi-currency catalog](./acme-multi-currency-catalog/) | Abandoned | acme/storefront-api | 2026-04-18 |
