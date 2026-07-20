@@ -19,7 +19,7 @@ plans/
 
 A plan's directory holds its `README.md` – the plan itself, copied from
 [`TEMPLATE.md`](./TEMPLATE.md) – plus any supporting artifacts. The slug is the
-plan's permanent identity – the directory's are never renamed.
+plan's permanent identity – the directories are never renamed.
 
 ## How it works
 

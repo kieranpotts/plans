@@ -29,7 +29,7 @@ map one-to-one to a single requirement or decision, and completing a plan does
 not mechanically flip any upstream artifact's state.
 
 In this repository, the contents of the `main` trunk capture plans that have
-been implemented or abandoned. Temporary branches and PR are used to manage
+been implemented or abandoned. Temporary branches and PRs are used to manage
 future and in-flight work. While a plan is open, it is a mutable working
 document. Tasks are added, dropped, and re-sequenced as reality unfolds. Once
 the plan is done or abandoned, it settles and is merged to `main` as a permanent
