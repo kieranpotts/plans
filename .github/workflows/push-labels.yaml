@@ -1,12 +1,7 @@
 #
 # Push changes made to .github/labels.json to rebuild
-# this repository's labels. This keeps my GitHub labels
+# this repository's labels. This keeps the GitHub labels
 # configuration defined in code.
-#
-# This repository defines its own labels rather than
-# synchronizing with the kieranpotts/.github repository,
-# because it needs plan-lifecycle labels specific to the
-# planning workflow.
 #
 # https://github.com/EndBug/label-sync
 #
