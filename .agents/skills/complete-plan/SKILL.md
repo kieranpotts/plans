@@ -19,7 +19,7 @@ squash-merged into `main`, and the plan is appended to
 
 Do NOT use this skill for any other transition — see
 [`/abandon-plan`](../abandon-plan/SKILL.md) to drop a plan, or
-[`/draft-plan`](../draft-plan/SKILL.md),
+[`/scaffold-plan`](../scaffold-plan/SKILL.md),
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/implement-plan`](../implement-plan/SKILL.md).
 

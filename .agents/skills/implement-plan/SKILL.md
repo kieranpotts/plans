@@ -16,7 +16,7 @@ implementation of the plan has begun. The pull request stays open through
 implementation — it is not merged here.
 
 Do NOT use this skill for any other transition — see
-[`/draft-plan`](../draft-plan/SKILL.md),
+[`/scaffold-plan`](../scaffold-plan/SKILL.md),
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/complete-plan`](../complete-plan/SKILL.md), or
 [`/abandon-plan`](../abandon-plan/SKILL.md).

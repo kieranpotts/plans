@@ -1,5 +1,5 @@
 ---
-name: draft-plan
+name: scaffold-plan
 description: >-
   Scaffold a new delivery plan and open it as a draft pull request. Use when
   the user wants to plan the implementation of a body of work, or says "draft
@@ -9,7 +9,7 @@ metadata:
   interactive: yes
 ---
 
-# Draft plan
+# Scaffold plan
 
 Use this skill to start a new delivery plan: scaffold the branch and document
 from the template, then open a draft pull request with the artifacts in place,

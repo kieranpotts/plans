@@ -20,7 +20,7 @@ record of the decision and appended to
 
 Do NOT use this skill to complete a plan whose tasks all shipped (use
 [`/complete-plan`](../complete-plan/SKILL.md)), or for any other transition —
-see [`/draft-plan`](../draft-plan/SKILL.md),
+see [`/scaffold-plan`](../scaffold-plan/SKILL.md),
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/implement-plan`](../implement-plan/SKILL.md).
 

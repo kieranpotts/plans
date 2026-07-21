@@ -2,8 +2,9 @@
 
 Skills available to agents in this repository are:
 
-- **[Draft plan](./draft-plan/):**
+- **[Scaffold plan](./scaffold-plan/):**
   Scaffolds a new draft plan, ready for the user to complete.
+  Sets the status to `DRAFT`.
 
 - **[Finalize plan](./finalize-plan/):**
   Handles the `DRAFT` → `PLANNED` transition.

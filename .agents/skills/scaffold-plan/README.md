@@ -1,4 +1,4 @@
-# Draft plan
+# Scaffold plan
 
 Scaffolds a new delivery plan and opens it as a draft pull request.
 
@@ -16,16 +16,17 @@ Scaffolds a new delivery plan and opens it as a draft pull request.
 
 ## How to invoke
 
-> Draft plan
+> Scaffold plan
 
 > Draft checkout hardening.
 
 ## Examples
 
-- `/draft-plan`: Agent prompts you for the goal, scope, and target repositories,
-  then scaffolds the branch, document, and draft PR.
+- `/scaffold-plan`: Agent prompts you for the goal, scope, and target
+  repositories, then scaffolds the branch, document, and draft PR.
 
-- `/draft-plan <Description>`: Scaffolds immediately based on your description.
+- `/scaffold-plan <Description>`: Scaffolds immediately based on your
+  description.
 
 You complete the `Summary`, `Scope`, `Approach`, task breakdown, and dependency
 graph yourself. Once done, use [`/finalize-plan`](../finalize-plan/README.md) to
