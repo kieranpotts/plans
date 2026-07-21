@@ -9,6 +9,3 @@ guide](../CONTRIBUTING.md).
 
 - [**Best practices**](./best-practices.md): How to scope a plan and write a
   good task breakdown.
-
-- [**Development**](./development.md): Setting up the repository's local
-  validation hooks.
