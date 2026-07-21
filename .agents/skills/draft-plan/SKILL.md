@@ -1,9 +1,9 @@
 ---
 name: draft-plan
 description: >-
-  Scaffold a new delivery plan and open it as a
-  draft pull request. Use when the user wants to plan the implementation of a body
-  of work, or says "draft a plan", "new plan", "start a plan", or "plan this".
+  Scaffold a new delivery plan and open it as a draft pull request. Use when
+  the user wants to plan the implementation of a body of work, or says "draft
+  a plan", "new plan", "start a plan", or "plan this".
 license: MIT
 metadata:
   interactive: yes
@@ -23,6 +23,14 @@ Do NOT use this skill to advance an existing plan. See
 [`/implement-plan`](../implement-plan/SKILL.md),
 [`/complete-plan`](../complete-plan/SKILL.md), or
 [`/abandon-plan`](../abandon-plan/SKILL.md).
+
+**Input:** The goal, scope, and target repositories of the body of work —
+REQUIRED. Prompt the user if not provided. Any upstream artifacts (spec
+proposals, RFCs, design docs) — OPTIONAL.
+
+**Output:** A `plan/<slug>` branch, with `plans/<slug>/README.md` created from
+the template and its metadata header filled in (`Status: DRAFT`), committed to
+a draft pull request opened against `main`, with a linked discussion thread.
 
 ## Instructions
 

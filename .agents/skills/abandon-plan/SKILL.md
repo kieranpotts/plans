@@ -1,10 +1,9 @@
 ---
 name: abandon-plan
 description: >-
-  Drop a plan before completion — record the
-  decision, label the PR, squash-merge it, and append it to the index. Use when
-  the user says "abandon this plan", "drop the plan", "cancel the plan", or "we're
-  not doing this".
+  Drop a plan before completion — record the decision, label the PR,
+  squash-merge it, and append it to the index. Use when the user says "abandon
+  this plan", "drop the plan", "cancel the plan", or "we're not doing this".
 license: MIT
 metadata:
   interactive: yes
@@ -24,6 +23,15 @@ Do NOT use this skill to complete a plan whose tasks all shipped (use
 see [`/draft-plan`](../draft-plan/SKILL.md),
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/implement-plan`](../implement-plan/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
+(`plan/<slug>`). If on `main`, list the open plan pull requests and ask the
+user to choose. The reason for dropping the plan — REQUIRED, recorded in the
+document if not already present.
+
+**Output:** The plan document updated to `Status: ABANDONED`, the PR carrying
+`#abandoned` and squash-merged into `main`, its discussion thread closed, and
+a new row appended to `plans/INDEX.md`.
 
 ## Transition gates: `PLANNED` | `IN PROGRESS` → `ABANDONED`
 

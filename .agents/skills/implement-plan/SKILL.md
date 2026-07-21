@@ -1,9 +1,9 @@
 ---
 name: implement-plan
 description: >-
-  Mark a plan as in progress once implementation
-  has started. Use when the user says "start this plan", "work has begun", "the
-  plan is underway", or "move the plan to in progress".
+  Mark a plan as in progress once implementation has started. Use when the
+  user says "start this plan", "work has begun", "the plan is underway", or
+  "move the plan to in progress".
 license: MIT
 metadata:
   interactive: yes
@@ -20,6 +20,13 @@ Do NOT use this skill for any other transition — see
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/complete-plan`](../complete-plan/SKILL.md), or
 [`/abandon-plan`](../abandon-plan/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
+(`plan/<slug>`). If on `main`, list the `#planned` pull requests and ask the
+user to choose.
+
+**Output:** The plan document updated to `Status: IN PROGRESS`, the PR
+carrying `#in-progress` in place of `#planned`.
 
 ## Transition gates: `PLANNED` → `IN PROGRESS`
 

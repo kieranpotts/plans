@@ -1,38 +1,32 @@
 # Agent skills
 
-This repository ships a small set of [agent skills](https://agentskills.io/) —
-invoked as slash commands through agentic tools such as Claude Code — that
-automate the plan lifecycle.
+Skills available to agents in this repository are:
 
-There is one skill per state transition: `DRAFT` → `PLANNED` → `IN PROGRESS` →
-`DONE`, plus `PLANNED`/`IN PROGRESS` → `ABANDONED`. Each skill knows the gate
-rules for its own transition and will not proceed until they are met, which
-keeps the process consistent whether a human or an agent is driving it.
+- **[Draft plan](./draft-plan/):**
+  Scaffolds a new draft plan, ready for the user to complete.
 
-The skills are, in lifecycle order:
+- **[Finalize plan](./finalize-plan/):**
+  Handles the `DRAFT` → `PLANNED` transition.
 
-- **[`/draft-plan`](./draft-plan/):** Scaffolds a new draft plan, ready for the
-  user to complete. Sets up the branch and plan document from the template, and
-  opens a draft pull request with an associated discussion thread.
+- **[Implement plan](./implement-plan/):**
+  Handles the `PLANNED` → `IN PROGRESS` transition.
 
-- **[`/finalize-plan`](./finalize-plan/):** `DRAFT` → `PLANNED` — Confirms the
-  breakdown and dependency graph are complete and free of leftover template
-  text. Applies the `#planned` label and takes the pull request out of draft.
+- **[Complete plan](./complete-plan/):**
+  Handles the `IN PROGRESS` → `DONE` transition.
 
-- **[`/implement-plan`](./implement-plan/):** `PLANNED` → `IN PROGRESS` — Marks
-  the plan as underway once implementation has begun. The pull request and
-  discussion thread stay open, and the plan stays mutable.
+- **[Abandon plan](./abandon-plan/):**
+  Handles the `PLANNED`/`IN PROGRESS` → `ABANDONED` transition.
 
-- **[`/complete-plan`](./complete-plan/):** `IN PROGRESS` → `DONE` — Confirms
-  every task has shipped (by following each linked tracker), closes the
-  discussion thread, squash-merges the pull request to `main`, and appends the
-  plan to `plans/INDEX.md`.
+## Compatibility
 
-- **[`/abandon-plan`](./abandon-plan/):** `PLANNED`/`IN PROGRESS` → `ABANDONED`
-  — Drops a plan before completion, recording the reason, closes the discussion
-  thread, and merges it to `main` as a permanent record.
+Agent harnesses are converging on the `./.agents/skills/` path for dynamic
+retrieval of project-specific skills. This is compatible with the Agent Skills
+convention — see https://agentskills.io/.
 
-A typical journey runs `/draft-plan` → the user writes the plan →
-`/finalize-plan` → review → `/implement-plan` → implementation across the code
-repos → `/complete-plan`. If the plan is dropped, `/abandon-plan` retires it
-instead.
+As of May 2026, OpenAI Codex, GitHub Copilot, Gemini CLI, Google Antigravity,
+OpenCode, and Pi will auto-discover these skills, but Claude Code and Cursor
+will not.
+
+You will require workarounds for incompatible harnesses. For Claude Code, you
+can simply symlink this directory from `.claude/skills/`. Cursor requires more
+effort to transpile these skills into its native "rules" format.

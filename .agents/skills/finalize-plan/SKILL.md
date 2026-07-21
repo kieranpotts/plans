@@ -1,9 +1,9 @@
 ---
 name: finalize-plan
 description: >-
-  Mark a draft delivery plan ready for review
-  once its decomposition is complete. Use when the user says "this plan is ready",
-  "mark the plan ready", "the breakdown is done", or "take the plan out of draft".
+  Mark a draft delivery plan ready for review once its decomposition is
+  complete. Use when the user says "this plan is ready", "mark the plan
+  ready", "the breakdown is done", or "take the plan out of draft".
 license: MIT
 metadata:
   interactive: yes
@@ -20,6 +20,13 @@ Do NOT use this skill to scaffold a new plan (use
 [`/implement-plan`](../implement-plan/SKILL.md),
 [`/complete-plan`](../complete-plan/SKILL.md), or
 [`/abandon-plan`](../abandon-plan/SKILL.md)).
+
+**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
+(`plan/<slug>`). If on `main`, list open draft pull requests and ask the user
+to choose.
+
+**Output:** The plan document updated to `Status: PLANNED`, the PR carrying
+`#planned` and taken out of draft.
 
 ## Transition gates: `DRAFT` → `PLANNED`
 

@@ -1,10 +1,10 @@
 ---
 name: complete-plan
 description: >-
-  Mark an in-progress plan as done once every
-  task has shipped — set its status, label the PR, squash-merge it, and append it
-  to the index. Use when the user says "complete this plan", "the plan is done",
-  "all tasks shipped", or "finish the plan".
+  Mark an in-progress plan as done once every task has shipped — set its
+  status, label the PR, squash-merge it, and append it to the index. Use when
+  the user says "complete this plan", "the plan is done", "all tasks
+  shipped", or "finish the plan".
 license: MIT
 metadata:
   interactive: yes
@@ -22,6 +22,14 @@ Do NOT use this skill for any other transition — see
 [`/draft-plan`](../draft-plan/SKILL.md),
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/implement-plan`](../implement-plan/SKILL.md).
+
+**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
+(`plan/<slug>`). If on `main`, list the `#in-progress` pull requests and ask
+the user to choose.
+
+**Output:** The plan document updated to `Status: DONE`, the PR carrying
+`#done` and squash-merged into `main`, its discussion thread closed, and a new
+row appended to `plans/INDEX.md`.
 
 ## Transition gates: `IN PROGRESS` → `DONE`
 
