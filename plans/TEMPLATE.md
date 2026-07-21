@@ -64,5 +64,5 @@ graph LR
 
 ## Open questions
 
-_Unresolved questions, decisions deferred, or items parked as out of scope that
+_Unresolved questions, decisions deferred, or items parked as out-of-scope that
 will need a plan of their own later._

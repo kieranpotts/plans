@@ -30,8 +30,8 @@ request time. Abandoned before completion — see below.
 
 ## Scope
 
-In scope: multi-currency price storage on the catalog service, and a
-currency-aware pricing API. Out of scope: checkout and payment processing,
+In-scope: multi-currency price storage on the catalog service, and a
+currency-aware pricing API. Out-of-scope: checkout and payment processing,
 which would have consumed the new API in a later plan.
 
 ## Approach

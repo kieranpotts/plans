@@ -32,7 +32,7 @@ instead of silently resubmitting.
 
 ## Scope
 
-In scope: idempotency keys on the checkout API, client-side retry/backoff
+In-scope: idempotency keys on the checkout API, client-side retry/backoff
 handling, and cart-state revalidation immediately before charge. Out of
 scope: the payment gateway integration itself, and any change to the
 cart/pricing engine.

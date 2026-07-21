@@ -14,7 +14,7 @@ the lifecycle mechanics, see the [contributing guide](../CONTRIBUTING.md).
   repository. A plan that sprawls across a dozen loosely-related goals is too
   big to sequence meaningfully; split it.
 
-- **Name what is out of scope.** The `Scope` section should be explicit about
+- **Name what is out-of-scope.** The `Scope` section should be explicit about
   boundaries. A clear "not this" is what lets a reader judge whether the
   breakdown is complete.
 
