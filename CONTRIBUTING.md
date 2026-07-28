@@ -127,12 +127,12 @@ and MUST NOT skip states.
 - Upstream linkage SHOULD be loose and reference-only, via the `References`
   section.
 
-- The discussion thread MUST be closed when the PR is merged.
-
 - A plan MUST NOT be merged into `main` until it is decided – done or abandoned.
 
 - Plan branches MUST be squash-merged to `main`, with the squash commit message
   `plan: <description> - DONE|ABANDONED`.
+
+- The discussion thread MUST be closed when the PR is merged.
 
 - The plan directory MUST NOT be renamed; the slug is its identity. No numeric
   ID is assigned.
