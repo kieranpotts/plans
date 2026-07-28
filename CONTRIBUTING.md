@@ -27,24 +27,17 @@ and filter new plans, corresponding labels are applied to open pull requests:
 
 The states are:
 
-- `DRAFT`: The plan is being written. Its pull request is open as a draft – not
-  yet ready for review.
+- `DRAFT`: The plan is being written.
 
-- `PLANNED`: The decomposition is complete and open for review. The pull request
-  is marked ready for review and labeled `#planned`, and its discussion thread
-  is where feedback is gathered. Work has not yet started.
+- `PLANNED`: The decomposition is complete and open for review. Work has not yet
+  started.
 
 - `IN PROGRESS`: Implementation is underway. Tasks are being delivered through
-  their linked trackers in the code repositories. The PR carries `#in-progress`.
-  The plan document MAY continue to evolve – tasks added, dropped, or
-  re-sequenced as reality unfolds – and the discussion thread stays open for
-  feedback throughout.
+  their linked trackers in the code repositories.
 
-- `DONE`: Every task has shipped. The plan is merged into `main` and appended to
-  the [plans index](./plans/INDEX.md), in implementation order.
+- `DONE`: Every task has shipped.
 
-- `ABANDONED`: The plan is dropped before completion. It is merged into `main`
-  as a permanent record of the decision, and appended to the index.
+- `ABANDONED`: The plan is dropped before completion.
 
 ### Allowed state transitions
 
@@ -73,8 +66,8 @@ stateDiagram-v2
 | `PLANNED`     | `ABANDONED`   | Dropped before implementation began. |
 | `IN PROGRESS` | `ABANDONED`   | Dropped before work completed.       |
 
-Transitions not listed are not permitted. A plan MUST NOT move backwards or skip
-states.
+Transitions not listed are not permitted. A plan MUST NOT move backwards
+and MUST NOT skip states.
 
 ## Workflow
 
