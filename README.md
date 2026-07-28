@@ -3,12 +3,11 @@
 **A template for planning the implementation of changes** across a software
 system, via version control.
 
-This repository is the home of the delivery plans for [Project Name]. It is a
-development planning system, kept under version control.
-
-This repository answers _when, and in what order_, work gets done to implement
-a new set of requirements and designs. A plan answers "how do we get from the
-current system to the intended one?"
+This repository is the home of the delivery plans for [Project Name]. This
+repository answers _when, and in what order_, work gets done to implement a new
+set of [requirements](https://github.com/kieranpotts/specs) and
+[designs](https://github.com/kieranpotts/design). A plan answers "how do we
+get from the current system to the intended one?"
 
 A plan is a self-contained body of work with a goal, a scope, and a
 decomposition into tasks. Each task lives in exactly one code repository and
