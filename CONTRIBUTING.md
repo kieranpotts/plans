@@ -21,7 +21,7 @@ in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
 ## Lifecycle
 
 Each plan moves through a defined state machine. The current state is shown in
-the plan document's `Status` field. . In addition, to make it easier to search
+the plan document's `Status` field. In addition, to make it easier to search
 and filter new plans, corresponding labels are applied to open pull requests:
 `#planned`, `#in-progress`, etc.
 
