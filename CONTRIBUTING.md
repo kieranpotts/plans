@@ -39,10 +39,8 @@ The states are:
 
 - `ABANDONED`: The plan is dropped before completion.
 
-### Allowed state transitions
-
-The permitted state transitions are intended to be simple, memorable, and easy
-to enforce through automation and agentic workflows.
+The following state transitions are permitted. They are intended to be simple,
+memorable, and easy to enforce through automation and agentic workflows.
 
 ```mermaid
 stateDiagram-v2
@@ -76,12 +74,9 @@ and MUST NOT skip states.
 > this workflow. It is RECOMMENDED to use agents to drive state transitions.
 > Doing so helps to maintain consistency.
 
-A pull request is the vehicle for a plan. Open it as soon as you are ready to
-start writing.
-
 1.  Branch off `main` as `plan/<slug>`.
 
-2.  Copy [`plans/TEMPLATE.md`](./plans/TEMPLATE.md) to `plans/<slug>/README.md`.
+2.  Copy the [template](./plans/TEMPLATE.md) to `plans/<slug>/README.md`.
     The plan lives in its own directory, so you may add supporting artifacts –
     sequence diagrams, data, mock-ups – alongside the `README.md`. Fill in the
     metadata header and write the `Summary`, `Scope`, and `Approach`.
@@ -94,39 +89,28 @@ start writing.
 4.  Commit and open the pull request as a draft, titled `plan: <description>`,
     where `<description>` is a short prose title written full lowercase.
 
-5.  Open an associated [discussion
-    thread](https://github.com/kieranpotts/plans/discussions) for the plan, and
-    link it from the plan document's `Discussion thread` field and from the pull
-    request. All feedback belongs in the discussion, not on the pull request –
-    this keeps the PR focused on the evolution of the plan document. The thread
-    stays open for the life of the plan, and is closed when the PR is merged.
+5.  Open a [discussion thread](https://github.com/kieranpotts/plans/discussions)
+    and link it from the plan doc's `Discussion thread` field, and from the pull
+    request description.
 
 6.  Keep the pull request in draft while you refine the breakdown. When it is
     complete and agreed, mark the PR ready for review and apply the `#planned`
     label.
 
-7.  When work starts, move the plan to `#in-progress`. The discussion thread
-    stays open – feedback may continue as the plan evolves. Deliver each task
+7.  When work starts, move the plan to `#in-progress`. Deliver each task
     through its linked tracker in the relevant code repository. As reality
     unfolds, keep the breakdown and dependency graph current – add, drop, or
-    re-sequence tasks – but never repurpose a task ID.
+    re-sequence tasks.
 
-8.  When every task has shipped, mark the plan `DONE`, squash-merge it to `main`
-    (which closes the discussion thread), and append it to
-    [`plans/INDEX.md`](./plans/INDEX.md). If the plan is dropped, mark it
-    `ABANDONED` and do the same – the record is preserved either way.
+8.  When every task has shipped, mark the plan `DONE`, squash-merge it to `main`,
+    and append it to the [plans index](./plans/INDEX.md). If the plan is
+    dropped, mark it `ABANDONED` and do the same.
 
 ## Rules
 
-- MUST write in American English.
+- All artifacts MUST be written in American English.
 
-- The `main` trunk is the default branch.
-
-- Each plan is a single, coherent body of work, developed on a `plan/<slug>`
-  branch cut from `main`, with a pull request titled `plan: <description>`. The
-  `<description>` is a short prose title, not the hyphenated branch slug. The
-  slug is used only for the branch name and the plan directory
-  (`plans/<slug>/`).
+- The `main` trunk MUST be treated as the default branch.
 
 - The plan document MUST NOT track the live status of individual tasks. Status
   lives in each task's linked code repository tracker.
@@ -134,31 +118,26 @@ start writing.
 - Each task MUST name exactly one target repository and link to its concrete
   issue or pull request there.
 
-- Task IDs are stable and assigned in creation order, not execution order.
+- Task IDs MUST be stable, assigned in creation order, not execution order.
   Re-sequencing changes the `Depends on` column and the dependency graph, never
   the IDs.
 
 - The `Dependency graph` MUST stay in sync with the `Depends on` column.
 
-- Upstream linkage is loose and reference-only, via the `References` section.
+- Upstream linkage SHOULD be loose and reference-only, via the `References`
+  section.
 
-- A plan PR carries exactly one lifecycle label – `#planned`, `#in-progress`,
-  `#done`, or `#abandoned`. The PR is opened initially as a draft.
-
-- Every plan PR MUST have an associated discussion thread, opened with the PR
-  and used for all feedback. The thread stays open for the life of the plan, and
-  is closed when the PR is merged.
+- The discussion thread MUST be closed when the PR is merged.
 
 - A plan MUST NOT be merged into `main` until it is decided – done or abandoned.
 
 - Plan branches MUST be squash-merged to `main`, with the squash commit message
   `plan: <description> - DONE|ABANDONED`.
 
-- After merge, the plan is appended to [`plans/INDEX.md`](./plans/INDEX.md) in
-  implementation order, in a direct-to-`main` commit. The plan directory is
-  never renamed; the slug is its identity. No numeric ID is assigned.
+- The plan directory MUST NOT be renamed; the slug is its identity. No numeric
+  ID is assigned.
 
-- Never delete a plan document, including abandoned ones.
+- A plan document MUST NOT be deleted, including abandoned ones.
 
 ## Tools
 
