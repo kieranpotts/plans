@@ -12,31 +12,20 @@ out of it.
 Delivery plans are produced and maintained by the technical teams. Anyone with
 write access to this repository may draft a plan.
 
-> [!NOTE]
-> The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD, SHOULD
-> NOT, OPTIONAL, and MAY herein are to be interpreted as described in [IETF RFC
-> 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
+The capitalized words REQUIRED, MUST, MUST NOT, RECOMMENDED, SHOULD,
+SHOULD NOT, OPTIONAL, and MAY herein are to be interpreted as described
+in [IETF RFC 2119](https://www.ietf.org/rfc/rfc2119.txt).
+****
 
-## What a plan is
-
-A plan is a self-contained body of work with a goal, a scope, and a
-decomposition into tasks. A plan is its own unit. It draws on upstream artifacts
-– a requirement in the [SRS](https://github.com/kieranpotts/specs), a decision
-in the [RFC](https://github.com/kieranpotts/rfc) archive, a target in the
-[design docs](https://github.com/kieranpotts/design) – but it need not map
-one-to-one to any of them. Those upstream links are loose and reference-only.
-
-Each task in a plan lives in exactly one code repository and links out to a
-concrete issue or pull request there. That linked tracker owns the task's live
-status – this repository does not track it. What this repository contributes is
-the cross-repository decomposition and sequencing: the breakdown of the plan
-into tasks, and the dependency graph that orders them across as many
-repositories as the plan touches.
-
-## The plan lifecycle
+## Lifecycle
 
 Each plan moves through a defined state machine. The current state is shown in
-the plan document's `Status` field, and mirrored by a label on its pull request.
+the plan document's `Status` field. . In addition, to make it easier to search
+and filter new plans, corresponding labels are applied to open pull requests:
+`#planned`, `#in-progress`, etc.
+
+The states are:
 
 - `DRAFT`: The plan is being written. Its pull request is open as a draft – not
   yet ready for review.
@@ -57,6 +46,11 @@ the plan document's `Status` field, and mirrored by a label on its pull request.
 - `ABANDONED`: The plan is dropped before completion. It is merged into `main`
   as a permanent record of the decision, and appended to the index.
 
+### Allowed state transitions
+
+The permitted state transitions are intended to be simple, memorable, and easy
+to enforce through automation and agentic workflows.
+
 ```mermaid
 stateDiagram-v2
   direction LR
@@ -70,8 +64,6 @@ stateDiagram-v2
   ABANDONED --> [*]
 ```
 
-Only the following transitions are allowed:
-
 | From          | To            | Condition                            |
 | ------------- | ------------- | ------------------------------------ |
 | _(new)_       | `DRAFT`       | Initial scaffolding.                 |
@@ -84,59 +76,52 @@ Only the following transitions are allowed:
 Transitions not listed are not permitted. A plan MUST NOT move backwards or skip
 states.
 
-> [!TIP]
-> This repository includes a suite of [agent skills](./.agents/skills/) that
-> automate the state transitions and enforce the gate rules. It is RECOMMENDED
-> to get AI agents to apply state transitions, by prompting the agents to use
-> these skills, to keep the process consistent.
-
 ## Workflow
 
-### Step 1: Open a pull request and a discussion thread
+> [!TIP]
+> [Agent skills](./.agents/skills/) are available to help automate some steps in
+> this workflow. It is RECOMMENDED to use agents to drive state transitions.
+> Doing so helps to maintain consistency.
 
 A pull request is the vehicle for a plan. Open it as soon as you are ready to
 start writing.
 
-1. Branch off `main` as `plan/<slug>`.
+1.  Branch off `main` as `plan/<slug>`.
 
-2. Copy [`plans/TEMPLATE.md`](./plans/TEMPLATE.md) to `plans/<slug>/README.md`.
-   The plan lives in its own directory, so you may add supporting artifacts –
-   sequence diagrams, data, mock-ups – alongside the `README.md`. Fill in the
-   metadata header and write the `Summary`, `Scope`, and `Approach`.
+2.  Copy [`plans/TEMPLATE.md`](./plans/TEMPLATE.md) to `plans/<slug>/README.md`.
+    The plan lives in its own directory, so you may add supporting artifacts –
+    sequence diagrams, data, mock-ups – alongside the `README.md`. Fill in the
+    metadata header and write the `Summary`, `Scope`, and `Approach`.
 
-3. Build the `Task breakdown`. Each row is one task: a stable ID, a short
-   imperative title, the target repository, the link to its concrete tracker
-   item, and its dependencies. Then draw the `Dependency graph` from the
-   `Depends on` column.
+3.  Build the `Task breakdown`. Each row is one task: a stable ID, a short
+    imperative title, the target repository, the link to its concrete tracker
+    item, and its dependencies. Then draw the `Dependency graph` from the
+    `Depends on` column.
 
-4. Commit and open the pull request as a draft, titled `plan: <description>`,
-   where `<description>` is a short prose title written full lowercase.
+4.  Commit and open the pull request as a draft, titled `plan: <description>`,
+    where `<description>` is a short prose title written full lowercase.
 
-5. Open an associated [discussion
-   thread](https://github.com/kieranpotts/plans/discussions) for the plan, and
-   link it from the plan document's `Discussion thread` field and from the pull
-   request. All feedback belongs in the discussion, not on the pull request –
-   this keeps the PR focused on the evolution of the plan document. The thread
-   stays open for the life of the plan, and is closed when the PR is merged.
+5.  Open an associated [discussion
+    thread](https://github.com/kieranpotts/plans/discussions) for the plan, and
+    link it from the plan document's `Discussion thread` field and from the pull
+    request. All feedback belongs in the discussion, not on the pull request –
+    this keeps the PR focused on the evolution of the plan document. The thread
+    stays open for the life of the plan, and is closed when the PR is merged.
 
-6. Keep the pull request in draft while you refine the breakdown. When it is
-   complete and agreed, mark the PR ready for review and apply the `#planned`
-   label.
+6.  Keep the pull request in draft while you refine the breakdown. When it is
+    complete and agreed, mark the PR ready for review and apply the `#planned`
+    label.
 
-### Step 2: Implement
+7.  When work starts, move the plan to `#in-progress`. The discussion thread
+    stays open – feedback may continue as the plan evolves. Deliver each task
+    through its linked tracker in the relevant code repository. As reality
+    unfolds, keep the breakdown and dependency graph current – add, drop, or
+    re-sequence tasks – but never repurpose a task ID.
 
-When work starts, move the plan to `#in-progress`. The discussion thread stays
-open – feedback may continue as the plan evolves. Deliver each task through its
-linked tracker in the relevant code repository. As reality unfolds, keep the
-breakdown and dependency graph current – add, drop, or re-sequence tasks – but
-never repurpose a task ID.
-
-### Step 3: Settle
-
-When every task has shipped, mark the plan `DONE`, squash-merge it to `main`
-(which closes the discussion thread), and append it to
-[`plans/INDEX.md`](./plans/INDEX.md). If the plan is dropped, mark it
-`ABANDONED` and do the same – the record is preserved either way.
+8.  When every task has shipped, mark the plan `DONE`, squash-merge it to `main`
+    (which closes the discussion thread), and append it to
+    [`plans/INDEX.md`](./plans/INDEX.md). If the plan is dropped, mark it
+    `ABANDONED` and do the same – the record is preserved either way.
 
 ## Rules
 
