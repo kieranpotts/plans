@@ -8,6 +8,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Complete plan
@@ -87,13 +88,23 @@ pause.
 6.  **Merge the pull request.**
 
     Confirm with the user that the PR is ready to merge — do not merge without
-    explicit instruction. Once confirmed, squash-merge it:
+    explicit instruction. Once confirmed, squash-merge it and delete the
+    source branch on the upstream repository:
 
     ```sh
-    gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - DONE"
+    gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - DONE" --delete-branch
     ```
 
-7.  **Close the associated discussion thread.**
+7.  **Delete the branch, if it remains.**
+
+    In case the branch was not automatically deleted from the upstream
+    repository, delete it directly:
+
+    ```sh
+    git push origin --delete plan/<slug>
+    ```
+
+8.  **Close the associated discussion thread.**
 
     The plan has merged, so its discussion is now closed. Find the discussion
     linked in the `Discussion thread` field, look up its node ID, and close it
@@ -111,7 +122,7 @@ pause.
       }' -F id=<discussionId>
     ```
 
-8.  **After merge, append to the index.**
+9.  **After merge, append to the index.**
 
     On `main`, append a row to [`plans/INDEX.md`](../../../plans/INDEX.md): the
     plan's title, `Done` status, its target repositories, and the settled date
@@ -125,30 +136,30 @@ pause.
 
 ## Rules
 
--   **Only from `IN PROGRESS`.**
+-   **You MUST NOT complete a plan that is not currently `IN PROGRESS`.**
 
     Never complete a plan that is still in `DRAFT` or `PLANNED`.
 
--   **Done means every task shipped.**
+-   **You MUST confirm every task has shipped via its linked tracker, not the plan document.**
 
-    Confirm via the linked trackers, not the plan document.
+    The plan document does not record live status.
 
--   **Do not merge without instruction.**
+-   **You MUST NOT merge without explicit instruction from the user.**
 
--   **Never delete the plan.**
+-   **You MUST NOT delete the plan.**
 
     A completed plan is a permanent record.
 
 ## Success criteria
 
-- `Status` is `DONE` and `Last updated` is today's date.
+- **`Status` is `DONE` and `Last updated` is today's date.**
 
-- The PR carries `#done`, not `#in-progress`, and is squash-merged into `main`.
+- **The PR carries `#done`, not `#in-progress`, and is squash-merged into `main`.**
 
-- The associated discussion thread is closed.
+- **The associated discussion thread is closed.**
 
-- After merge: a `plans/INDEX.md` row is appended on `main`, with `Done` status,
-  in implementation order.
+- **After merge: a `plans/INDEX.md` row is appended on `main`, with `Done` status,
+  in implementation order.**
 
 ## References
 

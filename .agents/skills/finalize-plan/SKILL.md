@@ -7,6 +7,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Finalize plan
@@ -105,23 +106,22 @@ report it and pause — do not mark the PR ready.
 
 ## Rules
 
--   **Do not mark a PR ready until the breakdown is complete.**
+-   **You MUST NOT mark a PR ready until the breakdown is complete.**
 
     An incomplete plan cannot be sequenced or reviewed. The completeness gate is
     mandatory.
 
--   **Forward only.**
+-   **You MUST NOT use this skill to start or settle the plan.**
 
-    This skill only moves `DRAFT` → `PLANNED`. It does not start or settle the
-    plan.
+    This skill only moves `DRAFT` → `PLANNED`.
 
 ## Success criteria
 
-- The PR is no longer a draft (`isDraft: false`).
+- **The PR is no longer a draft (`isDraft: false`).**
 
-- The `#planned` label is applied.
+- **The `#planned` label is applied.**
 
-- `Last updated` is today's date and `Status` is `PLANNED`.
+- **`Last updated` is today's date and `Status` is `PLANNED`.**
 
 ## References
 

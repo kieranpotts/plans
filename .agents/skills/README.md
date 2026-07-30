@@ -18,6 +18,20 @@ Skills available to agents in this repository are:
 - **[Abandon plan](./abandon-plan/):**
   Handles the `PLANNED`/`IN PROGRESS` → `ABANDONED` transition.
 
+## Conventions
+
+One structural convention recurs across the `SKILL.md` files in this
+directory:
+
+- **Transition gates.** Skills that handle a state transition (finalize,
+  implement, complete, abandon) open their gating logic with a
+  `## Transition gates: <FROM> → <TO>` heading, e.g. "Transition gates:
+  `IN PROGRESS` → `DONE`". This section lists the conditions that MUST be
+  satisfied before the transition is allowed to proceed.
+
+None of the skills in this directory currently close with a `## References`
+section, unlike some other repositories in this ecosystem.
+
 ## Compatibility
 
 Agent harnesses are converging on the `./.agents/skills/` path for dynamic

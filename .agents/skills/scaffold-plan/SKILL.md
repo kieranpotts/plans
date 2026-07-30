@@ -7,6 +7,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Scaffold plan
@@ -140,49 +141,49 @@ a draft pull request opened against `main`, with a linked discussion thread.
 
 ## Rules
 
--   **A plan is for a coherent body of work.**
+-   **You MUST NOT scaffold a plan for a single task.**
 
     If the request decomposes into a single task, it does not need a plan; the
     user should open a ticket directly in the relevant code repository. Say so
     before scaffolding.
 
--   **One plan per branch and pull request.**
+-   **There MUST be exactly one new plan per branch and per pull request.**
 
     Never bundle multiple plans into one branch. If the user describes several
     independent bodies of work, scaffold separate plan branches.
 
--   **Branch from `main`, not from any other branch.**
+-   **You MUST branch from `main`, not from any other branch.**
 
     If the local `main` is behind the remote, pull first.
 
--   **Open the PR as a draft.**
+-   **You MUST open the PR as a draft.**
 
     A new plan is not yet ready for review. It MUST be opened as a draft pull
     request, carrying no lifecycle label.
 
--   **Every plan PR has an associated discussion thread.**
+-   **Every plan PR MUST have an associated discussion thread.**
 
     Opened with the PR (even as a draft) using the `Plans` discussion category,
     and linked from both the document's `Discussion thread` field and the PR.
     All review feedback belongs in the discussion, not the PR's comments.
 
--   **Do not assign a numeric ID.**
+-   **You MUST NOT assign a numeric ID.**
 
     Plans have no numeric ID. The slug is the identity. Plans are recorded in
     `plans/INDEX.md` only after merge.
 
 ## Success criteria
 
-- Branch `plan/<slug>` exists and is checked out.
+- **Branch `plan/<slug>` exists and is checked out.**
 
-- `plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
-  header filled in and `Status: DRAFT`.
+- **`plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
+  header filled in and `Status: DRAFT`.**
 
-- A draft pull request is open, titled `plan: <short lowercase plan
-  description>`, carrying no lifecycle label.
+- **A draft pull request is open, titled `plan: <short lowercase plan
+  description>`, carrying no lifecycle label.**
 
-- An associated discussion thread is open, linked from the document's
-  `Discussion thread` field and from the PR.
+- **An associated discussion thread is open, linked from the document's
+  `Discussion thread` field and from the PR.**
 
 ## References
 

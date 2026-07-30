@@ -7,6 +7,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
+  preferred_model: prose-writing
 ---
 
 # Implement plan
@@ -83,28 +84,27 @@ following before starting. If unmet, report it and pause.
 
 ## Rules
 
--   **Only from `PLANNED`.**
+-   **You MUST NOT start a plan that is not currently `PLANNED`.**
 
     Never start a draft or already-running plan.
 
--   **The plan stays open and mutable.**
+-   **The breakdown and dependency graph MAY continue to evolve while `IN PROGRESS`.**
 
-    While `IN PROGRESS`, the breakdown and dependency graph MAY continue to
-    evolve as reality unfolds — tasks added, dropped, or re-sequenced. Do NOT
+    Tasks may be added, dropped, or re-sequenced as reality unfolds. Do NOT
     repurpose a task ID. Do NOT track live task status here; it lives in each
     task's linked tracker.
 
--   **Do not merge.**
+-   **You MUST NOT merge the PR at this transition.**
 
     The PR is merged only when the plan is done or abandoned.
 
 ## Success criteria
 
-- `Status` is `IN PROGRESS` and `Last updated` is today's date.
+- **`Status` is `IN PROGRESS` and `Last updated` is today's date.**
 
-- The PR carries `#in-progress`, not `#planned`.
+- **The PR carries `#in-progress`, not `#planned`.**
 
-- The discussion thread remains open.
+- **The discussion thread remains open.**
 
 ## References
 
