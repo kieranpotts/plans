@@ -25,28 +25,36 @@ Do NOT use this skill to advance an existing plan. See
 [`/complete-plan`](../complete-plan/SKILL.md), or
 [`/abandon-plan`](../abandon-plan/SKILL.md).
 
-**Input:** The goal, scope, and target repositories of the body of work —
-REQUIRED. Prompt the user if not provided. Any upstream artifacts (spec
-proposals, RFCs, design docs) — OPTIONAL.
+## Input
 
-**Output:** A `plan/<slug>` branch, with `plans/<slug>/README.md` created from
-the template and its metadata header filled in (`Status: DRAFT`), committed to
-a draft pull request opened against `main`, with a linked discussion thread.
+Determine the following information from the surrounding context and
+environment, if possible.
+
+- The goal, scope, and target repositories of the body of work — REQUIRED.
+  Prompt the user if not provided.
+
+- Any upstream artifacts (spec proposals, RFCs, design docs) — OPTIONAL.
+
+## Output
+
+A `plan/<slug>` branch, with `plans/<slug>/README.md` created from the
+template and its metadata header filled in (`Status: DRAFT`), committed to a
+draft pull request opened against `main`, with a linked discussion thread.
 
 ## Instructions
 
-1.  **Capture the plan.**
+1.  Capture the plan.
 
     Establish the goal of the plan, its scope, and the code repositories it is
     expected to touch. If the user did not provide this, prompt them for it.
 
-2.  **Create a short, descriptive slug.**
+2.  Create a short, descriptive slug.
 
     For example, a plan to harden the checkout flow against duplicate
     submissions might have the description "checkout hardening" and the slug
     "checkout-hardening". Confirm with the user if unsure.
 
-3.  **Create the branch.**
+3.  Create the branch.
 
     ```sh
     git checkout main
@@ -54,14 +62,14 @@ a draft pull request opened against `main`, with a linked discussion thread.
     git checkout -b plan/<slug>
     ```
 
-4.  **Create the plan directory from the template.**
+4.  Create the plan directory from the template.
 
     Copy `plans/TEMPLATE.md` to `plans/<slug>/README.md`.
 
     The plan lives in its own directory, so the user can add supporting
     artifacts (sequence diagrams, data, mock-ups) alongside the `README.md`.
 
-5.  **Fill in the metadata header.**
+5.  Fill in the metadata header.
 
     - `Authors`: the Git user's name and GitHub handle (run `git config
       user.name` if needed).
@@ -77,7 +85,7 @@ a draft pull request opened against `main`, with a linked discussion thread.
     complete. You MAY seed the `References` section with any upstream artifacts
     the user named (spec proposals, RFCs, design docs).
 
-6.  **Commit and open a draft pull request.**
+6.  Commit and open a draft pull request.
 
     ```sh
     git add plans/<slug>/
@@ -94,13 +102,13 @@ a draft pull request opened against `main`, with a linked discussion thread.
     git push
     ```
 
-7.  **Open a discussion thread.**
+7.  Open a discussion thread.
 
     Every plan PR MUST have an associated discussion thread, where all review
     feedback is gathered. `gh` has no native discussion command, so use the
     GraphQL API. Look up the repository ID and the `Plans` discussion category:
 
-    ```sh
+    ```gh
     gh api graphql -f query='
       query($owner:String!, $name:String!) {
         repository(owner:$owner, name:$name) {
@@ -112,7 +120,7 @@ a draft pull request opened against `main`, with a linked discussion thread.
 
     Create the discussion, referencing the PR, and capture its URL:
 
-    ```sh
+    ```gh
     gh api graphql -f query='
       mutation($repoId:ID!, $categoryId:ID!, $title:String!, $body:String!) {
         createDiscussion(input:{repositoryId:$repoId, categoryId:$categoryId, title:$title, body:$body}) {
@@ -120,11 +128,12 @@ a draft pull request opened against `main`, with a linked discussion thread.
         }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
         -f title="plan: <short lowercase plan description>" \
-        -f body="Discussion thread for the **<short lowercase plan description>** plan (PR #<number>). Please leave all feedback here, not on the pull request."
+        -f body="Discussion thread for the <short lowercase plan description> plan (PR #<number>). Please leave all feedback here, not on the pull request."
     ```
 
-    Record the returned URL in the document's `Discussion thread` field, and add
-    it to the pull request description, so the two cross-reference each other:
+    Record the returned URL in the document's `Discussion thread` field, and
+    add it to the pull request description, so the two cross-reference each
+    other:
 
     ```sh
     gh pr edit <number> --body "$(gh pr view <number> --json body -q .body)
@@ -141,50 +150,46 @@ a draft pull request opened against `main`, with a linked discussion thread.
 
 ## Rules
 
--   **You MUST NOT scaffold a plan for a single task.**
+- You MUST NOT scaffold a plan for a single task.
 
-    If the request decomposes into a single task, it does not need a plan; the
-    user should open a ticket directly in the relevant code repository. Say so
-    before scaffolding.
+  If the request decomposes into a single task, it does not need a plan; the
+  user should open a ticket directly in the relevant code repository. Say so
+  before scaffolding.
 
--   **There MUST be exactly one new plan per branch and per pull request.**
+- There MUST be exactly one new plan per branch and per pull request.
 
-    Never bundle multiple plans into one branch. If the user describes several
-    independent bodies of work, scaffold separate plan branches.
+  Never bundle multiple plans into one branch. If the user describes several
+  independent bodies of work, scaffold separate plan branches.
 
--   **You MUST branch from `main`, not from any other branch.**
+- You MUST branch from `main`, not from any other branch.
 
-    If the local `main` is behind the remote, pull first.
+  If the local `main` is behind the remote, pull first.
 
--   **You MUST open the PR as a draft.**
+- You MUST open the PR as a draft.
 
-    A new plan is not yet ready for review. It MUST be opened as a draft pull
-    request, carrying no lifecycle label.
+  A new plan is not yet ready for review. It MUST be opened as a draft pull
+  request, carrying no lifecycle label.
 
--   **Every plan PR MUST have an associated discussion thread.**
+- Every plan PR MUST have an associated discussion thread.
 
-    Opened with the PR (even as a draft) using the `Plans` discussion category,
-    and linked from both the document's `Discussion thread` field and the PR.
-    All review feedback belongs in the discussion, not the PR's comments.
+  Opened with the PR (even as a draft) using the `Plans` discussion category,
+  and linked from both the document's `Discussion thread` field and the PR.
+  All review feedback belongs in the discussion, not the PR's comments.
 
--   **You MUST NOT assign a numeric ID.**
+- You MUST NOT assign a numeric ID.
 
-    Plans have no numeric ID. The slug is the identity. Plans are recorded in
-    `plans/INDEX.md` only after merge.
+  Plans have no numeric ID. The slug is the identity. Plans are recorded in
+  `plans/INDEX.md` only after merge.
 
 ## Success criteria
 
-- **Branch `plan/<slug>` exists and is checked out.**
+- Branch `plan/<slug>` exists and is checked out.
 
-- **`plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
-  header filled in and `Status: DRAFT`.**
+- `plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
+  header filled in and `Status: DRAFT`.
 
-- **A draft pull request is open, titled `plan: <short lowercase plan
-  description>`, carrying no lifecycle label.**
+- A draft pull request is open, titled `plan: <short lowercase plan
+  description>`, carrying no lifecycle label.
 
-- **An associated discussion thread is open, linked from the document's
-  `Discussion thread` field and from the PR.**
-
-## References
-
-- [General reference information for agents](../../../AGENTS.md)
+- An associated discussion thread is open, linked from the document's
+  `Discussion thread` field and from the PR.

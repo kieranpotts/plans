@@ -22,52 +22,26 @@ Do NOT use this skill to scaffold a new plan (use
 [`/complete-plan`](../complete-plan/SKILL.md), or
 [`/abandon-plan`](../abandon-plan/SKILL.md)).
 
-**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
-(`plan/<slug>`). If on `main`, list open draft pull requests and ask the user
-to choose.
+## Input
 
-**Output:** The plan document updated to `Status: PLANNED`, the PR carrying
-`#planned` and taken out of draft.
+Determine the following information from the surrounding context and
+environment, if possible.
 
-## Transition gates: `DRAFT` → `PLANNED`
+- Target — REQUIRED. Infer the plan from the checked-out branch
+  (`plan/<slug>`). If on `main`, list open draft pull requests and ask the user
+  to choose.
 
-Before removing draft status, confirm _all_ of the following. If any fails,
-report it and pause — do not mark the PR ready.
+## Output
 
--   **The document is reasonably complete.**
-
-    `Summary`, `Scope`, and `Approach` contain substantive, plan-specific
-    content — not the generic placeholder prose carried over from `TEMPLATE.md`.
-
--   **The task breakdown is present and well-formed.**
-
-    Every task has a stable ID, a target repository, and a link to its concrete
-    tracker item there. No task names more than one repository. The `Depends on`
-    column is filled.
-
--   **The dependency graph matches the breakdown.**
-
-    Every edge in the `Dependency graph` corresponds to a `Depends on` entry in
-    the table, and vice versa.
-
--   **No leftover template text.**
-
-    No italic placeholder prompts, no unfilled tokens (`#...`, `YYYY-MM-DD`,
-    `T01`/`owner/repo` example rows), remain.
-
--   **The metadata header is filled in.**
-
-    `Authors`, `Created`, `Last updated`, `Plan PR`, and `Target repositories`
-    are set; the `Discussion thread` field links the thread (which stays open
-    until the plan is done or abandoned); `Status` is `DRAFT` (this skill
-    advances it to `PLANNED`).
+The plan document updated to `Status: PLANNED`, the PR carrying `#planned` and
+taken out of draft.
 
 ## Instructions
 
-1.  **Identify the plan and its PR.**
+1.  Identify the plan and its PR.
 
-    Infer the target from the current checked-out branch (`plan/<slug>`). If on
-    `main`, list open draft pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`plan/<slug>`). If
+    on `main`, list open draft pull requests and ask the user to choose:
 
     ```sh
     gh pr list --draft --json number,title,headRefName
@@ -76,28 +50,28 @@ report it and pause — do not mark the PR ready.
     Then checkout the branch and read the plan document
     (`plans/<slug>/README.md`).
 
-2.  **Verify the transition gates above.**
+2.  Verify the rules.
 
-    Read the document in full, check each gate, and report any failures. Stop if
-    unmet.
+    Read the document in full, check each rule, and report any failures. Stop
+    if unmet.
 
-3.  **Update the document.**
+3.  Update the document.
 
     Set `Status` to `PLANNED` and `Last updated` to today's date.
 
-4.  **Apply the `#planned` label.**
+4.  Apply the `#planned` label.
 
     ```sh
     gh pr edit <number> --add-label "#planned"
     ```
 
-5.  **Remove the draft status.**
+5.  Remove the draft status.
 
     ```sh
     gh pr ready <number>
     ```
 
-6.  **Commit and push.**
+6.  Commit and push.
 
     ```sh
     git commit -am "chore: mark <short lowercase plan description> ready for review"
@@ -106,23 +80,47 @@ report it and pause — do not mark the PR ready.
 
 ## Rules
 
--   **You MUST NOT mark a PR ready until the breakdown is complete.**
+- You MUST NOT mark a PR ready until the breakdown is complete.
 
-    An incomplete plan cannot be sequenced or reviewed. The completeness gate is
-    mandatory.
+  An incomplete plan cannot be sequenced or reviewed. The completeness gate is
+  mandatory.
 
--   **You MUST NOT use this skill to start or settle the plan.**
+- The document MUST be reasonably complete.
 
-    This skill only moves `DRAFT` → `PLANNED`.
+  `Summary`, `Scope`, and `Approach` contain substantive, plan-specific
+  content — not the generic placeholder prose carried over from `TEMPLATE.md`.
+
+- The task breakdown MUST be present and well-formed.
+
+  Every task has a stable ID, a target repository, and a link to its concrete
+  tracker item there. No task names more than one repository. The `Depends on`
+  column is filled.
+
+- The dependency graph MUST match the breakdown.
+
+  Every edge in the `Dependency graph` corresponds to a `Depends on` entry in
+  the table, and vice versa.
+
+- There MUST be no leftover template text.
+
+  No italic placeholder prompts, no unfilled tokens (`#...`, `YYYY-MM-DD`,
+  `T01`/`owner/repo` example rows), remain.
+
+- The metadata header MUST be filled in.
+
+  `Authors`, `Created`, `Last updated`, `Plan PR`, and `Target repositories`
+  are set; the `Discussion thread` field links the thread (which stays open
+  until the plan is done or abandoned); `Status` is `DRAFT` (this skill
+  advances it to `PLANNED`).
+
+- You MUST NOT use this skill to start or settle the plan.
+
+  This skill only moves `DRAFT` → `PLANNED`.
 
 ## Success criteria
 
-- **The PR is no longer a draft (`isDraft: false`).**
+- The PR is no longer a draft (`isDraft: false`).
 
-- **The `#planned` label is applied.**
+- The `#planned` label is applied.
 
-- **`Last updated` is today's date and `Status` is `PLANNED`.**
-
-## References
-
-- [General reference information for agents](../../../AGENTS.md)
+- `Last updated` is today's date and `Status` is `PLANNED`.

@@ -23,56 +23,49 @@ see [`/scaffold-plan`](../scaffold-plan/SKILL.md),
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/implement-plan`](../implement-plan/SKILL.md).
 
-**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
-(`plan/<slug>`). If on `main`, list the open plan pull requests and ask the
-user to choose. The reason for dropping the plan — REQUIRED, recorded in the
-document if not already present.
+## Input
 
-**Output:** The plan document updated to `Status: ABANDONED`, the PR carrying
-`#abandoned` and squash-merged into `main`, its discussion thread closed, and
-a new row appended to `plans/INDEX.md`.
+Determine the following information from the surrounding context and
+environment, if possible.
 
-## Transition gates: `PLANNED` | `IN PROGRESS` → `ABANDONED`
+- Target — REQUIRED. Infer the plan from the checked-out branch
+  (`plan/<slug>`). If on `main`, list the open plan pull requests and ask the
+  user to choose.
 
-The plan MUST currently be `PLANNED` or `IN PROGRESS`. Confirm the following
-before abandoning. If unmet, report it and pause.
+- Reason for dropping the plan — REQUIRED. Recorded in the document if not
+  already present.
 
--   **The decision to drop the plan is settled.**
+## Output
 
-    Abandonment is a deliberate decision, not a pause. If the plan is merely
-    stalled, leave it where it is.
-
--   **The reason is recorded.**
-
-    The plan document captures why it was dropped, so the record explains
-    itself. Add a short note to the `Summary` or `Open questions` section if one
-    is not already present.
+The plan document updated to `Status: ABANDONED`, the PR carrying `#abandoned`
+and squash-merged into `main`, its discussion thread closed, and a new row
+appended to `plans/INDEX.md`.
 
 ## Instructions
 
-1.  **Identify the plan and its current state.**
+1.  Identify the plan and its current state.
 
-    Infer the target from the current checked-out branch (`plan/<slug>`). If on
-    `main`, list the open plan pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`plan/<slug>`). If
+    on `main`, list the open plan pull requests and ask the user to choose:
 
     ```sh
     gh pr list --label "#planned" --label "#in-progress" --json number,title,headRefName,labels
     ```
 
-    Read the document. Confirm `Status` is `PLANNED` or `IN PROGRESS`, and note
-    which lifecycle label the PR carries.
+    Read the document. Confirm `Status` is `PLANNED` or `IN PROGRESS`, and
+    note which lifecycle label the PR carries.
 
-2.  **Verify the transition gates above.**
+2.  Verify the rules.
 
     Ensure the reason for abandonment is recorded in the document. Report any
-    unmet gate and stop.
+    unmet rule and stop.
 
-3.  **Update the document.**
+3.  Update the document.
 
-    Set `Status` to `ABANDONED` and `Last updated` to today's date (this becomes
-    the settled date in the index).
+    Set `Status` to `ABANDONED` and `Last updated` to today's date (this
+    becomes the settled date in the index).
 
-4.  **Swap the label.**
+4.  Swap the label.
 
     Remove whichever lifecycle label the PR currently carries:
 
@@ -80,23 +73,23 @@ before abandoning. If unmet, report it and pause.
     gh pr edit <number> --add-label "#abandoned" --remove-label "#planned"      # or --remove-label "#in-progress"
     ```
 
-5.  **Commit.**
+5.  Commit.
 
     ```sh
     git commit -am "chore: abandon <short lowercase plan description>"
     ```
 
-6.  **Merge the pull request.**
+6.  Merge the pull request.
 
     Confirm with the user that the PR is ready to merge — do not merge without
-    explicit instruction. Once confirmed, squash-merge it and delete the
-    source branch on the upstream repository:
+    explicit instruction. Once confirmed, squash-merge it and delete the source
+    branch on the upstream repository:
 
     ```sh
     gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - ABANDONED" --delete-branch
     ```
 
-7.  **Delete the branch, if it remains.**
+7.  Delete the branch, if it remains.
 
     In case the branch was not automatically deleted from the upstream
     repository, delete it directly:
@@ -105,13 +98,14 @@ before abandoning. If unmet, report it and pause.
     git push origin --delete plan/<slug>
     ```
 
-8.  **Close the associated discussion thread.**
+8.  Close the associated discussion thread.
 
     The plan has merged, so its discussion is now closed. Find the discussion
     linked in the `Discussion thread` field, look up its node ID, and close it
-    as resolved (`gh` has no native discussion command, so use the GraphQL API):
+    as resolved (`gh` has no native discussion command, so use the GraphQL
+    API):
 
-    ```sh
+    ```gh
     gh api graphql -f query='
       query($owner:String!, $name:String!, $number:Int!) {
         repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
@@ -123,7 +117,7 @@ before abandoning. If unmet, report it and pause.
       }' -F id=<discussionId>
     ```
 
-9.  **After merge, append to the index.**
+9.  After merge, append to the index.
 
     On `main`, append a row to [`plans/INDEX.md`](../../../plans/INDEX.md): the
     plan's title, `Abandoned` status, its target repositories, and the settled
@@ -137,32 +131,40 @@ before abandoning. If unmet, report it and pause.
 
 ## Rules
 
--   **You MUST NOT abandon a plan that is not currently `PLANNED` or `IN PROGRESS`.**
+- You MUST NOT abandon a plan that is not currently `PLANNED` or `IN PROGRESS`.
 
-    A done plan cannot be abandoned, and a draft plan that was never agreed
-    should simply have its PR closed rather than recorded as abandoned.
+  A done plan cannot be abandoned, and a draft plan that was never agreed
+  should simply have its PR closed rather than recorded as abandoned.
 
--   **You MUST NOT merge without the reason for abandonment recorded in the document.**
+- The decision to drop the plan MUST be settled.
 
-    An abandoned plan's value is the record of why.
+  Abandonment is a deliberate decision, not a pause. If the plan is merely
+  stalled, leave it where it is.
 
--   **You MUST NOT merge without explicit instruction from the user.**
+- The reason for abandonment MUST be recorded in the document.
 
--   **You MUST NOT delete the plan.**
+  The plan document captures why it was dropped, so the record explains
+  itself. Add a short note to the `Summary` or `Open questions` section if one
+  is not already present.
 
-    An abandoned plan is preserved permanently, exactly like a completed one.
+- You MUST NOT merge without the reason for abandonment recorded in the
+  document.
+
+  An abandoned plan's value is the record of why.
+
+- You MUST NOT merge without explicit instruction from the user.
+
+- You MUST NOT delete the plan.
+
+  An abandoned plan is preserved permanently, exactly like a completed one.
 
 ## Success criteria
 
-- **`Status` is `ABANDONED` and `Last updated` is today's date.**
+- `Status` is `ABANDONED` and `Last updated` is today's date.
 
-- **The PR carries `#abandoned`, and is squash-merged into `main`.**
+- The PR carries `#abandoned`, and is squash-merged into `main`.
 
-- **The associated discussion thread is closed.**
+- The associated discussion thread is closed.
 
-- **After merge: a `plans/INDEX.md` row is appended on `main`, with `Abandoned`
-  status, in implementation order.**
-
-## References
-
-- [General reference information for agents](../../../AGENTS.md)
+- After merge: a `plans/INDEX.md` row is appended on `main`, with `Abandoned`
+  status, in implementation order.

@@ -24,37 +24,28 @@ Do NOT use this skill for any other transition — see
 [`/finalize-plan`](../finalize-plan/SKILL.md),
 [`/implement-plan`](../implement-plan/SKILL.md).
 
-**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
-(`plan/<slug>`). If on `main`, list the `#in-progress` pull requests and ask
-the user to choose.
+## Input
 
-**Output:** The plan document updated to `Status: DONE`, the PR carrying
-`#done` and squash-merged into `main`, its discussion thread closed, and a new
-row appended to `plans/INDEX.md`.
+Determine the following information from the surrounding context and
+environment, if possible.
 
-## Transition gates: `IN PROGRESS` → `DONE`
+- Target — REQUIRED. Infer the plan from the checked-out branch
+  (`plan/<slug>`). If on `main`, list the `#in-progress` pull requests and ask
+  the user to choose.
 
-The plan MUST currently be `IN PROGRESS` (a PR carrying `#in-progress`). Confirm
-**all** of the following before completing. If any is unmet, report it and
-pause.
+## Output
 
--   **Every task has shipped.**
-
-    Each task's linked tracker item is closed/merged. Follow the links to
-    confirm — do not rely on the plan document, which does not record live
-    status.
-
--   **The breakdown reflects what was actually done.**
-
-    Any tasks added, dropped, or re-sequenced during implementation are
-    reflected in the final breakdown and dependency graph.
+The plan document updated to `Status: DONE`, the PR carrying `#done` and
+squash-merged into `main`, its discussion thread closed, and a new row
+appended to `plans/INDEX.md`.
 
 ## Instructions
 
-1.  **Identify the plan and confirm it is `IN PROGRESS`.**
+1.  Identify the plan and confirm it is `IN PROGRESS`.
 
-    Infer the target from the current checked-out branch (`plan/<slug>`). If on
-    `main`, list the `#in-progress` pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`plan/<slug>`). If
+    on `main`, list the `#in-progress` pull requests and ask the user to
+    choose:
 
     ```sh
     gh pr list --label "#in-progress" --json number,title,headRefName
@@ -63,39 +54,39 @@ pause.
     Read the document. Check `Status` is `IN PROGRESS` and the PR carries
     `#in-progress`.
 
-2.  **Verify the transition gates above.**
+2.  Verify the rules.
 
-    Follow each task's tracker link to confirm it has shipped. Report any unmet
-    gate and stop.
+    Follow each task's tracker link to confirm it has shipped. Report any
+    unmet rule and stop.
 
-3.  **Update the document.**
+3.  Update the document.
 
     Set `Status` to `DONE` and `Last updated` to today's date (this becomes the
     settled date in the index).
 
-4.  **Swap the label.**
+4.  Swap the label.
 
     ```sh
     gh pr edit <number> --add-label "#done" --remove-label "#in-progress"
     ```
 
-5.  **Commit.**
+5.  Commit.
 
     ```sh
     git commit -am "chore: complete <short lowercase plan description>"
     ```
 
-6.  **Merge the pull request.**
+6.  Merge the pull request.
 
     Confirm with the user that the PR is ready to merge — do not merge without
-    explicit instruction. Once confirmed, squash-merge it and delete the
-    source branch on the upstream repository:
+    explicit instruction. Once confirmed, squash-merge it and delete the source
+    branch on the upstream repository:
 
     ```sh
     gh pr merge <number> --squash --subject "plan: <short lowercase plan description> - DONE" --delete-branch
     ```
 
-7.  **Delete the branch, if it remains.**
+7.  Delete the branch, if it remains.
 
     In case the branch was not automatically deleted from the upstream
     repository, delete it directly:
@@ -104,13 +95,14 @@ pause.
     git push origin --delete plan/<slug>
     ```
 
-8.  **Close the associated discussion thread.**
+8.  Close the associated discussion thread.
 
     The plan has merged, so its discussion is now closed. Find the discussion
     linked in the `Discussion thread` field, look up its node ID, and close it
-    as resolved (`gh` has no native discussion command, so use the GraphQL API):
+    as resolved (`gh` has no native discussion command, so use the GraphQL
+    API):
 
-    ```sh
+    ```gh
     gh api graphql -f query='
       query($owner:String!, $name:String!, $number:Int!) {
         repository(owner:$owner, name:$name) { discussion(number:$number) { id } }
@@ -122,12 +114,13 @@ pause.
       }' -F id=<discussionId>
     ```
 
-9.  **After merge, append to the index.**
+9.  After merge, append to the index.
 
     On `main`, append a row to [`plans/INDEX.md`](../../../plans/INDEX.md): the
     plan's title, `Done` status, its target repositories, and the settled date
-    (the document's `Last updated`). Append at the end — the index is ordered by
-    implementation. The plan directory is never renamed; no number is assigned.
+    (the document's `Last updated`). Append at the end — the index is ordered
+    by implementation. The plan directory is never renamed; no number is
+    assigned.
 
     ```sh
     git commit -am "chore: record <short lowercase plan description> in plan index"
@@ -136,31 +129,39 @@ pause.
 
 ## Rules
 
--   **You MUST NOT complete a plan that is not currently `IN PROGRESS`.**
+- You MUST NOT complete a plan that is not currently `IN PROGRESS`.
 
-    Never complete a plan that is still in `DRAFT` or `PLANNED`.
+  Never complete a plan that is still in `DRAFT` or `PLANNED`.
 
--   **You MUST confirm every task has shipped via its linked tracker, not the plan document.**
+- Every task MUST have shipped.
 
-    The plan document does not record live status.
+  Each task's linked tracker item is closed/merged. Follow the links to
+  confirm — do not rely on the plan document, which does not record live
+  status.
 
--   **You MUST NOT merge without explicit instruction from the user.**
+- The breakdown MUST reflect what was actually done.
 
--   **You MUST NOT delete the plan.**
+  Any tasks added, dropped, or re-sequenced during implementation are
+  reflected in the final breakdown and dependency graph.
 
-    A completed plan is a permanent record.
+- You MUST confirm every task has shipped via its linked tracker, not the
+  plan document.
+
+  The plan document does not record live status.
+
+- You MUST NOT merge without explicit instruction from the user.
+
+- You MUST NOT delete the plan.
+
+  A completed plan is a permanent record.
 
 ## Success criteria
 
-- **`Status` is `DONE` and `Last updated` is today's date.**
+- `Status` is `DONE` and `Last updated` is today's date.
 
-- **The PR carries `#done`, not `#in-progress`, and is squash-merged into `main`.**
+- The PR carries `#done`, not `#in-progress`, and is squash-merged into `main`.
 
-- **The associated discussion thread is closed.**
+- The associated discussion thread is closed.
 
-- **After merge: a `plans/INDEX.md` row is appended on `main`, with `Done` status,
-  in implementation order.**
-
-## References
-
-- [General reference information for agents](../../../AGENTS.md)
+- After merge: a `plans/INDEX.md` row is appended on `main`, with `Done`
+  status, in implementation order.

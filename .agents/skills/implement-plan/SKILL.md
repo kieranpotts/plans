@@ -22,35 +22,26 @@ Do NOT use this skill for any other transition — see
 [`/complete-plan`](../complete-plan/SKILL.md), or
 [`/abandon-plan`](../abandon-plan/SKILL.md).
 
-**Input:** Target — REQUIRED. Infer the plan from the checked-out branch
-(`plan/<slug>`). If on `main`, list the `#planned` pull requests and ask the
-user to choose.
+## Input
 
-**Output:** The plan document updated to `Status: IN PROGRESS`, the PR
-carrying `#in-progress` in place of `#planned`.
+Determine the following information from the surrounding context and
+environment, if possible.
 
-## Transition gates: `PLANNED` → `IN PROGRESS`
+- Target — REQUIRED. Infer the plan from the checked-out branch
+  (`plan/<slug>`). If on `main`, list the `#planned` pull requests and ask the
+  user to choose.
 
-The plan MUST currently be `PLANNED` (a PR carrying `#planned`). Confirm the
-following before starting. If unmet, report it and pause.
+## Output
 
--   **The breakdown is agreed.**
-
-    Initial review has settled and the breakdown is stable enough to start
-    building. The discussion thread stays open — feedback may continue as the
-    plan evolves during implementation.
-
--   **Work has actually begun.**
-
-    At least one task is underway in its linked tracker. Starting a plan signals
-    that the work is live, not merely agreed.
+The plan document updated to `Status: IN PROGRESS`, the PR carrying
+`#in-progress` in place of `#planned`.
 
 ## Instructions
 
-1.  **Identify the plan and confirm it is `PLANNED`.**
+1.  Identify the plan and confirm it is `PLANNED`.
 
-    Infer the target from the current checked-out branch (`plan/<slug>`). If on
-    `main`, list the `#planned` pull requests and ask the user to choose:
+    Infer the target from the current checked-out branch (`plan/<slug>`). If
+    on `main`, list the `#planned` pull requests and ask the user to choose:
 
     ```sh
     gh pr list --label "#planned" --json number,title,headRefName
@@ -59,23 +50,23 @@ following before starting. If unmet, report it and pause.
     Read the document. Check `Status` is `PLANNED` and the PR carries `#planned`
     (`gh pr view <number> --json labels`).
 
-2.  **Verify the transition gate above.**
+2.  Verify the rules.
 
-3.  **Update the document.**
+3.  Update the document.
 
     Set `Status` to `IN PROGRESS` and `Last updated` to today's date.
 
-4.  **Swap the label.**
+4.  Swap the label.
 
     ```sh
     gh pr edit <number> --add-label "#in-progress" --remove-label "#planned"
     ```
 
-    Leave the discussion thread open — it stays open through implementation, as
-    feedback may continue while the plan evolves, and is closed when the PR is
-    merged.
+    Leave the discussion thread open — it stays open through implementation,
+    as feedback may continue while the plan evolves, and is closed when the PR
+    is merged.
 
-5.  **Commit and push.**
+5.  Commit and push.
 
     ```sh
     git commit -am "chore: start <short lowercase plan description>"
@@ -84,28 +75,36 @@ following before starting. If unmet, report it and pause.
 
 ## Rules
 
--   **You MUST NOT start a plan that is not currently `PLANNED`.**
+- You MUST NOT start a plan that is not currently `PLANNED`.
 
-    Never start a draft or already-running plan.
+  Never start a draft or already-running plan.
 
--   **The breakdown and dependency graph MAY continue to evolve while `IN PROGRESS`.**
+- The breakdown MUST be agreed.
 
-    Tasks may be added, dropped, or re-sequenced as reality unfolds. Do NOT
-    repurpose a task ID. Do NOT track live task status here; it lives in each
-    task's linked tracker.
+  Initial review has settled and the breakdown is stable enough to start
+  building. The discussion thread stays open — feedback may continue as the
+  plan evolves during implementation.
 
--   **You MUST NOT merge the PR at this transition.**
+- Work MUST have actually begun.
 
-    The PR is merged only when the plan is done or abandoned.
+  At least one task is underway in its linked tracker. Starting a plan
+  signals that the work is live, not merely agreed.
+
+- The breakdown and dependency graph MAY continue to evolve while `IN
+  PROGRESS`.
+
+  Tasks may be added, dropped, or re-sequenced as reality unfolds. Do NOT
+  repurpose a task ID. Do NOT track live task status here; it lives in each
+  task's linked tracker.
+
+- You MUST NOT merge the PR at this transition.
+
+  The PR is merged only when the plan is done or abandoned.
 
 ## Success criteria
 
-- **`Status` is `IN PROGRESS` and `Last updated` is today's date.**
+- `Status` is `IN PROGRESS` and `Last updated` is today's date.
 
-- **The PR carries `#in-progress`, not `#planned`.**
+- The PR carries `#in-progress`, not `#planned`.
 
-- **The discussion thread remains open.**
-
-## References
-
-- [General reference information for agents](../../../AGENTS.md)
+- The discussion thread remains open.
