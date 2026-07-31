@@ -1,10 +1,9 @@
 ---
 name: complete-plan
 description: >-
-  Mark an in-progress plan as done once every task has shipped — set its
-  status, label the PR, squash-merge it, and append it to the index. Use when
-  the user says "complete this plan", "the plan is done", "all tasks
-  shipped", or "finish the plan".
+  Mark an in-progress plan as done once every task has shipped. Use this skill
+  when the user says something like "complete this plan", "the plan is done",
+  "all tasks shipped", or "finish the plan".
 license: MIT
 metadata:
   interactive: yes
@@ -13,31 +12,34 @@ metadata:
 
 # Complete plan
 
-Use this skill to move a plan from `IN PROGRESS` to `DONE`, once every task in
-the plan has shipped. This is the point at which the plan's pull request is
-squash-merged into `main`, and the plan is appended to
-[`plans/INDEX.md`](../../../plans/INDEX.md) in implementation order.
+Progress a delivery plan from `IN PROGRESS` to `DONE`, landing the plan in
+the `main` trunk.
 
-Do NOT use this skill for any other transition — see
-[`/abandon-plan`](../abandon-plan/SKILL.md) to drop a plan, or
-[`/scaffold-plan`](../scaffold-plan/SKILL.md),
-[`/finalize-plan`](../finalize-plan/SKILL.md),
-[`/implement-plan`](../implement-plan/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the plan from the checked-out branch
+- **Target — REQUIRED.** Infer the plan from the checked-out branch
   (`plan/<slug>`). If on `main`, list the `#in-progress` pull requests and ask
   the user to choose.
 
-## Output
+## Success criteria
 
-The plan document updated to `Status: DONE`, the PR carrying `#done` and
+You will achieve the following outcomes:
+
+<!-- The plan document updated to `Status: DONE`, the PR carrying `#done` and
 squash-merged into `main`, its discussion thread closed, and a new row
-appended to `plans/INDEX.md`.
+appended to `plans/INDEX.md`. -->
+
+- `Status` is `DONE` and `Last updated` is today's date.
+
+- The PR carries `#done`, not `#in-progress`, and is squash-merged into `main`.
+
+- The associated discussion thread is closed.
+
+- After merge: a `plans/INDEX.md` row is appended on `main`, with `Done`
+  status, in implementation order.
 
 ## Instructions
 
@@ -154,14 +156,3 @@ appended to `plans/INDEX.md`.
 - You MUST NOT delete the plan.
 
   A completed plan is a permanent record.
-
-## Success criteria
-
-- `Status` is `DONE` and `Last updated` is today's date.
-
-- The PR carries `#done`, not `#in-progress`, and is squash-merged into `main`.
-
-- The associated discussion thread is closed.
-
-- After merge: a `plans/INDEX.md` row is appended on `main`, with `Done`
-  status, in implementation order.

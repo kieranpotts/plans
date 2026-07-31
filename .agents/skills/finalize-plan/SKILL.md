@@ -1,9 +1,9 @@
 ---
 name: finalize-plan
 description: >-
-  Mark a draft delivery plan ready for review once its decomposition is
-  complete. Use when the user says "this plan is ready", "mark the plan
-  ready", "the breakdown is done", or "take the plan out of draft".
+  Mark a draft delivery plan ready for review once the decomposition work is
+  complete. Use this skill when the user says something like "this plan is ready",
+  "mark the plan ready", "the breakdown is done", or "take the plan out of draft".
 license: MIT
 metadata:
   interactive: yes
@@ -12,29 +12,29 @@ metadata:
 
 # Finalize plan
 
-Use this skill to move a plan from `DRAFT` to `PLANNED`: confirm the breakdown
-and dependency graph are complete, apply the `#planned` label, and remove the
-pull request's draft status so the plan can be reviewed.
+Use this skill to progress a delivery plan from `DRAFT` to `PLANNED`.
 
-Do NOT use this skill to scaffold a new plan (use
-[`/scaffold-plan`](../scaffold-plan/SKILL.md)) or to advance an agreed plan (use
-[`/implement-plan`](../implement-plan/SKILL.md),
-[`/complete-plan`](../complete-plan/SKILL.md), or
-[`/abandon-plan`](../abandon-plan/SKILL.md)).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the plan from the checked-out branch
+- **Target — REQUIRED.** Infer the plan from the checked-out branch
   (`plan/<slug>`). If on `main`, list open draft pull requests and ask the user
   to choose.
 
-## Output
+## Success criteria
 
-The plan document updated to `Status: PLANNED`, the PR carrying `#planned` and
-taken out of draft.
+You will achieve the following outcomes:
+
+<!-- The plan document updated to `Status: PLANNED`, the PR carrying `#planned` and
+taken out of draft. -->
+
+- The PR is no longer a draft (`isDraft: false`).
+
+- The `#planned` label is applied.
+
+- `Last updated` is today's date and `Status` is `PLANNED`.
 
 ## Instructions
 
@@ -116,11 +116,3 @@ taken out of draft.
 - You MUST NOT use this skill to start or settle the plan.
 
   This skill only moves `DRAFT` → `PLANNED`.
-
-## Success criteria
-
-- The PR is no longer a draft (`isDraft: false`).
-
-- The `#planned` label is applied.
-
-- `Last updated` is today's date and `Status` is `PLANNED`.

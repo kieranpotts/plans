@@ -1,9 +1,9 @@
 ---
 name: implement-plan
 description: >-
-  Mark a plan as in progress once implementation has started. Use when the
-  user says "start this plan", "work has begun", "the plan is underway", or
-  "move the plan to in progress".
+  Mark a plan as in-progress once implementation has started. Use this skill
+  when the user says something like "start this plan", "work has begun",
+  "the plan is underway", or "move the plan to in progress".
 license: MIT
 metadata:
   interactive: yes
@@ -12,29 +12,29 @@ metadata:
 
 # Implement plan
 
-Use this skill to move a plan from `PLANNED` to `IN PROGRESS`, once
-implementation of the plan has begun. The pull request stays open through
-implementation — it is not merged here.
+Use this skill to progress a delivery plan from `PLANNED` to `IN PROGRESS`.
 
-Do NOT use this skill for any other transition — see
-[`/scaffold-plan`](../scaffold-plan/SKILL.md),
-[`/finalize-plan`](../finalize-plan/SKILL.md),
-[`/complete-plan`](../complete-plan/SKILL.md), or
-[`/abandon-plan`](../abandon-plan/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the plan from the checked-out branch
+- **Target — REQUIRED.** Infer the plan from the checked-out branch
   (`plan/<slug>`). If on `main`, list the `#planned` pull requests and ask the
   user to choose.
 
-## Output
+## Success criteria
 
-The plan document updated to `Status: IN PROGRESS`, the PR carrying
-`#in-progress` in place of `#planned`.
+You will achieve the following outcomes:
+
+<!-- The plan document updated to `Status: IN PROGRESS`, the PR carrying
+`#in-progress` in place of `#planned`. -->
+
+- `Status` is `IN PROGRESS` and `Last updated` is today's date.
+
+- The PR carries `#in-progress`, not `#planned`.
+
+- The discussion thread remains open.
 
 ## Instructions
 
@@ -100,11 +100,3 @@ The plan document updated to `Status: IN PROGRESS`, the PR carrying
 - You MUST NOT merge the PR at this transition.
 
   The PR is merged only when the plan is done or abandoned.
-
-## Success criteria
-
-- `Status` is `IN PROGRESS` and `Last updated` is today's date.
-
-- The PR carries `#in-progress`, not `#planned`.
-
-- The discussion thread remains open.

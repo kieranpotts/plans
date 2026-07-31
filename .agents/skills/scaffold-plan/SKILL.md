@@ -1,9 +1,9 @@
 ---
 name: scaffold-plan
 description: >-
-  Scaffold a new delivery plan and open it as a draft pull request. Use when
-  the user wants to plan the implementation of a body of work, or says "draft
-  a plan", "new plan", "start a plan", or "plan this".
+  Scaffold a new delivery plan and open it as a draft pull request. Use this
+  skill when the user wants to plan the implementation of a body of work, or
+  says something like "draft a plan", "new plan", "start a plan", or "plan this".
 license: MIT
 metadata:
   interactive: yes
@@ -12,34 +12,37 @@ metadata:
 
 # Scaffold plan
 
-Use this skill to start a new delivery plan: scaffold the branch and document
-from the template, then open a draft pull request with the artifacts in place,
-ready for the user to complete.
+Scaffold a new delivery plan from the template, and open a draft pull request
+with all the boilerplate artifacts prepared.
 
-This is the entry point to the plan lifecycle. The PR stays a draft while the
-user writes it.
-
-Do NOT use this skill to advance an existing plan. See
-[`/finalize-plan`](../finalize-plan/SKILL.md),
-[`/implement-plan`](../implement-plan/SKILL.md),
-[`/complete-plan`](../complete-plan/SKILL.md), or
-[`/abandon-plan`](../abandon-plan/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- The goal, scope, and target repositories of the body of work — REQUIRED.
+- **The goal, scope, and target repositories of the body of work — REQUIRED.**
   Prompt the user if not provided.
 
-- Any upstream artifacts (spec proposals, RFCs, design docs) — OPTIONAL.
+- **Any upstream artifacts (spec proposals, RFCs, design docs) — OPTIONAL.**
 
-## Output
+## Success criteria
 
-A `plan/<slug>` branch, with `plans/<slug>/README.md` created from the
+You will achieve the following outcomes:
+
+<!-- A `plan/<slug>` branch, with `plans/<slug>/README.md` created from the
 template and its metadata header filled in (`Status: DRAFT`), committed to a
-draft pull request opened against `main`, with a linked discussion thread.
+draft pull request opened against `main`, with a linked discussion thread. -->
+
+- Branch `plan/<slug>` exists and is checked out.
+
+- `plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
+  header filled in and `Status: DRAFT`.
+
+- A draft pull request is open, titled `plan: <short lowercase plan
+  description>`, carrying no lifecycle label.
+
+- An associated discussion thread is open, linked from the document's
+  `Discussion thread` field and from the PR.
 
 ## Instructions
 
@@ -180,16 +183,3 @@ draft pull request opened against `main`, with a linked discussion thread.
 
   Plans have no numeric ID. The slug is the identity. Plans are recorded in
   `plans/INDEX.md` only after merge.
-
-## Success criteria
-
-- Branch `plan/<slug>` exists and is checked out.
-
-- `plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
-  header filled in and `Status: DRAFT`.
-
-- A draft pull request is open, titled `plan: <short lowercase plan
-  description>`, carrying no lifecycle label.
-
-- An associated discussion thread is open, linked from the document's
-  `Discussion thread` field and from the PR.

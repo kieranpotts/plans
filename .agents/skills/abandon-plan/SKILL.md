@@ -1,9 +1,9 @@
 ---
 name: abandon-plan
 description: >-
-  Drop a plan before completion — record the decision, label the PR,
-  squash-merge it, and append it to the index. Use when the user says "abandon
-  this plan", "drop the plan", "cancel the plan", or "we're not doing this".
+  Drop a plan before completion. Use this skill when the user says something
+  like "abandon this plan", "drop the plan", "cancel the plan", or
+  "we're not doing this".
 license: MIT
 metadata:
   interactive: yes
@@ -17,29 +17,34 @@ is dropped before completion. The plan is merged into `main` as a permanent
 record of the decision and appended to
 [`plans/INDEX.md`](../../../plans/INDEX.md).
 
-Do NOT use this skill to complete a plan whose tasks all shipped (use
-[`/complete-plan`](../complete-plan/SKILL.md)), or for any other transition —
-see [`/scaffold-plan`](../scaffold-plan/SKILL.md),
-[`/finalize-plan`](../finalize-plan/SKILL.md),
-[`/implement-plan`](../implement-plan/SKILL.md).
-
-## Input
+## Parameters
 
 Determine the following information from the surrounding context and
 environment, if possible.
 
-- Target — REQUIRED. Infer the plan from the checked-out branch
+- **Target — REQUIRED.** Infer the plan from the checked-out branch
   (`plan/<slug>`). If on `main`, list the open plan pull requests and ask the
   user to choose.
 
-- Reason for dropping the plan — REQUIRED. Recorded in the document if not
+- **Reason for dropping the plan — REQUIRED.** Recorded in the document if not
   already present.
 
-## Output
+## Success criteria
 
-The plan document updated to `Status: ABANDONED`, the PR carrying `#abandoned`
+You will achieve the following outcomes:
+
+<!-- The plan document updated to `Status: ABANDONED`, the PR carrying `#abandoned`
 and squash-merged into `main`, its discussion thread closed, and a new row
-appended to `plans/INDEX.md`.
+appended to `plans/INDEX.md`. -->
+
+- `Status` is `ABANDONED` and `Last updated` is today's date.
+
+- The PR carries `#abandoned`, and is squash-merged into `main`.
+
+- The associated discussion thread is closed.
+
+- After merge: a `plans/INDEX.md` row is appended on `main`, with `Abandoned`
+  status, in implementation order.
 
 ## Instructions
 
@@ -157,14 +162,3 @@ appended to `plans/INDEX.md`.
 - You MUST NOT delete the plan.
 
   An abandoned plan is preserved permanently, exactly like a completed one.
-
-## Success criteria
-
-- `Status` is `ABANDONED` and `Last updated` is today's date.
-
-- The PR carries `#abandoned`, and is squash-merged into `main`.
-
-- The associated discussion thread is closed.
-
-- After merge: a `plans/INDEX.md` row is appended on `main`, with `Abandoned`
-  status, in implementation order.
