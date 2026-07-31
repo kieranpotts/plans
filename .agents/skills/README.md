@@ -1,47 +1,48 @@
-# Agent skills
+# Agent skills for managing delivery plans
 
-Skills available to agents in this repository are:
+The skills available to agents in this project are:
 
-- **[Scaffold plan](./scaffold-plan/):**
-  Scaffolds a new draft plan, ready for the user to complete.
+- **[scaffold-plan](./scaffold-plan/):** \
+  Scaffolds a new delivery plan, ready for the user to work on.
   Sets the status to `DRAFT`.
 
-- **[Finalize plan](./finalize-plan/):**
+- **[finalize-plan](./finalize-plan/):** \
   Handles the `DRAFT` → `PLANNED` transition.
 
-- **[Implement plan](./implement-plan/):**
+- **[implement-plan](./implement-plan/):** \
   Handles the `PLANNED` → `IN PROGRESS` transition.
 
-- **[Complete plan](./complete-plan/):**
+- **[complete-plan](./complete-plan/):** \
   Handles the `IN PROGRESS` → `DONE` transition.
 
-- **[Abandon plan](./abandon-plan/):**
+- **[abandon-plan](./abandon-plan/):** \
   Handles the `PLANNED`/`IN PROGRESS` → `ABANDONED` transition.
 
-## Conventions
+The **scaffold-plan** skill .......
 
-One structural convention recurs across the `SKILL.md` files in this
-directory:
+```mermaid
+flowchart LR
+  scaffold["🤖<br/>scaffold"]:::agentic
+  write["🧑<br/>write"]:::anthropic
+  finalize["🤖<br/>finalize"]:::agentic
+  implement["🤖<br/>implement"]:::agentic
+  complete["🤖<br/>complete"]:::agentic
+  abandon["🤖<br/>abandon"]:::agentic
 
-- **Transition gates.** Skills that handle a state transition (finalize,
-  implement, complete, abandon) open their gating logic with a
-  `## Transition gates: <FROM> → <TO>` heading, e.g. "Transition gates:
-  `IN PROGRESS` → `DONE`". This section lists the conditions that MUST be
-  satisfied before the transition is allowed to proceed.
+  scaffold ==> write
+  write ==> finalize
+  finalize ==> implement
+  implement ==> complete
+  finalize -.-> abandon
+  implement -.-> abandon
 
-None of the skills in this directory currently close with a `## References`
-section, unlike some other repositories in this ecosystem.
+  classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
+  classDef scripted fill:#e2e3e5,stroke:#4b5157,color:#383d41,stroke-width:2px
+  classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
+```
 
 ## Compatibility
 
-Agent harnesses are converging on the `./.agents/skills/` path for dynamic
-retrieval of project-specific skills. This is compatible with the Agent Skills
-convention — see https://agentskills.io/.
-
-As of May 2026, OpenAI Codex, GitHub Copilot, Gemini CLI, Google Antigravity,
-OpenCode, and Pi will auto-discover these skills, but Claude Code and Cursor
-will not.
-
-You will require workarounds for incompatible harnesses. For Claude Code, you
-can simply symlink this directory from `.claude/skills/`. Cursor requires more
-effort to transpile these skills into its native "rules" format.
+These skills are compatible with the [Agent Skills](https://agentskills.io/)
+convention. Most agent harnesses support this convention natively, but
+workarounds may be required for harnesses that do not.
