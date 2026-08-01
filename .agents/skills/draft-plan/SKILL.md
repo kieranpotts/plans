@@ -1,7 +1,7 @@
 ---
-name: scaffold-plan
+name: draft-plan
 description: >-
-  Scaffold a new delivery plan and open it as a draft pull request. Use this
+  Draft a new delivery plan and open it as a draft pull request. Use this
   skill when the user wants to plan the implementation of a body of work, or
   says something like "draft a plan", "new plan", "start a plan", or "plan this".
 license: MIT
@@ -10,9 +10,9 @@ metadata:
   preferred_model: prose-writing
 ---
 
-# Scaffold plan
+# Draft plan
 
-Scaffold a new delivery plan from the template, and open a draft pull request
+Draft a new delivery plan from the template, and open a draft pull request
 with all the boilerplate artifacts prepared.
 
 ## Parameters
@@ -153,16 +153,16 @@ draft pull request opened against `main`, with a linked discussion thread. -->
 
 ## Rules
 
-- You MUST NOT scaffold a plan for a single task.
+- You MUST NOT draft a plan for a single task.
 
   If the request decomposes into a single task, it does not need a plan; the
   user should open a ticket directly in the relevant code repository. Say so
-  before scaffolding.
+  before drafting.
 
 - There MUST be exactly one new plan per branch and per pull request.
 
   Never bundle multiple plans into one branch. If the user describes several
-  independent bodies of work, scaffold separate plan branches.
+  independent bodies of work, draft separate plan branches.
 
 - You MUST branch from `main`, not from any other branch.
 

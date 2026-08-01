@@ -2,7 +2,7 @@
 
 The skills available to agents in this project are:
 
-- **[scaffold-plan](./scaffold-plan/):** \
+- **[draft-plan](./draft-plan/):** \
   Cuts a `plan/<slug>` branch from `main`, prepares a fresh plan from the
   template, and opens a pull request in a draft state.
 
@@ -20,7 +20,7 @@ The skills available to agents in this project are:
   Drops the plan before completion and merges it as a permanent record of
   the decision.
 
-The **scaffold-plan** skill opens a new delivery plan as a draft PR, ready
+The **draft-plan** skill opens a new delivery plan as a draft PR, ready
 for the user to break down. After this step, **finalize-plan** marks the
 breakdown ready for review, and **implement-plan** marks it underway once
 work has started. When every task has shipped, **complete-plan** lands the
@@ -29,14 +29,14 @@ with **abandon-plan**, which is also merged as a permanent record.
 
 ```mermaid
 flowchart LR
-  scaffold["🤖<br/><b>scaffold-plan</b>"]:::agentic
+  draft["🤖<br/><b>draft-plan</b>"]:::agentic
   write["🧑<br/>plan the breakdown"]:::anthropic
   finalize["🤖<br/><b>finalize-plan</b>"]:::agentic
   implement["🤖<br/><b>implement-plan</b>"]:::agentic
   complete["🤖<br/><b>complete-plan</b>"]:::agentic
   abandon["🤖<br/><b>abandon-plan</b>"]:::agentic
 
-  scaffold ==> write
+  draft ==> write
   write ==> finalize
   finalize ==> implement
   implement ==> complete
@@ -48,7 +48,7 @@ flowchart LR
   classDef anthropic fill:#fff3cd,stroke:#856404,color:#856404,stroke-width:2px,stroke-dasharray:2 3
 ```
 
-These skills handle process, not substance: how a delivery plan is scaffolded,
+These skills handle process, not substance: how a delivery plan is drafted,
 tracked, and landed in `main`. For the planning work itself — decomposing the
 work into small, independently shippable increments — use the
 [**plan**](https://github.com/kieranpotts/skills/tree/latest/dev/skills/plan)
