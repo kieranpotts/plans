@@ -7,7 +7,7 @@ description: >-
 license: MIT
 metadata:
   interactive: yes
-  preferred_model: prose-writing
+  preferred_model: ollama/prose-writing
 ---
 
 # Draft plan
