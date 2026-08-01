@@ -6,7 +6,7 @@ The skills available to agents in this project are:
   Cuts a `plan/<slug>` branch from `main`, prepares a fresh plan from the
   template, and opens a pull request in a draft state.
 
-- **[finalize-plan](./finalize-plan/):** \
+- **[approve-plan](./approve-plan/):** \
   Checks the breakdown and dependency graph are complete and takes the pull
   request out of draft, ready for review.
 
@@ -21,7 +21,7 @@ The skills available to agents in this project are:
   the decision.
 
 The **draft-plan** skill opens a new delivery plan as a draft PR, ready
-for the user to break down. After this step, **finalize-plan** marks the
+for the user to break down. After this step, **approve-plan** marks the
 breakdown ready for review, and **implement-plan** marks it underway once
 work has started. When every task has shipped, **complete-plan** lands the
 plan in the `main` trunk. A plan may instead be dropped before completion
@@ -31,16 +31,16 @@ with **abandon-plan**, which is also merged as a permanent record.
 flowchart LR
   draft["🤖<br/><b>draft-plan</b>"]:::agentic
   write["🧑<br/>plan the breakdown"]:::anthropic
-  finalize["🤖<br/><b>finalize-plan</b>"]:::agentic
+  approve["🤖<br/><b>approve-plan</b>"]:::agentic
   implement["🤖<br/><b>implement-plan</b>"]:::agentic
   complete["🤖<br/><b>complete-plan</b>"]:::agentic
   abandon["🤖<br/><b>abandon-plan</b>"]:::agentic
 
   draft ==> write
-  write ==> finalize
-  finalize ==> implement
+  write ==> approve
+  approve ==> implement
   implement ==> complete
-  finalize -.-> abandon
+  approve -.-> abandon
   implement -.-> abandon
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px

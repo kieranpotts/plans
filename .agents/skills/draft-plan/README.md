@@ -29,5 +29,5 @@ Drafts a new delivery plan and opens it as a draft pull request.
   description.
 
 You complete the `Summary`, `Scope`, `Approach`, task breakdown, and dependency
-graph yourself. Once done, use [`/finalize-plan`](../finalize-plan/README.md) to
+graph yourself. Once done, use [`/approve-plan`](../approve-plan/README.md) to
 mark the PR as ready for review.

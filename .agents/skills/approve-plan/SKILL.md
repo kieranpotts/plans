@@ -1,5 +1,5 @@
 ---
-name: finalize-plan
+name: approve-plan
 description: >-
   Mark a draft delivery plan ready for review once the decomposition work is
   complete. Use this skill when the user says something like "this plan is ready",
@@ -10,7 +10,7 @@ metadata:
   preferred_model: prose-writing
 ---
 
-# Finalize plan
+# Approve plan
 
 Use this skill to progress a delivery plan from `DRAFT` to `PLANNED`.
 
