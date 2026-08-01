@@ -21,6 +21,12 @@ review.
 Run it on a `plan/<slug>` branch, or from `main` to pick from the open draft
 PRs.
 
+## Recommended models
+
+A fast or mid-tier model is enough. The check is completeness — required
+sections present, no placeholder text — not a judgment on the quality of
+the breakdown.
+
 ## Notes
 
 Will not proceed unless the breakdown and dependency graph are complete and free

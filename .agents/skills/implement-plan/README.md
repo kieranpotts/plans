@@ -20,6 +20,11 @@ dependency graph may continue to evolve as the work unfolds.
 Run it on a `plan/<slug>` branch, or from `main` to pick from the `#planned`
 PRs.
 
+## Recommended models
+
+A fast, inexpensive model is enough. This is a status transition with a
+light confirmation check.
+
 ## Notes
 
 Live task status is not tracked here — it lives in each task's linked tracker.

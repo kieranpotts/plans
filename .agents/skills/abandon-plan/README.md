@@ -18,6 +18,11 @@ and merges it as a record.
 
 Run it on a `plan/<slug>` branch, or from `main` to pick from the open plan PRs.
 
+## Recommended models
+
+A fast, inexpensive model is enough. This is a status transition and merge,
+with the actual decision to abandon already made by you.
+
 ## Notes
 
 An abandoned plan is preserved permanently — its value is the record of why it

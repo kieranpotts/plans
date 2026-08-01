@@ -18,6 +18,11 @@ Moves a plan from `IN PROGRESS` to `DONE`, and merges it.
 Run it on a `plan/<slug>` branch, or from `main` to pick from the `#in-progress`
 PRs.
 
+## Recommended models
+
+A fast, inexpensive model is enough. Confirming tasks have shipped and
+merging is a mechanical check, not a judgment call.
+
 ## Notes
 
 Will not complete a plan whose tasks have not all shipped. Does not merge

@@ -20,6 +20,12 @@ Drafts a new delivery plan and opens it as a draft pull request.
 
 > Draft checkout hardening.
 
+## Recommended models
+
+A fast, inexpensive model is enough. This skill scaffolds files from a
+template and fills in metadata — the actual breakdown is written by you
+afterwards.
+
 ## Examples
 
 - `/draft-plan`: Agent prompts you for the goal, scope, and target
