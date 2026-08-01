@@ -1,17 +1,8 @@
 # Implement plan
 
-Moves a plan from `PLANNED` to `IN PROGRESS` — implementation has begun.
+Handles the `PLANNED` → `IN_PROGRESS` transition.
 
-## What it does
-
-- Confirms the breakdown is agreed and work on at least one task has actually
-  started.
-- Sets `Status: IN PROGRESS` and updates `Last updated`.
-- Swaps the `#planned` label for `#in-progress`.
-- Leaves the discussion thread open — feedback may continue as the plan evolves.
-
-The pull request stays open and the plan stays mutable — the breakdown and
-dependency graph may continue to evolve as the work unfolds.
+Marks the plan as underway once implementation has started.
 
 ## How to invoke
 
@@ -22,11 +13,5 @@ PRs.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. This is a status transition with a
-light confirmation check.
-
-## Notes
-
-Live task status is not tracked here — it lives in each task's linked tracker.
-Next step when every task ships: [`/complete-plan`](../complete-plan/README.md).
-To drop the plan instead: [`/abandon-plan`](../abandon-plan/README.md).
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

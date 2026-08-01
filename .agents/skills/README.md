@@ -16,7 +16,7 @@ plans via AI agents.
 
 - **[implement-plan](./implement-plan/):** \
   Handles the `PLANNED` → `IN_PROGRESS` transition.
-  Marks the plan underway once implementation has started.
+  Marks the plan as underway once implementation has started.
 
 - **[complete-plan](./complete-plan/):** \
   Handles the `IN_PROGRESS` → `DONE` transition.

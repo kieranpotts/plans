@@ -2,8 +2,8 @@
 name: implement-plan
 description: >-
   Mark a plan as in-progress once implementation has started. Use this skill
-  when the user says something like "start this plan", "work has begun",
-  "the plan is underway", or "move the plan to in progress".
+  when the user says something like "implement plan", "start this plan",
+  "work has begun", "the plan is underway", or "move the plan to in progress".
 license: MIT
 metadata:
   interactive: yes

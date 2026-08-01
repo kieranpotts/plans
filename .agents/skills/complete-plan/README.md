@@ -1,15 +1,8 @@
 # Complete plan
 
-Moves a plan from `IN PROGRESS` to `DONE`, and merges it.
+Handles the `IN_PROGRESS` → `DONE` transition.
 
-## What it does
-
-- Confirms every task has shipped, by following each task's linked tracker.
-- Sets `Status: DONE` and updates `Last updated` (the settled date).
-- Swaps the `#in-progress` label for `#done`.
-- Closes the associated discussion thread.
-- Squash-merges the pull request into `main` (with your confirmation).
-- Appends the plan to `plans/INDEX.md`, in implementation order.
+Checks every task has shipped and merges the plan into the `main` trunk.
 
 ## How to invoke
 
@@ -20,11 +13,5 @@ PRs.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. Confirming tasks have shipped and
-merging is a mechanical check, not a judgment call.
-
-## Notes
-
-Will not complete a plan whose tasks have not all shipped. Does not merge
-without your explicit go-ahead. To drop a plan instead of completing it:
-[`/abandon-plan`](../abandon-plan/README.md).
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

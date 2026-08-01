@@ -1,18 +1,11 @@
 # Draft plan
 
-Drafts a new delivery plan and opens it as a draft pull request.
+Scaffolds a PR for a new delivery plan.
 
-## What it does
+Cuts a `plan/<slug>` branch from `main`, prepares a fresh plan from the
+template, and opens a pull request in a draft state.
 
-- Creates a `plan/<slug>` branch.
-- Copies `plans/TEMPLATE.md` to `plans/<slug>/README.md`.
-- Fills in the metadata header (authors, dates, `Status: DRAFT`, target
-  repositories).
-- Seeds the `References` section with any upstream artifacts you named.
-- Commits and pushes the change.
-- Opens a draft pull request and links it from the document.
-- Opens an associated discussion thread for review feedback, cross-linked with
-  the PR.
+Sets the status to `DRAFT`.
 
 ## How to invoke
 
@@ -22,18 +15,5 @@ Drafts a new delivery plan and opens it as a draft pull request.
 
 ## Recommended models
 
-A fast, inexpensive model is enough. This skill scaffolds files from a
-template and fills in metadata — the actual breakdown is written by you
-afterwards.
-
-## Examples
-
-- `/draft-plan`: Agent prompts you for the goal, scope, and target
-  repositories, then drafts the branch, document, and draft PR.
-
-- `/draft-plan <Description>`: Drafts immediately based on your
-  description.
-
-You complete the `Summary`, `Scope`, `Approach`, task breakdown, and dependency
-graph yourself. Once done, use [`/approve-plan`](../approve-plan/README.md) to
-mark the PR as ready for review.
+A fast, cheap model is sufficient to run this skill, which involves only
+mechanical tasks. There are no judgment calls that benefit from deep reasoning.

@@ -2,8 +2,9 @@
 name: approve-plan
 description: >-
   Mark a draft delivery plan ready for review once the decomposition work is
-  complete. Use this skill when the user says something like "this plan is ready",
-  "mark the plan ready", "the breakdown is done", or "take the plan out of draft".
+  complete. Use this skill when the user says something like "approve plan",
+  "this plan is ready", "mark the plan ready", "the breakdown is done", or
+  "take the plan out of draft".
 license: MIT
 metadata:
   interactive: yes
