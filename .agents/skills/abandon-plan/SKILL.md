@@ -78,10 +78,15 @@ appended to `plans/INDEX.md`. -->
     gh pr edit <number> --add-label "#abandoned" --remove-label "#planned"      # or --remove-label "#in-progress"
     ```
 
-5.  Commit.
+5.  Commit and push.
+
+    The push is mandatory: the merge in the next step lands the *remote*
+    branch, so an unpushed commit would leave `Status: ABANDONED` and the
+    recorded reason behind.
 
     ```sh
     git commit -am "chore: abandon <short lowercase plan description>"
+    git push
     ```
 
 6.  Merge the pull request.
@@ -156,6 +161,12 @@ appended to `plans/INDEX.md`. -->
   document.
 
   An abandoned plan's value is the record of why.
+
+- You MUST push before merging.
+
+  `gh pr merge` merges what is on the remote. The status change and the
+  recorded reason for abandonment MUST both be on the remote branch before
+  the merge — an abandoned plan's whole value is the record of why.
 
 - You MUST NOT merge without explicit instruction from the user.
 

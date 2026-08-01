@@ -72,10 +72,14 @@ appended to `plans/INDEX.md`. -->
     gh pr edit <number> --add-label "#done" --remove-label "#in-progress"
     ```
 
-5.  Commit.
+5.  Commit and push.
+
+    The push is mandatory: the merge in the next step lands the *remote*
+    branch, so an unpushed commit would leave `Status: DONE` behind.
 
     ```sh
     git commit -am "chore: complete <short lowercase plan description>"
+    git push
     ```
 
 6.  Merge the pull request.
@@ -150,6 +154,12 @@ appended to `plans/INDEX.md`. -->
   plan document.
 
   The plan document does not record live status.
+
+- You MUST push before merging.
+
+  `gh pr merge` merges what is on the remote. A status change committed
+  locally but not pushed is silently dropped from `main`, leaving the merged
+  plan still reading `IN PROGRESS`.
 
 - You MUST NOT merge without explicit instruction from the user.
 
