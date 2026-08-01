@@ -1,6 +1,6 @@
 # Implement plan
 
-Handles the `PLANNED` → `IN_PROGRESS` transition.
+Handles the `PLANNED` → `IN PROGRESS` transition.
 
 Marks the plan as underway once implementation has started.
 

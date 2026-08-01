@@ -1,4 +1,4 @@
-# Approve plan
+# Propose plan
 
 Handles the `DRAFT` → `PLANNED` transition.
 
@@ -7,7 +7,7 @@ request out of draft, ready for review.
 
 ## How to invoke
 
-> Approve plan
+> Propose plan
 
 Run it on a `plan/<slug>` branch, or from `main` to pick from the open draft
 PRs.

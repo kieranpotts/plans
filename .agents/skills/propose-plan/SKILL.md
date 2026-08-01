@@ -1,17 +1,17 @@
 ---
-name: approve-plan
+name: propose-plan
 description: >-
   Mark a draft delivery plan ready for review once the decomposition work is
-  complete. Use this skill when the user says something like "approve plan",
+  complete. Use this skill when the user says something like "propose plan",
   "this plan is ready", "mark the plan ready", "the breakdown is done", or
   "take the plan out of draft".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
 ---
 
-# Approve plan
+# Propose plan
 
 Use this skill to progress a delivery plan from `DRAFT` to `PLANNED`.
 

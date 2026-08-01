@@ -45,6 +45,7 @@ memorable, and easy to enforce through automation and agentic workflows.
 ```mermaid
 stateDiagram-v2
   direction LR
+  IN_PROGRESS: IN PROGRESS
   [*] --> DRAFT
   DRAFT --> PLANNED
   PLANNED --> IN_PROGRESS

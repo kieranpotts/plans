@@ -4,7 +4,7 @@ description: >-
   Mark an in-progress plan as done once every task has shipped. Use this skill
   when the user says something like "complete this plan", "the plan is done",
   "all tasks shipped", or "finish the plan".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

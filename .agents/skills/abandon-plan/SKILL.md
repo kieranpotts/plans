@@ -4,7 +4,7 @@ description: >-
   Drop a plan before completion. Use this skill when the user says something
   like "abandon this plan", "drop the plan", "cancel the plan", or
   "we're not doing this".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing

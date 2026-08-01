@@ -4,7 +4,7 @@ description: >-
   Draft a new delivery plan and open it as a draft pull request. Use this
   skill when the user wants to plan the implementation of a body of work, or
   says something like "draft a plan", "new plan", "start a plan", or "plan this".
-license: MIT
+license: CC0-1.0
 metadata:
   interactive: yes
   preferred_model: ollama/prose-writing
@@ -61,7 +61,7 @@ draft pull request opened against `main`, with a linked discussion thread. -->
 
     ```sh
     git checkout main
-    git pull
+    git pull --rebase
     git checkout -b plan/<slug>
     ```
 

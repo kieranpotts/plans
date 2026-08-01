@@ -1,6 +1,6 @@
 # Abandon plan
 
-Handles the `PLANNED`/`IN_PROGRESS` → `ABANDONED` transition.
+Handles the `PLANNED`/`IN PROGRESS` → `ABANDONED` transition.
 
 Drops the plan before completion and merges it as a permanent record of
 the decision.

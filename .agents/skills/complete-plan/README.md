@@ -1,6 +1,6 @@
 # Complete plan
 
-Handles the `IN_PROGRESS` → `DONE` transition.
+Handles the `IN PROGRESS` → `DONE` transition.
 
 Checks every task has shipped and merges the plan into the `main` trunk.
 

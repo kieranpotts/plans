@@ -9,21 +9,21 @@ plans via AI agents.
   template, and opens a pull request in a draft state.
   Sets the status to `DRAFT`.
 
-- **[approve-plan](./approve-plan/):** \
+- **[propose-plan](./propose-plan/):** \
   Handles the `DRAFT` → `PLANNED` transition.
   Checks the breakdown and dependency graph are complete and takes the pull
   request out of draft, ready for review.
 
 - **[implement-plan](./implement-plan/):** \
-  Handles the `PLANNED` → `IN_PROGRESS` transition.
+  Handles the `PLANNED` → `IN PROGRESS` transition.
   Marks the plan as underway once implementation has started.
 
 - **[complete-plan](./complete-plan/):** \
-  Handles the `IN_PROGRESS` → `DONE` transition.
+  Handles the `IN PROGRESS` → `DONE` transition.
   Checks every task has shipped and merges the plan into the `main` trunk.
 
 - **[abandon-plan](./abandon-plan/):** \
-  Handles the `PLANNED`/`IN_PROGRESS` → `ABANDONED` transition.
+  Handles the `PLANNED`/`IN PROGRESS` → `ABANDONED` transition.
   Drops the plan before completion and merges it as a permanent record of
   the decision.
 
@@ -33,16 +33,16 @@ plans via AI agents.
 flowchart LR
   draft["🤖<br/><b>draft-plan</b>"]:::agentic
   write["🧑<br/>plan the decomposition<br/>of tasks"]:::anthropic
-  approve["🤖<br/><b>approve-plan</b>"]:::agentic
+  propose["🤖<br/><b>propose-plan</b>"]:::agentic
   implement["🤖<br/><b>implement-plan</b>"]:::agentic
   complete["🤖<br/><b>complete-plan</b>"]:::agentic
   abandon["🤖<br/><b>abandon-plan</b>"]:::agentic
 
   draft ==> write
-  write ==> approve
-  approve ==> implement
+  write ==> propose
+  propose ==> implement
   implement ==> complete
-  approve ==> abandon
+  propose ==> abandon
   implement ==> abandon
 
   classDef agentic fill:#cce5ff,stroke:#004085,color:#004085,stroke-width:2px
