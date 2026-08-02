@@ -30,11 +30,11 @@ You will achieve the following outcomes:
 <!-- The plan document updated to `Status: IN PROGRESS`, the PR carrying
 `#in-progress` in place of `#planned`. -->
 
-- `Status` is `IN PROGRESS` and `Last updated` is today's date.
+- `Status` MUST be `IN PROGRESS` and `Last updated` MUST be today's date.
 
-- The PR carries `#in-progress`, not `#planned`.
+- The PR MUST carry `#in-progress`, not `#planned`.
 
-- The discussion thread remains open.
+- The discussion thread MUST remain open.
 
 ## Instructions
 

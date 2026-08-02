@@ -31,11 +31,11 @@ You will achieve the following outcomes:
 <!-- The plan document updated to `Status: PLANNED`, the PR carrying `#planned` and
 taken out of draft. -->
 
-- The PR is no longer a draft (`isDraft: false`).
+- The PR MUST no longer be a draft (`isDraft: false`).
 
-- The `#planned` label is applied.
+- The `#planned` label MUST be applied.
 
-- `Last updated` is today's date and `Status` is `PLANNED`.
+- `Last updated` MUST be today's date and `Status` MUST be `PLANNED`.
 
 ## Instructions
 

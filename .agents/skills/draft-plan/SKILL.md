@@ -33,15 +33,15 @@ You will achieve the following outcomes:
 template and its metadata header filled in (`Status: DRAFT`), committed to a
 draft pull request opened against `main`, with a linked discussion thread. -->
 
-- Branch `plan/<slug>` exists and is checked out.
+- Branch `plan/<slug>` MUST exist and MUST be checked out.
 
-- `plans/<slug>/README.md` exists, a copy of `TEMPLATE.md` with the metadata
-  header filled in and `Status: DRAFT`.
+- `plans/<slug>/README.md` MUST exist, a copy of `TEMPLATE.md` with the
+  metadata header filled in and `Status: DRAFT`.
 
-- A draft pull request is open, titled `plan: <short lowercase plan
+- A draft pull request MUST be open, titled `plan: <short lowercase plan
   description>`, carrying no lifecycle label.
 
-- An associated discussion thread is open, linked from the document's
+- An associated discussion thread MUST be open, linked from the document's
   `Discussion thread` field and from the PR.
 
 ## Instructions

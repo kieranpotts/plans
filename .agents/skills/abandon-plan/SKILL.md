@@ -37,14 +37,14 @@ You will achieve the following outcomes:
 and squash-merged into `main`, its discussion thread closed, and a new row
 appended to `plans/INDEX.md`. -->
 
-- `Status` is `ABANDONED` and `Last updated` is today's date.
+- `Status` MUST be `ABANDONED` and `Last updated` MUST be today's date.
 
-- The PR carries `#abandoned`, and is squash-merged into `main`.
+- The PR MUST carry `#abandoned`, and MUST be squash-merged into `main`.
 
-- The associated discussion thread is closed.
+- The associated discussion thread MUST be closed.
 
-- After merge: a `plans/INDEX.md` row is appended on `main`, with `Abandoned`
-  status, in implementation order.
+- After merge, a `plans/INDEX.md` row MUST be appended on `main`, with
+  `Abandoned` status, in implementation order.
 
 ## Instructions
 

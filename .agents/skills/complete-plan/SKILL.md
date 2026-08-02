@@ -32,13 +32,14 @@ You will achieve the following outcomes:
 squash-merged into `main`, its discussion thread closed, and a new row
 appended to `plans/INDEX.md`. -->
 
-- `Status` is `DONE` and `Last updated` is today's date.
+- `Status` MUST be `DONE` and `Last updated` MUST be today's date.
 
-- The PR carries `#done`, not `#in-progress`, and is squash-merged into `main`.
+- The PR MUST carry `#done`, not `#in-progress`, and MUST be squash-merged
+  into `main`.
 
-- The associated discussion thread is closed.
+- The associated discussion thread MUST be closed.
 
-- After merge: a `plans/INDEX.md` row is appended on `main`, with `Done`
+- After merge, a `plans/INDEX.md` row MUST be appended on `main`, with `Done`
   status, in implementation order.
 
 ## Instructions
