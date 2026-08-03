@@ -9,6 +9,12 @@ the decision.
 
 > Abandon plan
 
+> Drop the plan
+
+> Cancel the plan
+
+> We're not doing this
+
 Run it on a `plan/<slug>` branch, or from `main` to pick from the open plan PRs.
 
 ## Recommended models

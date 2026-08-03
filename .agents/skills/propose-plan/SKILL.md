@@ -26,8 +26,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The plan document updated to `Status: PLANNED`, the PR carrying `#planned` and
 taken out of draft. -->
 

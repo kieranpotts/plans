@@ -8,6 +8,14 @@ Marks the plan as underway once implementation has started.
 
 > Implement plan
 
+> Start this plan
+
+> Work has begun
+
+> The plan is underway
+
+> Move the plan to in progress
+
 Run it on a `plan/<slug>` branch, or from `main` to pick from the `#planned`
 PRs.
 

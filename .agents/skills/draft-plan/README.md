@@ -13,6 +13,12 @@ Sets the status to `DRAFT`.
 
 > Draft checkout hardening.
 
+> New plan
+
+> Start a plan
+
+> Plan this
+
 ## Recommended models
 
 A mid-tier model with strong prose output is best suited to this skill. The

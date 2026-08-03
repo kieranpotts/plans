@@ -9,6 +9,14 @@ request out of draft, ready for review.
 
 > Propose plan
 
+> This plan is ready
+
+> Mark the plan ready
+
+> The breakdown is done
+
+> Take the plan out of draft
+
 Run it on a `plan/<slug>` branch, or from `main` to pick from the open draft
 PRs.
 

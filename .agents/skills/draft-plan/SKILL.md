@@ -27,8 +27,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- A `plan/<slug>` branch, with `plans/<slug>/README.md` created from the
 template and its metadata header filled in (`Status: DRAFT`), committed to a
 draft pull request opened against `main`, with a linked discussion thread. -->

@@ -8,6 +8,12 @@ Checks every task has shipped and merges the plan into the `main` trunk.
 
 > Complete plan
 
+> The plan is done
+
+> All tasks shipped
+
+> Finish the plan
+
 Run it on a `plan/<slug>` branch, or from `main` to pick from the `#in-progress`
 PRs.
 

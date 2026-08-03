@@ -31,8 +31,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The plan document updated to `Status: ABANDONED`, the PR carrying `#abandoned`
 and squash-merged into `main`, its discussion thread closed, and a new row
 appended to `plans/INDEX.md`. -->

@@ -25,8 +25,6 @@ environment, if possible.
 
 ## Success criteria
 
-You will achieve the following outcomes:
-
 <!-- The plan document updated to `Status: IN PROGRESS`, the PR carrying
 `#in-progress` in place of `#planned`. -->
 
