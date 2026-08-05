@@ -5,10 +5,8 @@ description: >-
   complete. Use this skill when the user says something like "propose plan",
   "this plan is ready", "mark the plan ready", "the breakdown is done", or
   "take the plan out of draft".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_STANDARD
 ---
 
 # Propose plan

@@ -4,10 +4,8 @@ description: >-
   Mark a plan as in-progress once implementation has started. Use this skill
   when the user says something like "implement plan", "start this plan",
   "work has begun", "the plan is underway", or "move the plan to in progress".
+compatibility: requires Read, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/WORKFLOW_BASIC
 ---
 
 # Implement plan

@@ -4,10 +4,8 @@ description: >-
   Draft a new delivery plan and open it as a draft pull request. Use this
   skill when the user wants to plan the implementation of a body of work, or
   says something like "draft a plan", "new plan", "start a plan", or "plan this".
+compatibility: requires Read, Write, Edit, Bash (git/gh)
 license: CC0-1.0
-metadata:
-  interactive: yes
-  preferred_model: ollama/PROSE_DEEP
 ---
 
 # Draft plan
