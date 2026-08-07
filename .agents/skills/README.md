@@ -6,8 +6,8 @@ plans via AI agents.
 - **[draft-plan](./draft-plan/):** \
   Scaffolds a PR for a new delivery plan.
   Cuts a `plan/<slug>` branch from `main`, prepares a fresh plan from the
-  template, and opens a pull request in a draft state.
-  Sets the status to `DRAFT`.
+  template, opens a pull request in a draft state, and opens its discussion
+  thread. Sets the status to `DRAFT`. Leaves the task breakdown to a human.
 
 - **[propose-plan](./propose-plan/):** \
   Handles the `DRAFT` → `PLANNED` transition.
@@ -16,27 +16,33 @@ plans via AI agents.
 
 - **[implement-plan](./implement-plan/):** \
   Handles the `PLANNED` → `IN PROGRESS` transition.
-  Marks the plan as underway once implementation has started.
+  Marks the plan as underway once implementation has started. It does not
+  carry out the work, which is delivered task by task in the code
+  repositories.
 
 - **[complete-plan](./complete-plan/):** \
   Handles the `IN PROGRESS` → `DONE` transition.
-  Checks every task has shipped and merges the plan into the `main` trunk.
+  Checks every task has shipped, merges the plan into the `main` trunk,
+  closes the discussion thread, and records the plan in the index.
 
 - **[abandon-plan](./abandon-plan/):** \
   Handles the `PLANNED`/`IN PROGRESS` → `ABANDONED` transition.
-  Drops the plan before completion and merges it as a permanent record of
+  Records why the plan was dropped and merges it as a permanent record of
   the decision.
+
+All five skills are interactive: each may prompt for its target plan, and the
+two terminal skills always ask for explicit confirmation before merging.
 
 ## Workflow
 
 ```mermaid
 flowchart LR
-  draft["🤖<br/><b>draft-plan</b>"]:::agentic
+  draft["🤖🧑<br/><b>draft-plan</b>"]:::anthropic
   write["🧑<br/>plan the decomposition<br/>of tasks"]:::anthropic
-  propose["🤖<br/><b>propose-plan</b>"]:::agentic
-  implement["🤖<br/><b>implement-plan</b>"]:::agentic
-  complete["🤖<br/><b>complete-plan</b>"]:::agentic
-  abandon["🤖<br/><b>abandon-plan</b>"]:::agentic
+  propose["🤖🧑<br/><b>propose-plan</b>"]:::anthropic
+  implement["🤖🧑<br/><b>implement-plan</b>"]:::anthropic
+  complete["🤖🧑<br/><b>complete-plan</b>"]:::anthropic
+  abandon["🤖🧑<br/><b>abandon-plan</b>"]:::anthropic
 
   draft ==> write
   write ==> propose
