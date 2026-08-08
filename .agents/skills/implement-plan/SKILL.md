@@ -84,7 +84,7 @@ prompt the user for clarification.
     ```
 
     `<description>` is the short lowercase description in the pull request
-    title, after the `plan: ` prefix.
+    title, after the `create: ` prefix.
 
 7.  Output a summary of your actions.
 

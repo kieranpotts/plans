@@ -87,7 +87,7 @@ and MUST NOT skip states.
     item, and its dependencies. Then draw the `Dependency graph` from the
     `Depends on` column.
 
-4.  Commit and open the pull request as a draft, titled `plan: <description>`,
+4.  Commit and open the pull request as a draft, titled `create: <description>`,
     where `<description>` is a short prose title written full lowercase.
 
 5.  Open a [discussion thread](https://github.com/kieranpotts/plans/discussions),
@@ -131,7 +131,7 @@ and MUST NOT skip states.
 - A plan MUST NOT be merged into `main` until it is decided – done or abandoned.
 
 - Plan branches MUST be squash-merged to `main`, with the squash commit message
-  `plan: <description> - DONE|ABANDONED`.
+  `update: <description> - DONE|ABANDONED`.
 
 - The discussion thread MUST be closed when the PR is merged.
 

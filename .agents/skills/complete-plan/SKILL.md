@@ -36,7 +36,7 @@ prompt the user for clarification.
   document at `plans/<slug>/README.md`.
 
 - The pull request MUST carry `#done` in place of `#in-progress`, and MUST be
-  squash-merged into `main` with the subject `plan: <description> - DONE`.
+  squash-merged into `main` with the subject `update: <description> - DONE`.
 
 - The plan's branch MUST be deleted from the upstream repository.
 
@@ -84,14 +84,14 @@ prompt the user for clarification.
     ```
 
     `<description>` is the short lowercase description in the pull request
-    title, after the `plan: ` prefix.
+    title, after the `create: ` prefix.
 
 7.  Merge the pull request, once the user has confirmed it may be merged.
     Squash-merge it and delete the source branch upstream:
 
     ```sh
     gh pr merge <number> --squash --delete-branch \
-      --subject "plan: <description> - DONE"
+      --subject "update: <description> - DONE"
     ```
 
 8.  Delete the branch directly, if it survived the merge.

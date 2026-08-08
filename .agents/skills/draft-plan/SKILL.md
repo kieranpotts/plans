@@ -41,7 +41,7 @@ prompt the user for clarification.
 - `plans/<slug>/README.md` MUST exist as a copy of `plans/TEMPLATE.md`, with
   the metadata header filled in and `Status` set to `DRAFT`.
 
-- A draft pull request MUST be open, titled `plan: <description>`, carrying
+- A draft pull request MUST be open, titled `create: <description>`, carrying
   no lifecycle label.
 
 - A discussion thread MUST be open, linked from the document's
@@ -95,9 +95,9 @@ prompt the user for clarification.
 
     ```sh
     git add plans/<slug>/
-    git commit -m "plan: <description>"
+    git commit -m "create: <description>"
     git push -u origin plan/<slug>
-    gh pr create --draft --title "plan: <description>" --fill
+    gh pr create --draft --title "create: <description>" --fill
     ```
 
     If the `gh` client is unavailable or not authenticated, stop and report
@@ -135,7 +135,7 @@ prompt the user for clarification.
           title:$title, body:$body
         }) { discussion { url } }
       }' -F repoId=<repoId> -F categoryId=<categoryId> \
-        -f title="plan: <description>" \
+        -f title="create: <description>" \
         -f body="Discussion thread for the <description> plan (PR
     #<number>). Please leave all feedback here, not on the pull request."
     ```

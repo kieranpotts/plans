@@ -58,7 +58,7 @@ Merge this PR when the plan is decided:
 - [ ] Every task has shipped (`DONE`), or the plan is dropped (`ABANDONED`).
 - [ ] The plan document's `Status` is updated to `DONE` or `ABANDONED`.
 - [ ] The PR is squash-merged, with the commit message
-  `plan: <description> - DONE|ABANDONED`.
+  `update: <description> - DONE|ABANDONED`.
 - [ ] The associated discussion thread is closed.
 - [ ] _After the merge_, the plan is appended to `plans/INDEX.md` on `main`.
 
