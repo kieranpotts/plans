@@ -90,9 +90,9 @@ and MUST NOT skip states.
 4.  Commit and open the pull request as a draft, titled `plan: <description>`,
     where `<description>` is a short prose title written full lowercase.
 
-5.  Open a [discussion thread](https://github.com/kieranpotts/plans/discussions)
-    and link it from the plan doc's `Discussion thread` field, and from the pull
-    request description.
+5.  Open a [discussion thread](https://github.com/kieranpotts/plans/discussions),
+    filed under the `Plans` discussion category, and link it from the plan
+    doc's `Discussion thread` field, and from the pull request description.
 
 6.  Keep the pull request in draft while you refine the breakdown. When it is
     complete and agreed, mark the PR ready for review and apply the `#planned`
