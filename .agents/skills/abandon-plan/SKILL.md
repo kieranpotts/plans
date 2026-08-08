@@ -63,9 +63,14 @@ prompt the user for clarification.
     `main`, list the open plan pull requests and ask the user to choose:
 
     ```sh
-    gh pr list --label "#planned" --label "#in-progress" \
+    gh pr list --search 'label:"#planned","#in-progress"' \
       --json number,title,headRefName,labels
     ```
+
+    Repeated `--label` flags AND together, matching only a PR that carries
+    both labels at once — which none ever does, since the two are mutually
+    exclusive lifecycle states. The comma-separated `--search` query above
+    matches either.
 
     Check out the branch and read `plans/<slug>/README.md`.
 
