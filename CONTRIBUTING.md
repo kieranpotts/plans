@@ -68,6 +68,58 @@ stateDiagram-v2
 Transitions not listed are not permitted. A plan MUST NOT move backwards
 and MUST NOT skip states.
 
+## Milestones and roadmap
+
+A milestone is a named grouping of one or more plans under a shared goal. Scope,
+breakdown, and delivery status all continue to live on the member plans. A
+milestone only answers "which plans belong together, and roughly when do they
+land."
+
+Milestones share the plan state machine, minus the intermediate states a
+grouping doesn't need.
+
+```mermaid
+stateDiagram-v2
+  direction LR
+  [*] --> DRAFT
+  DRAFT --> ACTIVE
+  ACTIVE --> DONE
+  DRAFT --> ABANDONED
+  ACTIVE --> ABANDONED
+  DONE --> [*]
+  ABANDONED --> [*]
+```
+
+| From      | To          | Condition                                       |
+| --------- | ----------- | ----------------------------------------------- |
+| _(new)_   | `DRAFT`     | Initial scaffolding, member plans may be TBD.   |
+| `DRAFT`   | `ACTIVE`    | At least one member plan is `PLANNED` or later. |
+| `ACTIVE`  | `DONE`      | Every member plan is `DONE`.                    |
+| `DRAFT`   | `ABANDONED` | Dropped before any member plan started.         |
+| `ACTIVE`  | `ABANDONED` | Dropped before every member plan completed.     |
+
+The [roadmap](./roadmap/INDEX.md) is the ordered, living view of every
+`DRAFT` and `ACTIVE` milestone, grouped into `Now` / `Next` / `Later`. It is
+a single file, edited in place. Milestones can be reordered and re-prioritized
+here, without touching the milestone documents themselves.
+
+1.  Copy the [milestone template](./milestones/TEMPLATE.md) to
+    `milestones/<slug>.md`. Fill in the metadata header and the `Goal`.
+    Link any plans that already exist under `Plans`. Add more as they
+    are drafted.
+
+2.  Add a row for the milestone to `roadmap/INDEX.md`, in whichever bucket
+    reflects current thinking.
+
+3.  As member plans move through their own lifecycle, keep the milestone's
+    `Plans` list current. Move the milestone between buckets, or
+    reorder it within a bucket, as priorities shift. This is expected to
+    happen often and needs no review ceremony beyond the normal PR flow.
+
+4.  When every member plan reaches `DONE`, mark the milestone `DONE`. If the
+    milestone is dropped before that, mark it `ABANDONED`. Either way, remove
+    its row from `roadmap/INDEX.md` and append it to `milestones/INDEX.md`.
+
 ## Workflow
 
 > [!TIP]
@@ -139,6 +191,21 @@ and MUST NOT skip states.
   ID is assigned.
 
 - A plan document MUST NOT be deleted, including abandoned ones.
+
+- A milestone document MUST NOT define scope directly. Scope lives on its
+  member plans.
+
+- A milestone's member `Plans` list MUST reference existing plans by relative
+  link into `plans/<slug>/`.
+
+- `roadmap/INDEX.md` MUST list only `DRAFT` or `ACTIVE` milestones. A milestone
+  MUST be removed from `roadmap/INDEX.md` in the same change that marks it
+  `DONE` or `ABANDONED`.
+
+- `roadmap/INDEX.md` MUST NOT carry fixed dates. Sequencing is expressed only via
+  the `Now` / `Next` / `Later` buckets and order within a bucket.
+
+- A milestone document MUST NOT be deleted, including abandoned ones.
 
 ## Tools
 

@@ -66,6 +66,18 @@ better to fold all documentation into the same repository.
 
 ## Contents
 
+- [**Roadmap**](./roadmap/INDEX.md) \
+  The ordered, living view of active milestones — what's being delivered now,
+  what's next, and what's under consideration.
+
+- [**Milestones**](./milestones/INDEX.md) \
+  Named groupings of one or more plans under a shared goal. A milestone
+  does not define scope itself — that stays with its member plans — it only
+  answers "which plans belong together, and in what order do they land."
+
+  - The [`TEMPLATE`](./milestones/TEMPLATE.md) is the starting point for a new
+    milestone.
+
 - [**Plans**](./plans/) \
   The delivery plans, one directory per plan.
 

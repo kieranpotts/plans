@@ -8,7 +8,7 @@ The settled date is the date the plan was completed (for done plans) or dropped
 (for abandoned plans), as recorded in the plan document's `Last updated` field
 at merge.
 
-| Title | Status | Target repositories | Settled date |
-| --- | --- | --- | --- |
-| [Checkout hardening](./acme-checkout-hardening/) | Done | acme/storefront-api, acme/storefront-web | 2026-02-20 |
-| [Multi-currency catalog](./acme-multi-currency-catalog/) | Abandoned | acme/storefront-api | 2026-04-18 |
+| Title                                                    | Status    | Target repositories                      | Settled date |
+| -------------------------------------------------------- | --------- | ---------------------------------------- | ------------ |
+| [Checkout hardening](./acme-checkout-hardening/)         | Done      | acme/storefront-api, acme/storefront-web | 2026-02-20   |
+| [Multi-currency catalog](./acme-multi-currency-catalog/) | Abandoned | acme/storefront-api                      | 2026-04-18   |

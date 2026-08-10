@@ -21,6 +21,18 @@ or run.
 
   - **`plans/TEMPLATE.md`** is the starting point for a new plan.
 
+- **`roadmap/INDEX.md`** is the ordered, living view of active milestones.
+  Unlike everything else in this repository, it is edited in place, not
+  appended to.
+
+- **`milestones/`** holds one file per milestone (`milestones/<slug>.md`). A
+  milestone groups one or more plans under a shared goal. It does not define
+  scope itself.
+
+  - **`milestones/INDEX.md`** lists settled milestones (done and abandoned).
+
+  - **`milestones/TEMPLATE.md`** is the starting point for a new milestone.
+
 - **`docs/`:** General guidelines for humans to get the most out of the
   planning process.
 
@@ -29,10 +41,17 @@ or run.
 See [CONTRIBUTING.md > Lifecycle](./CONTRIBUTING.md#lifecycle) for the state
 machine diagram and the table of permitted transitions.
 
+Milestones follow a related but distinct state machine — see
+[CONTRIBUTING.md > Milestones and roadmap](./CONTRIBUTING.md).
+
 ## Workflow
 
 See [CONTRIBUTING.md > Workflow](./CONTRIBUTING.md#workflow) for the
 step-by-step process for shepherding a plan from `DRAFT` to `DONE`/`ABANDONED`.
+
+See [CONTRIBUTING.md > Milestones and roadmap](./CONTRIBUTING.md)
+for the step-by-step process for creating a milestone and keeping the roadmap
+current.
 
 ## Rules
 
