@@ -14,26 +14,26 @@ or run.
 
 ## Project structure
 
-- **`plans/`:** The delivery plans, one directory per plan (`plans/<slug>/`),
+- `plans/`. The delivery plans, one directory per plan (`plans/<slug>/`),
   each holding its `README.md` and any supporting artifacts.
 
-  - **`plans/INDEX.md`** lists plans in the order they were implemented.
+  - `plans/INDEX.md` lists plans in the order they were implemented.
 
-  - **`plans/TEMPLATE.md`** is the starting point for a new plan.
+  - `plans/TEMPLATE.md` is the starting point for a new plan.
 
-- **`roadmap/INDEX.md`** is the ordered, living view of active milestones.
+- `roadmap/INDEX.md` is the ordered, living view of active milestones.
   Unlike everything else in this repository, it is edited in place, not
   appended to.
 
-- **`milestones/`** holds one file per milestone (`milestones/<slug>.md`). A
+- `milestones/` holds one file per milestone (`milestones/<slug>.md`). A
   milestone groups one or more plans under a shared goal. It does not define
   scope itself.
 
-  - **`milestones/INDEX.md`** lists settled milestones (done and abandoned).
+  - `milestones/INDEX.md` lists settled milestones (done and abandoned).
 
-  - **`milestones/TEMPLATE.md`** is the starting point for a new milestone.
+  - `milestones/TEMPLATE.md` is the starting point for a new milestone.
 
-- **`docs/`:** General guidelines for humans to get the most out of the
+- `docs/`. General guidelines for humans to get the most out of the
   planning process.
 
 ## Lifecycle
@@ -61,7 +61,7 @@ than relying on your memory of a prior state of the rules.
 
 ## Skills
 
-The **`.agents/skills/`** directory provides on-demand skills for managing the
+The `.agents/skills/` directory provides on-demand skills for managing the
 lifecycle of a plan. See the [README](./.agents/skills/README.md) for
 descriptions of the available skills and their triggers.
 
