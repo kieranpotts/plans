@@ -23,8 +23,8 @@ plan's permanent identity – the directories are never renamed.
 
 ## How it works
 
-1. A plan is opened as a draft pull request, on a `plan/<slug>` branch. The main
-   document lives at `plans/<slug>/README.md`.
+1. A plan is opened as a draft pull request, on a `latest/plan/<slug>` branch.
+   The main document lives at `plans/<slug>/README.md`.
 
 2. The plan moves through its lifecycle: `DRAFT` → `PLANNED` → `IN PROGRESS` →
    `DONE`, or `PLANNED`/`IN PROGRESS` → `ABANDONED`.

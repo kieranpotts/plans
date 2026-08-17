@@ -19,7 +19,7 @@ details about state transitions.
 
 On opening this PR (open it as a draft):
 
-- [ ] The branch is named `plan/<slug>`.
+- [ ] The branch is named `latest/plan/<slug>`.
 - [ ] The plan is saved at `plans/<slug>/README.md`, with the metadata header
   filled in.
 - [ ] Supporting artifacts live under `plans/<slug>/` and are referenced from
@@ -60,13 +60,13 @@ Merge this PR when the plan is decided:
 - [ ] The PR is squash-merged, with the commit message
   `update: <description> - DONE|ABANDONED`.
 - [ ] The associated discussion thread is closed.
-- [ ] _After the merge_, the plan is appended to `plans/INDEX.md` on `main`.
+- [ ] _After the merge_, the plan is appended to `plans/INDEX.md` on `latest/main`.
 
 After merging, complete these tasks:
 
-- Delete the `plan/*` branch.
+- Delete the `latest/plan/*` branch.
 
 > [!IMPORTANT]
-> A plan MUST NOT be merged into `main` until it is decided. Abandoned plans are
-> merged too — a plan document is never deleted, and the plan directory is never
-> renamed, because the slug is its identity.
+> A plan MUST NOT be merged into `latest/main` until it is decided. Abandoned
+> plans are merged too — a plan document is never deleted, and the plan
+> directory is never renamed, because the slug is its identity.

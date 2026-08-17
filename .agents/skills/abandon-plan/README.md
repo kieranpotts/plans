@@ -3,8 +3,8 @@
 Handles the `PLANNED` / `IN PROGRESS` → `ABANDONED` transition.
 
 Records why the plan was dropped, sets its status to `ABANDONED`,
-squash-merges the pull request into `main`, closes the discussion thread, and
-appends the plan to the plan index.
+squash-merges the pull request into `latest/main`, closes the discussion thread,
+and appends the plan to the plan index.
 
 An abandoned plan is preserved permanently, exactly like a completed one. The
 record of a decision not to build something is worth as much as the record of
@@ -17,10 +17,10 @@ the status they record and the gate they apply.
 
 ## Interactivity
 
-Interactive. When run from `main` rather than a plan branch, the agent lists
-the open plan pull requests and asks which plan to drop. It may also prompt
-for the reason, and always asks for explicit confirmation before merging, so
-it cannot be run unattended.
+Interactive. When run from `latest/main` rather than a plan branch, the agent
+lists the open plan pull requests and asks which plan to drop. It may also
+prompt for the reason, and always asks for explicit confirmation before merging,
+so it cannot be run unattended.
 
 ## How to invoke
 
@@ -32,8 +32,8 @@ it cannot be run unattended.
 
 > We're not doing this
 
-Run it on a `plan/<slug>` branch, or from `main` to pick from the open plan
-pull requests.
+Run it on a `latest/plan/<slug>` branch, or from `latest/main` to pick from the
+open plan pull requests.
 
 ## Recommended models
 

@@ -12,8 +12,8 @@ this skill never touches those.
 
 ## Interactivity
 
-Interactive. When run from `main` rather than a plan branch, the agent lists
-the `#planned` pull requests and asks which plan to start. Run it on the
+Interactive. When run from `latest/main` rather than a plan branch, the agent
+lists the `#planned` pull requests and asks which plan to start. Run it on the
 plan's own branch to avoid the prompt.
 
 ## How to invoke
@@ -28,8 +28,8 @@ plan's own branch to avoid the prompt.
 
 > Move the plan to in progress
 
-Run it on a `plan/<slug>` branch, or from `main` to pick from the `#planned`
-pull requests.
+Run it on a `latest/plan/<slug>` branch, or from `latest/main` to pick from the
+`#planned` pull requests.
 
 ## Recommended models
 

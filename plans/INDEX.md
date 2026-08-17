@@ -1,7 +1,7 @@
 # Plan index
 
-The catalog of every plan merged into `main` — done and abandoned alike. Plans
-are listed in the order they were implemented (or abandoned). A new row is
+The catalog of every plan merged into `latest/main` — done and abandoned alike.
+Plans are listed in the order they were implemented (or abandoned). A new row is
 appended on merge.
 
 The settled date is the date the plan was completed (for done plans) or dropped

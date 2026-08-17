@@ -24,8 +24,8 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target plan — REQUIRED.** Infer it from the checked-out branch
-  (`plan/<slug>`). If on `main`, list the open draft pull requests and ask the
-  user to choose.
+  (`latest/plan/<slug>`). If on `latest/main`, list the open draft pull requests
+  and ask the user to choose.
 
 ## Success criteria
 
@@ -46,8 +46,8 @@ prompt the user for clarification.
 
 1.  Identify the plan and its pull request.
 
-    Infer the target from the checked-out branch (`plan/<slug>`). If on
-    `main`, list the open draft pull requests and ask the user to choose:
+    Infer the target from the checked-out branch (`latest/plan/<slug>`). If on
+    `latest/main`, list the open draft pull requests and ask the user to choose:
 
     ```sh
     gh pr list --draft --json number,title,headRefName

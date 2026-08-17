@@ -2,9 +2,9 @@
 
 Scaffolds a pull request for a new delivery plan.
 
-Cuts a `plan/<slug>` branch from `main`, prepares a fresh plan from the
-template, opens a pull request in a draft state, and opens the discussion
-thread that will collect review feedback.
+Cuts a `latest/plan/<slug>` branch from `latest/main`, prepares a fresh plan
+from the template, opens a pull request in a draft state, and opens the
+discussion thread that will collect review feedback.
 
 Sets the status to `DRAFT`. It does not decompose the work into tasks — the
 task breakdown and dependency graph are left as template placeholders for a

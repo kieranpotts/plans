@@ -28,12 +28,12 @@ implements in its `References` section, but a plan is its own unit. It need not
 map one-to-one to a single requirement or decision, and completing a plan does
 not mechanically flip any upstream artifact's state.
 
-In this repository, the contents of the `main` trunk capture plans that have
-been implemented or abandoned. Temporary branches and PRs are used to manage
-future and in-flight work. While a plan is open, it is a mutable working
+In this repository, the contents of the `latest/main` trunk capture plans that
+have been implemented or abandoned. Temporary branches and PRs are used to
+manage future and in-flight work. While a plan is open, it is a mutable working
 document. Tasks are added, dropped, and re-sequenced as reality unfolds. Once
-the plan is done or abandoned, it settles and is merged to `main` as a permanent
-record.
+the plan is done or abandoned, it settles and is merged to `latest/main` as a
+permanent record.
 
 This repository does not replace the issue tracker of each code repository. It
 sits above them as a development planning tool. Each task in a plan lives in

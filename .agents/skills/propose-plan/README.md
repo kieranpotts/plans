@@ -11,8 +11,8 @@ the gaps itself.
 
 ## Interactivity
 
-Interactive. When run from `main` rather than a plan branch, the agent lists
-the open draft pull requests and asks which plan to propose. Run it on the
+Interactive. When run from `latest/main` rather than a plan branch, the agent
+lists the open draft pull requests and asks which plan to propose. Run it on the
 plan's own branch to avoid the prompt.
 
 ## How to invoke
@@ -27,8 +27,8 @@ plan's own branch to avoid the prompt.
 
 > Take the plan out of draft
 
-Run it on a `plan/<slug>` branch, or from `main` to pick from the open draft
-pull requests.
+Run it on a `latest/plan/<slug>` branch, or from `latest/main` to pick from
+the open draft pull requests.
 
 ## Recommended models
 

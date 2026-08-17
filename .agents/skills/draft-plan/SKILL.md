@@ -36,7 +36,7 @@ prompt the user for clarification.
 
 ## Success criteria
 
-- Branch `plan/<slug>` MUST exist and MUST be checked out.
+- Branch `latest/plan/<slug>` MUST exist and MUST be checked out.
 
 - `plans/<slug>/README.md` MUST exist as a copy of `plans/TEMPLATE.md`, with
   the metadata header filled in and `Status` set to `DRAFT`.
@@ -68,9 +68,9 @@ prompt the user for clarification.
 4.  Create the branch.
 
     ```sh
-    git checkout main
+    git checkout latest/main
     git pull --rebase
-    git checkout -b plan/<slug>
+    git checkout -b latest/plan/<slug>
     ```
 
 5.  Copy `plans/TEMPLATE.md` to `plans/<slug>/README.md`.
@@ -94,9 +94,9 @@ prompt the user for clarification.
 7.  Commit, push, and open a draft pull request.
 
     ```sh
-    git add plans/<slug>/
+    git add latest/plans/<slug>/
     git commit -m "create: <description>"
-    git push -u origin plan/<slug>
+    git push -u origin latest/plan/<slug>
     gh pr create --draft --title "create: <description>" --fill
     ```
 
@@ -172,10 +172,10 @@ prompt the user for clarification.
   If the user describes several independent bodies of work, draft a separate
   plan branch for each.
 
-- You MUST branch from `main`, not from any other branch.
+- You MUST branch from `latest/main`, not from any other branch.
 
-  If the local `main` is behind the remote, pull first. Rebase rather than
-  merge, to keep the history linear.
+  If the local `latest/main` is behind the remote, pull first. Rebase rather
+  than merge, to keep the history linear.
 
 - You MUST open the pull request as a draft, carrying no lifecycle label.
 

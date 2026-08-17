@@ -127,7 +127,7 @@ here, without touching the milestone documents themselves.
 > this workflow. It is RECOMMENDED to use agents to drive state transitions.
 > Doing so helps to maintain consistency.
 
-1.  Branch off `main` as `plan/<slug>`.
+1.  Branch off `latest/main` as `latest/plan/<slug>`.
 
 2.  Copy the [template](./plans/TEMPLATE.md) to `plans/<slug>/README.md`.
     The plan lives in its own directory, so you may add supporting artifacts –
@@ -155,15 +155,15 @@ here, without touching the milestone documents themselves.
     unfolds, keep the breakdown and dependency graph current – add, drop, or
     re-sequence tasks.
 
-8.  When every task has shipped, mark the plan `DONE`, squash-merge it to `main`,
-    and append it to the [plans index](./plans/INDEX.md). If the plan is
-    dropped, mark it `ABANDONED` and do the same.
+8.  When every task has shipped, mark the plan `DONE`, squash-merge it to
+   `latest/main`, and append it to the [plans index](./plans/INDEX.md). If the
+    plan is dropped, mark it `ABANDONED` and do the same.
 
 ## Rules
 
 - All artifacts MUST be written in American English.
 
-- The `main` trunk MUST be treated as the default branch.
+- The `latest/main` trunk MUST be treated as the default branch.
 
 - The plan document MUST NOT track the live status of individual tasks. Status
   lives in each task's linked code repository tracker.
@@ -180,10 +180,11 @@ here, without touching the milestone documents themselves.
 - Upstream linkage SHOULD be loose and reference-only, via the `References`
   section.
 
-- A plan MUST NOT be merged into `main` until it is decided – done or abandoned.
+- A plan MUST NOT be merged into `latest/main` until it is decided – done or
+  abandoned.
 
-- Plan branches MUST be squash-merged to `main`, with the squash commit message
-  `update: <description> - DONE|ABANDONED`.
+- Plan branches MUST be squash-merged to `latest/main`, with the squash commit
+  message `update: <description> - DONE|ABANDONED`.
 
 - The discussion thread MUST be closed when the PR is merged.
 

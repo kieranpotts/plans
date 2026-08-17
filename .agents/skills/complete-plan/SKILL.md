@@ -13,9 +13,9 @@ license: CC0-1.0
 # Complete plan
 
 Progress a delivery plan from `IN PROGRESS` to `DONE`, landing it in the
-`main` trunk and recording it in the plan index. Do not complete a plan whose
-tasks have not all shipped — check each task's tracker rather than the plan
-document, which never records live status.
+`latest/main` trunk and recording it in the plan index. Do not complete a plan
+whose tasks have not all shipped — check each task's tracker rather than the
+plan document, which never records live status.
 
 ## Parameters
 
@@ -24,8 +24,8 @@ environment, if possible. If you're uncertain about the required parameters,
 prompt the user for clarification.
 
 - **Target plan — REQUIRED.** Infer it from the checked-out branch
-  (`plan/<slug>`). If on `main`, list the `#in-progress` pull requests and ask
-  the user to choose.
+  (`latest/plan/<slug>`). If on `latest/main`, list the `#in-progress` pull
+  requests and ask the user to choose.
 
 - **Merge confirmation — REQUIRED.** Explicit instruction from the user that
   the pull request may be merged. Never assume it.
@@ -36,14 +36,14 @@ prompt the user for clarification.
   document at `plans/<slug>/README.md`.
 
 - The pull request MUST carry `#done` in place of `#in-progress`, and MUST be
-  squash-merged into `main` with the subject `update: <description> - DONE`.
+  squash-merged into `latest/main` with the subject `update: <description> - DONE`.
 
 - The plan's branch MUST be deleted from the upstream repository.
 
 - The associated discussion thread MUST be closed.
 
-- `plans/INDEX.md` on `main` MUST carry a new row for the plan, with `Done`
-  status, appended at the end of the table.
+- `plans/INDEX.md` on `latest/main` MUST carry a new row for the plan, with
+  `Done` status, appended at the end of the table.
 
 - The plan document MUST NOT have been deleted or its directory renamed, and
   no code repository MUST have been touched.
@@ -52,8 +52,9 @@ prompt the user for clarification.
 
 1.  Identify the plan and its pull request.
 
-    Infer the target from the checked-out branch (`plan/<slug>`). If on
-    `main`, list the `#in-progress` pull requests and ask the user to choose:
+    Infer the target from the checked-out branch (`latest/plan/<slug>`). If on
+    `latest/main`, list the `#in-progress` pull requests and ask the user to
+    choose:
 
     ```sh
     gh pr list --label "#in-progress" --json number,title,headRefName
@@ -97,7 +98,7 @@ prompt the user for clarification.
 8.  Delete the branch directly, if it survived the merge.
 
     ```sh
-    git push origin --delete plan/<slug>
+    git push origin --delete latest/plan/<slug>
     ```
 
 9.  Close the discussion thread linked from the document's
@@ -120,7 +121,7 @@ prompt the user for clarification.
       }' -F id=<discussionId>
     ```
 
-10. On `main`, append a row to `plans/INDEX.md`: the plan's title, `Done`
+10. On `latest/main`, append a row to `plans/INDEX.md`: the plan's title, `Done`
     status, its target repositories, and the settled date. Append at the end —
     the index is ordered by implementation, not alphabetically or by date.
 
@@ -153,7 +154,7 @@ prompt the user for clarification.
 
   `gh pr merge` merges what is on the remote. A status change committed
   locally but not pushed is silently dropped, leaving the merged plan still
-  reading `IN PROGRESS` on `main`.
+  reading `IN PROGRESS` on `latest/main`.
 
 - You MUST NOT merge without explicit instruction from the user.
 

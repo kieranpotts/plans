@@ -5,9 +5,10 @@ plans via AI agents.
 
 - **[draft-plan](./draft-plan/):** \
   Scaffolds a PR for a new delivery plan.
-  Cuts a `plan/<slug>` branch from `main`, prepares a fresh plan from the
-  template, opens a pull request in a draft state, and opens its discussion
-  thread. Sets the status to `DRAFT`. Leaves the task breakdown to a human.
+  Cuts a `latest/plan/<slug>` branch from `latest/main`, prepares a fresh plan
+  from the template, opens a pull request in a draft state, and opens its
+  discussion thread. Sets the status to `DRAFT`. Leaves the task breakdown
+  to a human.
 
 - **[propose-plan](./propose-plan/):** \
   Handles the `DRAFT` → `PLANNED` transition.
@@ -22,7 +23,7 @@ plans via AI agents.
 
 - **[complete-plan](./complete-plan/):** \
   Handles the `IN PROGRESS` → `DONE` transition.
-  Checks every task has shipped, merges the plan into the `main` trunk,
+  Checks every task has shipped, merges the plan into the `latest/main` trunk,
   closes the discussion thread, and records the plan in the index.
 
 - **[abandon-plan](./abandon-plan/):** \
