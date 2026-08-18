@@ -11,3 +11,6 @@ General guidance on how to get the most out of the delivery planning process.
 
 - [**Contributing**](../CONTRIBUTING.md) \
   The mechanics of the plan lifecycle.
+
+- [**🛠️ Development tools and methods**](./development/) \
+  Maintaining this repository itself, including its GitHub configuration.
